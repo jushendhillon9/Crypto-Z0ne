@@ -7,3 +7,39 @@ header {
     padding: 20px;
     background-color: red;
 }
+
+body,
+h1,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("assets/fabio-oyXis2kALVg-unsplash.jpg");
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Koulen', cursive, 'Roboto', sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 12px;
+}
+
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
