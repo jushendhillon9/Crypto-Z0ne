@@ -1,3 +1,7 @@
+var submitButton = $("#searchButton");
+var searchValue;
+var coinName;
+
 
 function finnHub (response) {
     var requestURL = "https://finnhub.io/api/v1/news?category=crypto&token=cjapurpr01qji1gtr6mgcjapurpr01qji1gtr6n0";
@@ -13,8 +17,25 @@ function finnHub (response) {
 finnHub()
 
 
+function getCoinID (response) {
+  var requestURL = "https://api.coingecko.com/api/v3/coins/list";
+  fetch (requestURL) 
+      .then (function (response) {
+          return response.json();
+      })
+      .then (function (data) {
+          for (var i = 0; i < data.length; i ++) {
+              if (searchValue == (data[i].name).toLowerCase())
+                  coinName = data[i].name;
+          }
+      })
+}
 
 
+submitButton.on("click", function (event) {
+  searchValue = $("#searchValue").val();
+  getCoinID();
+})
 
 
 
