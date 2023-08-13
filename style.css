@@ -3,6 +3,10 @@
     margin: 0px;
 }
 
+#topRight{
+    display:flex;
+}
+
 header {
     padding: 20px;
     background-color: red;
