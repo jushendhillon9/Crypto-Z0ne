@@ -51,7 +51,7 @@ color: #fff;
     justify-content: center;
     color: #ff9c00;
     margin-left: 10px;
-    padding: 25px 0px 0px 0px
+    padding: 25px 0px;
 }
 
 #watchListIconDiv {
@@ -74,8 +74,34 @@ height: auto;
 }
 
 #trendingSearch h2 {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
+}
+
+#cryptoSearchForm {
+    display: flex;
+    align-items: center;
+}
+
+#searchValue,
+#submitButton {
+    display: inline-block;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 8px 15px;
+    border: 1px solid #2400ff;
+}
+
+#searchValue {
+    flex: 1;
+}
+
+#submitButton {
+    border-radius: 30px;
+    background: #ff9c00;
+    color: #fff;
+    text-decoration: none;
+
 }
 
 #featuredCryptoDiv {
@@ -148,4 +174,5 @@ footer {
     clear: both;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    font-weight: bold;
 }
