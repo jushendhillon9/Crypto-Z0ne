@@ -10,24 +10,57 @@
     <section id="topRight">
         <h1>Crypto-Z0ne</h1>
         <div id="watchListIconDiv">
-            <img src=""> <!--menu icon-->
-            <h2 id="watchListHeader">Watchlist</h2>
+            <img id="menuIcon" src="/assets/menuIcon.png"> <!--menu icon-->
+            <a href="" id="watchListHeader">Watchlist</a>
         </div>
     </section>
-    <section>
-        <h2>Trending Crypto</h2>
+    <section id="watchListDiv"> <!--This section will contain watchlists -->
+        <div id="watchList-All">
+            <a>All</a>
+            <ul>
+    
+            </ul>
+
+        </div>
+        <div id="watchList-MyList">
+            <a>My List</a>
+            <ul>
+    
+            </ul>
+
+        </div>
+
     </section>
-     <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
-        <ul id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
-            <li id="featuredCryptoItem">
-                <!--apppend trending crypto icons here-->
-            </li>
+    <section  id="trendingSearch"class="heading">
+        <h2>Trending Crypto</h2>
+        <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
+           <ul id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
+               <li id="featuredCryptoItem">
+                   <!--apppend trending crypto icons here-->
+               </li>
+           </ul>
+           <form id="cryptoSearchForm">
+               <input  id = "searchValue" type="text" placeholder="Search for crypto...">
+               <button id = "submitButton"> Search</button>
+           </form>
+       </div>
+    </section>
+
+
+    <section class="pagesContainer">
+        <ul class="cryptoDisplay">
+
         </ul>
-        <form id="cryptoSearchForm">
-            <input  id = "searchValue" type="text" placeholder="Search for crypto...">
-            <button id = "submitButton"> Search</button>
-        </form>
-    </div>
+    </section>
+    <section id="contactUs">
+        <h3>Questions/Tech Support</h3>
+            </section>
+            <footer>
+                <div id="Team">
+                    <p>Team: Jacob, Jushen, & Pa</p>
+                     <p>&copy; 2023 Crypto-Z0ne</p>
+                </div>
+            </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
 </body>
