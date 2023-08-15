@@ -75,28 +75,32 @@ height: auto;
 
 
 
-/* copy all of the code following this into the main branch's css file*/
+
+
+
+
+/*JUSHEN'S CHANGES, copy into main branch*/
 
 .watchList {
     height: 100vh;
-    width: 300px;
+    width: 100%;
     position: absolute;
-    right: -300px;
+    right: -1200px;
     top: 10px;
     background-color: red;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 2s ease-in-out;
 }
 
 .watchList.appear {
-    transform: translateX(-310px);
+    transform: translateX(-1200px);
     background-color: red;
 }
 
 .watchList.disappear {
-    transform: translateX(310px);
+    transform: translateX(2400px);
     background-color: red;
 }
 
@@ -163,7 +167,7 @@ height: auto;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
-    width: 200px;
+    width: 150px;
     margin: 25px;
 }
 
@@ -178,13 +182,11 @@ height: auto;
 
 .featuredCryptoItemPercentChange {
     font-size: 15px;
-    background-color: purple;
 }
 
 .featuredCryptoItemPrice{
     font-size: 15px;
-    background-color: purple;
-    width: 30px;
+    width: 100%;
 }
 
 .linebreak {
@@ -193,6 +195,7 @@ height: auto;
 }
 
 /* Copy up to here*/
+
 
 
 

@@ -4,7 +4,6 @@ var myList = $(".myList");
 var watchList = $(".watchList");
 var watchListButton = $("#watchListButton");
 var cryptoFeaturedImage = $(".featuredCryptoItemImage");
-console.log(cryptoFeaturedImage);
 var cryptoFeaturedName = $(".featuredCryptoItemHeader");
 var cryptoFeaturedPercentChange = $(".featuredCryptoItemPercentChange");
 var cryptoFeaturedPrice = $(".featuredCryptoItemPrice");
@@ -43,6 +42,8 @@ function getCoinInfoWithID (response) {
       .then (function (data) {
         for (var i = 0; i < data.length; i++) {
           console.log(data[i]);
+          //currently loggiin the ID info
+          //here I get to decide what I want to do with the coin's info...
         }
       })
   }
@@ -57,7 +58,6 @@ function getCoinID (response) {
       .then (function (data) {
           for (var i = 0; i < data.length; i ++) {
                 if (searchValue == (data[i].id).toLowerCase()) {
-                    
                     coinID = data[i].id;
                     console.log(coinID);
                 }
@@ -101,7 +101,8 @@ function retrieveTrendingCryptoData (response) {
                 featuredCryptoImageLinks.push(data[i].image);
                 featuredCryptoNames.push(data[i].name);
                 featuredCryptoImageChangePercents.push(data[i].price_change_percentage_24h);
-                featuredCryptoImagePrice.push(data[i].current_price);
+                var currentPrice = (data[i].current_price).toLocaleString(undefined, {minimumFractionDigits: 2});
+                featuredCryptoImagePrice.push(currentPrice);
             }
             }
         )
@@ -114,24 +115,15 @@ function populateTrendingCrypto () {
         $(cryptoFeaturedImage[i]).attr("src", imageLink);
         $(cryptoFeaturedName[i]).text(featuredCryptoNames[i]);
         $(cryptoFeaturedPercentChange[i]).text(featuredCryptoImageChangePercents[i]);
-        $(cryptoFeaturedPrice[i]).text("$ " + featuredCryptoImagePrice[i]);
+        $(cryptoFeaturedPrice[i]).text("$" + featuredCryptoImagePrice[i]);
     }
 } 
 
 $(window).on("load", function() {
-    retrieveTrendingCryptoData();
-    setTimeout(populateTrendingCrypto, 2000);
+  retrieveTrendingCryptoData();
+  setTimeout(populateTrendingCrypto, 2000);
 });
 //when the window loads, this function is ran once...
-
-
-
-
-
-/*$(function () {
-    retriveTrendingCryptoData();
-    populateTrendingCrypto();
-});*/
 
 
 
@@ -139,11 +131,11 @@ $(window).on("load", function() {
 submitButton.on("click", function (event) {
     event.preventDefault();
     searchValue = $("#searchValue").val();
-    //getCoinID();
+    getCoinID();
     //getCoinID is taking too long to retrieve the ID, need to set a timeout on getCoinInfoWithID() to make sure
     //getCoinID gets the ID before calling it
-    //setTimeout(getCoinInfoWithID, 1000);
-    //setTimeout(finnHub, 3000);
+    setTimeout(getCoinInfoWithID, 1000);
+    setTimeout(finnHub, 3000);
     retrieveTrendingCryptoData();
 })
 
