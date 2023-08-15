@@ -3,30 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="style.css">
+   <link rel = "stylesheet" href = "./style.css">
     <title>Got Crypto?</title>
-    <h1>Crypto-Z0ne</h1>
     <section id="topRight">
-        <div id="watchListIconDiv">
-            <img src=""> <!--menu icon-->
-            <h2 id="watchListHeader">Watchlist</h2>
+        <h1>Crypto-Z0ne</h1>
+        <div id="watchListButton" class = "visible">
+            <img id="menuIcon" src="/assets/menuIcon.png"> <!--menu icon-->
+            <button type = "button" id = "watchListButtonText">Watchlist</button>
         </div>
     </section>
     <section>
         <h2>Trending Crypto</h2>
     </section>
-     <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
-        <ul id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
-            <li id="featuredCryptoItem">
-                <!--apppend trending crypto icons here-->
-            </li>
-        </ul>
-        <form id="cryptoSearchForm">
-            <input type="text" placeholder="Search for crypto...">
-        </form>
-    </div>
+    <section  id="trendingSearch"class="heading">
+        <h2>Trending Crypto</h2>
+        <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
+           <div id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
+               <li class="featuredCryptoItem">
+                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
+                <div class = "featuredCryptoItemHeader">crypto 1</div>
+                <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                <div class = "featuredCryptoItemPrice">price</div>
+               </li>
+               <li class="featuredCryptoItem">
+                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
+                <div class = "featuredCryptoItemHeader">crypto 2</div>
+                <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                <div class = "featuredCryptoItemPrice">price</div>
+               </li>
+               <li class="featuredCryptoItem">
+                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
+                <div class = "featuredCryptoItemHeader">crypto 3</div>
+                <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                <div class = "featuredCryptoItemPrice">price</div>
+               </li>
+               <li class="featuredCryptoItem">
+                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
+                <div class = "featuredCryptoItemHeader">crypto 4</div>
+                <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                <div class = "featuredCryptoItemPrice">price</div>
+               </li>
+            </div>
+           <form id="cryptoSearchForm">
+               <input  id = "searchValue" type="text" placeholder="Search for crypto...">
+               <button id = "submitButton"> Search</button>
+           </form>
+       </div>
+    </section>
+
+    
+<!--THIS IS MY CODE KEEP IT PROTECTED-->
+
+    <section class="watchList">
+        <button id = "exitButton"> X </button>
+        <div class = "child" id = "switchListButtons">
+            <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List</button> <!--add a cool fire emoji maybe... -->
+            <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
+            <!--add X button that closees the watchList tab... need to add onClick that runs a function that slides the watchlist backout
+                //I think it just needs to remove the .slide class added to it... -->
+        </div>
+        <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
+            <ul class = "grandChild">
+                <li id = "greatGrandChild" style = "color: blue;">Hello!</li>
+            </ul>
+        </div>
+        <div class="myList child hidden">
+            <ul class = "grandChild">
+                <li id = "greatGrandChild" style = "color: red;">Goodbye!</li>
+            </ul>
+        </div>
+    </section>  
+
+<!--THIS IS MY CODE KEEP IT PROTECTED-->
+
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
+
