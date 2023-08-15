@@ -4,51 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel = "stylesheet" href = "./style.css">
+</head>
+<body>
     <title>Got Crypto?</title>
     <section id="topRight">
         <h1>Crypto-Z0ne</h1>
         <div id="watchListButton" class = "visible">
-            <img id="menuIcon" src="/assets/menuIcon.png"> <!--menu icon-->
-            <button type = "button" id = "watchListButtonText">Watchlist</button>
-</head>
-<body>
-    <section id="topRight">
-        <h1>Crypto-Z0ne</h1>
-        <div id="watchListIconDiv">
-            <img id="menuIcon" src="/assets/menuIcon.png"> <!--menu icon-->
-            <a href="" id="watchListHeader">Watchlist</a>
-        </div>
+            <button type = "button" id = "watchListButtonText"> <span id="watchListButtonText" style ="display:inline"> <img id="watchListButtonText" class="menuIcon" src="./assets/menu.png"></span>Watchlist</button>
+        </div> <!--for some reason, img will show inside button if there is no id, but then it wont be recognized by js-->
     </section>
-    <section id="watchListDiv"> <!--This section will contain watchlists -->
-        <div id="watchList-All">
-            <a>All</a>
-            <ul>
     
-            </ul>
-        </div>
-        <div id="watchList-MyList">
-            <a>My List</a>
-            <ul>
-    
-            </ul>
-
-        </div>
-
-    </section>
-    <section  id="trendingSearch"class="heading">
-        <h2>Trending Crypto</h2>
-        <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
-           <ul id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
-               <li id="featuredCryptoItem">
-                   <!--apppend trending crypto icons here-->
-               </li>
-           </ul>
-           <form id="cryptoSearchForm">
-               <input  id = "searchValue" type="text" placeholder="Search for crypto...">
-               <button id = "submitButton"> Search</button>
-           </form>
-       </div>
-    </section>
 
     <section  id="trendingSearch"class="heading">
         <h2>Trending Crypto</h2>
@@ -94,8 +59,7 @@
        </div>
     </section>
 
-    
-<!--THIS IS MY CODE KEEP IT PROTECTED-->
+
 
     <section class="watchList">
         <button id = "exitButton"> X </button>
@@ -116,11 +80,6 @@
             </ul>
         </div>
     </section>  
-
-<!--THIS IS MY CODE KEEP IT PROTECTED-->
-
-
-
 
     <section class="pagesContainer">
         <ul class="cryptoDisplay">
