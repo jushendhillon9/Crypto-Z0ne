@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel = "stylesheet" href = "./style.css">
+</head>
+<body>
     <title>Got Crypto?</title>
     <section id="topRight">
         <h1>Crypto-Z0ne</h1>
         <div id="watchListButton" class = "visible">
-            <img id="menuIcon" src="/assets/menuIcon.png"> <!--menu icon-->
-            <button type = "button" id = "watchListButtonText">Watchlist</button>
-        </div>
+            <button type = "button" id = "watchListButtonText"> <span id="watchListButtonText" style ="display:inline"> <img id="watchListButtonText" class="menuIcon" src="./assets/menu.png"></span>Watchlist</button>
+        </div> <!--for some reason, img will show inside button if there is no id, but then it wont be recognized by js-->
     </section>
+    
+
+
     <section  id="trendingSearch"class="heading">
         <h2>Trending Crypto</h2>
         <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
@@ -56,8 +60,7 @@
        </div>
     </section>
 
-    
-<!--THIS IS MY CODE KEEP IT PROTECTED-->
+
 
     <section class="watchList">
         <button id = "exitButton"> X </button>
@@ -79,10 +82,20 @@
         </div>
     </section>  
 
-<!--THIS IS MY CODE KEEP IT PROTECTED-->
+    <section class="pagesContainer">
+        <ul class="cryptoDisplay">
 
-</head>
-<body>
+        </ul>
+    </section>
+    <section id="contactUs">
+        <h3>Questions/Tech Support</h3>
+            </section>
+            <footer>
+                <div id="Team">
+                    <p>Team: Jacob, Jushen, & Pa</p>
+                     <p>&copy; 2023 Crypto-Z0ne</p>
+                </div>
+            </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
 </body>
