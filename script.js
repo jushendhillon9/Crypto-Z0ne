@@ -114,14 +114,14 @@ function populateTrendingCrypto () {
         $(cryptoFeaturedImage[i]).attr("src", imageLink);
         $(cryptoFeaturedName[i]).text(featuredCryptoNames[i]);
         $(cryptoFeaturedPercentChange[i]).text(featuredCryptoImageChangePercents[i]);
-        $(cryptoFeaturedPrice[i]).text(featuredCryptoImagePrice[i]);
+        $(cryptoFeaturedPrice[i]).text("$ " + featuredCryptoImagePrice[i]);
     }
 } 
 
-/*$(window).on("load", function() {
+$(window).on("load", function() {
     retrieveTrendingCryptoData();
     setTimeout(populateTrendingCrypto, 2000);
-});*/
+});
 //when the window loads, this function is ran once...
 
 

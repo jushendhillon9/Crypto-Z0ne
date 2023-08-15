@@ -84,7 +84,6 @@ height: auto;
     right: -300px;
     top: 10px;
     background-color: red;
-    opacity: 0.3;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -154,44 +153,46 @@ height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 220px;
     width: 800px;
-    background-color: green;
+    margin-top: 5px;
 }
 
 .featuredCryptoItem {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    width: 190px;
-    background-color: blue;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 200px;
+    margin: 25px;
 }
 
 .featuredCryptoItemImage {
     margin: 5px;
-    background-color: red;
+    display: block;
 }
 
 .featuredCryptoItemHeader {
-    font-size: 10px;
-    background-color: red;
-    width: 30px;
+    font-size: 15px;
 }
 
 .featuredCryptoItemPercentChange {
-    font-size: 10px;
+    font-size: 15px;
     background-color: purple;
-    width: 30px;
 }
 
 .featuredCryptoItemPrice{
-    font-size: 10px;
+    font-size: 15px;
     background-color: purple;
     width: 30px;
 }
 
-/* Copy up to here*/
+.linebreak {
+    height: 2px;
+    width: 100%;
+}
 
+/* Copy up to here*/
 
 
 
