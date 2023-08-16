@@ -118,10 +118,10 @@ function populateTrendingCrypto () {
     }
 } 
 
-/*$(window).on("load", function() {
+$(window).on("load", function() {
   retrieveTrendingCryptoData();
   setTimeout(populateTrendingCrypto, 2000);
-});*/
+});
 //when the window loads, this function is ran once...
 
 
