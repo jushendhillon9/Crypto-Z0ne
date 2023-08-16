@@ -12,9 +12,8 @@ var featuredCryptoNames = [];
 var featuredCryptoImageChangePercents = [];
 var featuredCryptoImagePrice = [];
 var searchValue;
-var coinID;
+var coinID = "bitcoin";
 var coinNews;
-
 
 function switchToHotList() {
     myList.removeClass("visible");
@@ -33,7 +32,7 @@ function switchToMyList() {
 }
 
 
-function getCoinInfoWithID (response) {
+function populateSearchedCryptoPage (response) {
     var requestURL = "https://api.coingecko.com/api/v3/coins/markets?ids=" + coinID + "&vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
     fetch (requestURL)
       .then (function (response) {
@@ -41,9 +40,9 @@ function getCoinInfoWithID (response) {
       })
       .then (function (data) {
         for (var i = 0; i < data.length; i++) {
-          console.log(data[i]);
-          //currently loggiin the ID info
-          //here I get to decide what I want to do with the coin's info...
+            var searchedCryptoImage = $("#searchedCryptoImage");
+            console.log(data.image);
+            searchedCryptoImage.attr("src", data.image)
         }
       })
   }
@@ -119,10 +118,10 @@ function populateTrendingCrypto () {
     }
 } 
 
-$(window).on("load", function() {
+/*$(window).on("load", function() {
   retrieveTrendingCryptoData();
   setTimeout(populateTrendingCrypto, 2000);
-});
+});*/
 //when the window loads, this function is ran once...
 
 
@@ -134,22 +133,30 @@ submitButton.on("click", function (event) {
     getCoinID();
     //getCoinID is taking too long to retrieve the ID, need to set a timeout on getCoinInfoWithID() to make sure
     //getCoinID gets the ID before calling it
-    setTimeout(getCoinInfoWithID, 1000);
+    setTimeout(populateSearchedCryptoPage, 1000);
     setTimeout(finnHub, 3000);
     retrieveTrendingCryptoData();
 })
 
 
-watchListButton.on("click", function () {
-    watchList.removeClass("disappear");
-    watchList.addClass("appear");
-})
+watchListButton.on("click", function () { 
+    var watchListClasses = watchList.attr("class").split(" ");
+    console.log(watchListClasses);
+    if (watchListClasses.includes("appear") == false) {
+        watchList.addClass("appear");
+    }
+});
 
 document.addEventListener("click", function (event) {
     clicked = event.target;
-    if (clicked.matches("#watchListButtonText") == false && clicked.matches(".watchList") == false && clicked.matches(".child") == false && clicked.matches(".grandChild") == false && clicked.matches(".greatGrandChild") == false || clicked.matches("#exitButton") == true ) {
-        watchList.removeClass("appear");
-        watchList.addClass("disappear");
+    if (clicked.matches("#watchListButton") == false && clicked.matches(".watchListButtonContent") == false && clicked.matches(".child") == false && clicked.matches(".grandChild") == false && clicked.matches(".greatGrandChild") == false || clicked.matches("#exitButton") == true ) {
+        console.log("hello");
+        //if the watchListButton has the appear class, then you can run this
+        var watchListClass = (watchList.attr("class")).split(" ");
+        if (watchListClass.includes("appear") == true) {
+            console.log("hello")
+            watchList.removeClass("appear");
+        }
     }
-    watchListButton.addClass("visible");
+    //watchListButton.addClass("visible");
 });
