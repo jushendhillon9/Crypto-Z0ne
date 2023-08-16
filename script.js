@@ -160,3 +160,94 @@ document.addEventListener("click", function (event) {
     }
     //watchListButton.addClass("visible");
 });
+
+
+// pv code to display Market Update Info
+const marketUpdateContainer = document.getElementById("market-update");
+
+// API URL
+const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1';
+
+
+// Function to fetch market update data from the API
+async function fetchMarketUpdate() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return null;
+    }
+}
+
+// Renames column headers
+const columnMapping = {
+    id: 'Name',
+    current_price: 'Price',
+    market_cap: 'Market Cap',
+    total_volume: 'Total Volume',
+
+};
+
+// Function to display market update data in columns
+function displayMarketUpdate(data) {
+    if (!data) return;
+
+    const columns = ['id', 'current_price', 'market_cap', 'total_volume'];
+    const table = document.createElement('table');
+    const headerRow = document.createElement('tr');
+
+    columns.forEach(column => {
+        const headerCell = document.createElement('th');
+        headerCell.textContent = columnMapping[column]; // Use the display name from the mapping
+        headerRow.appendChild(headerCell);
+    });
+
+    table.appendChild(headerRow);
+
+    data.forEach(crypto => {
+        const row = document.createElement('tr');
+        columns.forEach(column => {
+            const cell = document.createElement('td');
+            if (column === 'current_price') {
+                cell.textContent = '$' + crypto[column].toLocaleString(); // Format with "$"
+            } else {
+                cell.textContent = crypto[column].toLocaleString(); // Format with thousands separators
+            }
+            row.appendChild(cell);
+        });
+        table.appendChild(row);
+    });
+
+    marketUpdateContainer.appendChild(table);
+}
+
+
+// Fetch data and display market update
+fetchMarketUpdate().then(data => {
+    displayMarketUpdate(data);
+});
+
+
+// Tabs
+const tabs = document.querySelectorAll('.tabs li');
+const tabContentBoxes = document.querySelectorAll('#tab-content > div');
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        tabs.forEach((item) => item.classList.remove('is-active'))
+        tab.classList.add('is-active');
+
+const target = tab.dataset.target;
+tabContentBoxes.forEach(box => {
+    if (box.getAttribute('id') === target) {
+        box.classList.remove('is-hidden');
+    } else {
+        box.classList.add('is-hidden');
+    }
+})
+    })
+})
+
+    // market update code ends here
