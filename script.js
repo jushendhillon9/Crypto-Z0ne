@@ -131,11 +131,51 @@ submitButton.on("click", function (event) {
     event.preventDefault();
     searchValue = $("#searchValue").val();
     getCoinID();
+    var srd = $("#searchResultsDiv");
+    var coinImg = document.createElement("img");
+    var coinSym = document.createElement("a");
+    var coinName = document.createElement("h2");
+    var coinPrice = document.createElement("p");
+    
+    var requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
+    fetch (requestURL) 
+    .then (function (response) {
+        return response.json();
+    })
+    .then (function (data) {
+        for (var i = 0; i < data.length; i ++) {
+            if (searchValue == (data[i].id).toLowerCase()) {
+                var coinID = data[i].id;
+                //$(coinName).innerHTML(coinID.val);
+                var coinImg = $('<img />', { 
+                    id: 'searchImg',
+                    src: data[i].image,
+                    alt: data[i].id,
+                    class: "featuredCryptoItemImage"
+                  });
+                srd.append(coinImg);
+                coinImg.addClass("searchedImg")
+                srd.append(coinName);
+                coinName.innerHTML = data[i].id;
+                $(coinName).addClass("searchResult");
+                console.log(coinName);
+                srd.append(coinPrice);
+                coinPrice.innerHTML = "current Price: " + "$" + data[i].current_price;
+                //coinPrice.innerHTML = data[i].current_price;
+                
+
+                
+            }
+        }
+        })
+
+
+
     //getCoinID is taking too long to retrieve the ID, need to set a timeout on getCoinInfoWithID() to make sure
     //getCoinID gets the ID before calling it
     setTimeout(populateSearchedCryptoPage, 1000);
     setTimeout(finnHub, 3000);
-    retrieveTrendingCryptoData();
+    //retrieveTrendingCryptoData();
 })
 
 

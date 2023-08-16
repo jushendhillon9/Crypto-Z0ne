@@ -62,6 +62,10 @@
                 <input  id = "searchValue" type="text" placeholder="Search for crypto...">
                 <button id = "submitButton"> Search</button>
             </form>
+
+            <div id="searchResultsDiv">
+
+            </div>
        </div>
     </section>
 
@@ -71,7 +75,8 @@
         <button id = "exitButton"> X </button>
         <div class = "child" id = "switchListButtons">
             <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List</button> <!--add a cool fire emoji maybe... -->
-            <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
+            <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button>
+            <button id="NewWatchListBtn"> New Watch List</button> <!--for equality reasons, should give this button an emoji -->
         </div>
         <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
             <ul class = "grandChild">
@@ -89,19 +94,19 @@
     <!-- pv add bulma css framework tabs -->
     <section id="tabs"><div class="tabs is-toggle is-fullwidth">
         <ul>
-          <li class="is-active" data-target="market-update">
+          <li  data-target="market-update">
             <a>Market Update</a>
           </li>
           <li data-target="news-article">
             <a>News Article</a>
           </li>
-          <li data-target="contact-us">
+          <li data-target="contact-us" class="is-active">
             <a>Contact Us</a>
           </li>
         </ul>
       </div>
-      <div class="2-px" id="tab-content">
-      <div id="market-update"></div>
+      <class="2-px" id="tab-content">
+      <div id="market-update" class="is-hidden"></div>
       <div id="news-article" class="is-hidden">
         <h3 class="is-size-5 title" style="color:#fff">News Article</h3>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
@@ -112,17 +117,25 @@
           Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
           software like Aldus PageMaker including versions of Lorem Ipsum</p>
       </div>
-      <div id="contact-us" class="is-hidden">
+      <div id="contact-us">
         <h3 class="is-size-5 title" style="color:#fff">Contact Us</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-          It has survived not only five centuries, but also the leap into electronic typesetting, 
-          remaining essentially unchanged. It was popularised in the 1960s with the release of 
-          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
-          software like Aldus PageMaker including versions of Lorem Ipsum</p>
-      </div></div>
-    </section>
+        <p style="font-size: 16px">Our team is here to assist you. If you have any questions, comments, or feedback, feel free to get in touch with us through email. We value your input and look forward to hearing from you.</p>
+        <ul style="text-align: center">
+            <li>
+                <img src="./assets/email-icon-121.png" style="vertical-align: middle; margin-right: 10px;" class="emailIcon">
+                <a href="mailto:jacobg4@uci.edu">Jacob's Email</a>
+            </li>
+            <li>
+                <img src="./assets/email-icon-121.png" style="vertical-align: middle; margin-right: 10px;" class="emailIcon">
+                <a href="mailto:jdhillo19@gmail.com">Jushen's Email</a>
+            </li>
+            <li>
+                <img src="./assets/email-icon-121.png" style="vertical-align: middle; margin-right: 10px;" class="emailIcon">
+                <a href="mailto:pvang1987@gmail.com">Pa's Email</a>
+            </li>
+        </ul>
+    </div>
+    </section> 
 
       <!-- tab code ends here -->
       
