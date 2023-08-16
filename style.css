@@ -159,16 +159,22 @@ p {
     font-size: 12px;
 }
 
-#watchListButtonText {
+#watchListButton {
+    background-color: transparent;
+    display: flex;
+    position: absolute;
+    right: 70px;
+}
+
+.watchListButtonContent {
     font-weight: bold;
     font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
     font-size: 30px;
     justify-content: center;
     color: #ff9c00;
-    position: absolute;
-    right: 70px;
     background-color: transparent;
-    width: 150px;
+    display: inline;
+    margin: 5px;
 }
 
 #topRight h2 {
@@ -206,26 +212,22 @@ height: auto;
 /*JUSHEN'S CHANGES, copy into main branch*/
 
 .watchList {
-    height: 100vh;
-    width: 100%;
+    height: 100vh;;
+    width: 300px;
     position: absolute;
-    right: -1200px;
     top: 10px;
-    background-color: red;
+    right: -300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     transition: transform 2s ease-in-out;
+    background-image: url(./assets/watchListBackground.webp);
+    background-size: 100% 100%;
 }
+
 
 .watchList.appear {
-    transform: translateX(-1200px);
-    background-color: red;
-}
-
-.watchList.disappear {
-    transform: translateX(2400px);
-    background-color: red;
+    transform: translateX(-300px);
 }
 
 .redColor {

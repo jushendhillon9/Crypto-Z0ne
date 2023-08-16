@@ -7,12 +7,16 @@
 </head>
 <body>
     <title>Got Crypto?</title>
+</head>
+<body>
     <section id="topRight">
         <h1>Crypto-Z0ne</h1>
-        <div id="watchListButton" class = "visible">
-            <button type = "button" id = "watchListButtonText"> <span id="watchListButtonText" style ="display:inline"> <img id="watchListButtonText" class="menuIcon" src="./assets/menu.png"></span>Watchlist</button>
-        </div> <!--for some reason, img will show inside button if there is no id, but then it wont be recognized by js-->
+        <button id="watchListButton" type = "button" class = "visible">
+            <img class="watchListButtonContent" src="./assets/menu.png" width = "30" height = "30">
+            <div class="watchListButtonContent" style = "margin-right: 15px">Watchlist</div>
+        </button><!--for some reason, img will show inside button if there is no id, but then it wont be recognized by js-->
     </section>
+    
     
 
 
@@ -23,15 +27,7 @@
                <div class="featuredCryptoItem">
                 <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
                 <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">bitcoin</div>
-                <div class = "featuredCryptoItemPercentChange">-0.0001%</div>
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemPrice">price</div>
-               </div>
-               <div class="featuredCryptoItem">
-                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">crypto 2</div>
+                <div class = "featuredCryptoItemHeader">Trending Crypto 1</div>
                 <div class = "featuredCryptoItemPercentChange">percent Change</div>
                 <div class = "linebreak"></div>
                 <div class = "featuredCryptoItemPrice">price</div>
@@ -39,7 +35,15 @@
                <div class="featuredCryptoItem">
                 <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
                 <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">crypto 3</div>
+                <div class = "featuredCryptoItemHeader">Trending Crypto 2</div>
+                <div class = "featuredCryptoItemPercentChange">Trending Crypto 3</div>
+                <div class = "linebreak"></div>
+                <div class = "featuredCryptoItemPrice">price</div>
+               </div>
+               <div class="featuredCryptoItem">
+                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
+                <div class = "linebreak"></div>
+                <div class = "featuredCryptoItemHeader">Trending Crypto 4</div>
                 <div class = "featuredCryptoItemPercentChange">percent Change</div>
                 <div class = "linebreak"></div>
                 <div class = "featuredCryptoItemPrice">price</div>
@@ -53,22 +57,20 @@
                 <div class = "featuredCryptoItemPrice">price</div>
                </div>
             </div>
-           <form id="cryptoSearchForm">
-               <input  id = "searchValue" type="text" placeholder="Search for crypto...">
-               <button id = "submitButton"> Search</button>
-           </form>
+            <form id="cryptoSearchForm">
+                <input  id = "searchValue" type="text" placeholder="Search for crypto...">
+                <button id = "submitButton"> Search</button>
+            </form>
        </div>
     </section>
 
 
-
     <section class="watchList">
+        <div class = "watchListImage"></div>
         <button id = "exitButton"> X </button>
         <div class = "child" id = "switchListButtons">
             <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List</button> <!--add a cool fire emoji maybe... -->
             <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
-            <!--add X button that closees the watchList tab... need to add onClick that runs a function that slides the watchlist backout
-                //I think it just needs to remove the .slide class added to it... -->
         </div>
         <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
             <ul class = "grandChild">
@@ -80,7 +82,9 @@
                 <li id = "greatGrandChild" style = "color: red;">Goodbye!</li>
             </ul>
         </div>
-    </section>  
+    </section>
+    
+</body>
 
     <section class="pagesContainer">
         <ul class="cryptoDisplay">
@@ -98,7 +102,6 @@
             </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
-</body>
 </html>
 
 
