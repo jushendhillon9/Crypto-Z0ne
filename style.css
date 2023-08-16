@@ -61,6 +61,14 @@ margin-bottom: 80px;
     color: #ff9c00;
 }
 
+#searchResultsDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+
+}
+
 .searchedImg{
     height: 150px;
     width: auto;
