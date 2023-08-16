@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
    <link rel = "stylesheet" href = "./style.css">
 </head>
 <body>
@@ -83,20 +84,51 @@
             </ul>
         </div>
     </section>
-    
-</body>
+    <br><br>
 
-    <section class="pagesContainer">
-        <ul class="cryptoDisplay">
-
+    <!-- pv add bulma css framework tabs -->
+    <section id="tabs"><div class="tabs is-toggle is-fullwidth">
+        <ul>
+          <li class="is-active" data-target="market-update">
+            <a>Market Update</a>
+          </li>
+          <li data-target="news-article">
+            <a>News Article</a>
+          </li>
+          <li data-target="contact-us">
+            <a>Contact Us</a>
+          </li>
         </ul>
+      </div>
+      <div class="2-px" id="tab-content">
+      <div id="market-update"></div>
+      <div id="news-article" class="is-hidden">
+        <h3 class="is-size-5 title" style="color:#fff">News Article</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          It has survived not only five centuries, but also the leap into electronic typesetting, 
+          remaining essentially unchanged. It was popularised in the 1960s with the release of 
+          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+          software like Aldus PageMaker including versions of Lorem Ipsum</p>
+      </div>
+      <div id="contact-us" class="is-hidden">
+        <h3 class="is-size-5 title" style="color:#fff">Contact Us</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          It has survived not only five centuries, but also the leap into electronic typesetting, 
+          remaining essentially unchanged. It was popularised in the 1960s with the release of 
+          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+          software like Aldus PageMaker including versions of Lorem Ipsum</p>
+      </div></div>
     </section>
-    <section id="contactUs">
-        <h3>Questions/Tech Support</h3>
-            </section>
+
+      <!-- tab code ends here -->
+      
             <footer>
                 <div id="Team">
-                    <p>Team: Jacob, Jushen, & Pa</p>
+                    <p>Team: Jacob, Jushen and Pa</p>
                      <p>&copy; 2023 Crypto-Z0ne</p>
                 </div>
             </footer>
