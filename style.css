@@ -55,6 +55,17 @@ margin-bottom: 80px;
     color: #ff9c00;
 }
 
+.searchResult{
+    font-weight: bold;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    color: #ff9c00;
+}
+
+.searchedImg{
+    height: 150px;
+    width: auto;
+}
+
 #watchListHeader {
     font-weight: bold;
     font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
@@ -147,18 +158,10 @@ height: auto;
     color: #ff9c00;
 }
 
-#contactUs {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    text-align: right; 
-    margin: 0 20px 20px 0; 
-}
 
-#contactUs h3 {
-    font-size: 20px;
-    justify-content: center;
-    color: #ff9c00;
+.emailIcon {
+    max-width: 3%;
+    height:auto;
 }
 
 
@@ -180,7 +183,7 @@ p {
 }
 
 a {
-    color: #2400ff;
+    color: #ff9c00;
     text-decoration: none;
 }
 
