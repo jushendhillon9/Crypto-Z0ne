@@ -118,6 +118,8 @@ function populateTrendingCrypto () {
     }
 } 
 
+
+
 $(window).on("load", function() {
   retrieveTrendingCryptoData();
   setTimeout(populateTrendingCrypto, 2000);
@@ -126,49 +128,75 @@ $(window).on("load", function() {
 
 
 
-
+// function to render search results after search button is clicked
 submitButton.on("click", function (event) {
     event.preventDefault();
     searchValue = $("#searchValue").val();
-    getCoinID();
+    //getCoinID();
     var srd = $("#searchResultsDiv");
     var coinImg = document.createElement("img");
     var coinSym = document.createElement("a");
     var coinName = document.createElement("h2");
     var coinPrice = document.createElement("p");
+    var priceChange = document.createElement("p");
+    var addWatchlist = document.createElement('button');
     
     var requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
     fetch (requestURL) 
-    .then (function (response) {
+      .then (function (response) {
         return response.json();
-    })
-    .then (function (data) {
-        for (var i = 0; i < data.length; i ++) {
-            if (searchValue == (data[i].id).toLowerCase()) {
-                var coinID = data[i].id;
-                //$(coinName).innerHTML(coinID.val);
-                var coinImg = $('<img />', { 
-                    id: 'searchImg',
-                    src: data[i].image,
-                    alt: data[i].id,
-                    class: "featuredCryptoItemImage"
-                  });
-                srd.append(coinImg);
-                coinImg.addClass("searchedImg")
-                srd.append(coinName);
-                coinName.innerHTML = data[i].id;
-                $(coinName).addClass("searchResult");
-                console.log(coinName);
-                srd.append(coinPrice);
-                coinPrice.innerHTML = "current Price: " + "$" + data[i].current_price;
-                //coinPrice.innerHTML = data[i].current_price;
-                
+      })
+      .then (function (data) {
+        var matchFound = false; // Track if a matching item has been found
+  
+        for (var i = 0; i < data.length; i++) {
+          if (searchValue === data[i].id.toLowerCase()) {
+            var coinID = data[i].id;
+            var coinImg = $('<img />', { 
+              id: 'searchImg',
+              src: data[i].image,
+              alt: data[i].id,
+              class: "featuredCryptoItemImage"
+            });
+            srd.empty(); // Clear existing HTML before adding new results
+            srd.append(coinImg);
+            coinImg.addClass("searchedImg");
+            srd.append(coinName);
+            coinName.innerHTML = data[i].id + ":";
+            $(coinName).addClass("searchResult");
+            console.log(coinName);
+            srd.append(coinPrice);
+            coinPrice.innerHTML = "current Price: $" + data[i].current_price.toLocaleString(undefined, {minimumFractionDigits: 2});
+            $(coinName).css('font-size', '20px');
+            $(coinPrice).css('padding-left', '40px');
+            $(coinPrice).css('font-size', '20px');
+            $(coinPrice).addClass('searchResult');
+            $(srd).css("background","#35759B ");
+            $(srd).append(priceChange);
+            priceChange.innerHTML = "Price Change since last 24hr: " + ' %' + data[i].price_change_percentage_24h;
+            $(priceChange).addClass('searchResult');
+            $(priceChange).css('font-size', '20px');
+            $(priceChange).css('padding-left', '40px');
+            console.log(priceChange);
+            // Add watch list button section 
+            $(srd).append(addWatchlist);
+            addWatchlist.innerHTML = "Add to Watch List";
+            $(addWatchlist).css("padding-left", "40px");
+            $(addWatchlist).addClass("addToWatchlistBtn");
 
-                
-            }
+            matchFound = true; // Set the flag to true since a match was found
+            break; // Exit the loop since a match was found
+          }
         }
-        })
-
+        
+        if (!matchFound) {
+          srd.empty(); // Clear existing HTML before adding new results
+          var noResults = document.createElement("p");
+          noResults.innerHTML = "No results, please try a different search";
+          srd.append(noResults);
+        }
+      });
+  });
 
 
     //getCoinID is taking too long to retrieve the ID, need to set a timeout on getCoinInfoWithID() to make sure
@@ -176,7 +204,7 @@ submitButton.on("click", function (event) {
     setTimeout(populateSearchedCryptoPage, 1000);
     setTimeout(finnHub, 3000);
     //retrieveTrendingCryptoData();
-})
+
 
 
 watchListButton.on("click", function () { 

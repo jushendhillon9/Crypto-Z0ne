@@ -65,7 +65,7 @@ margin-bottom: 80px;
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    justify-content: center;
+    justify-content: center space-evenly;
 
 }
 
@@ -124,6 +124,8 @@ height: auto;
 
 #searchValue {
     flex: 1;
+    height:70px;
+    width: 800px;
 }
 
 #submitButton {
@@ -131,7 +133,16 @@ height: auto;
     background: #ff9c00;
     color: #fff;
     text-decoration: none;
+    width: 100px;
+    height: 60px;
 
+}
+.addToWatchListBtn{
+    border-radius: 30px;
+    background: #ff9c00;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #2400ff;
 }
 
 #featuredCryptoDiv {
