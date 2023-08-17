@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
    <link rel = "stylesheet" href = "./style.css">
+</head>
+<body>
     <title>Got Crypto?</title>
 </head>
 <body>
@@ -14,7 +17,11 @@
             <div class="watchListButtonContent" style = "margin-right: 15px">Watchlist</div>
         </button><!--for some reason, img will show inside button if there is no id, but then it wont be recognized by js-->
     </section>
-    <section id="trendingSearch"class="heading">
+    
+    
+
+
+    <section  id="trendingSearch"class="heading">
         <h2>Trending Crypto</h2>
         <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
            <div id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
@@ -57,19 +64,106 @@
             </form>
        </div>
     </section>
-    
-<!--THIS IS MY CODE KEEP IT PROTECTED-->
+
 
     <section class="watchList">
         <div class = "watchListImage"></div>
-        <button id = "exitButton"> X </button>
+        <button id = "exitButton">X</button>
         <div class = "child" id = "switchListButtons">
-            <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List</button> <!--add a cool fire emoji maybe... -->
+            <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List  🔥</button> <!--add a cool fire emoji maybe... -->
             <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
         </div>
         <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
-            <ul class = "grandChild">
-                <li id = "greatGrandChild" style = "color: blue;">Hello!</li>
+            <ul class = "grandChild topTenList">
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">1</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">2</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">3</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">4</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">5</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">6</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">7</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">8</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div class = "topTenNumberOneToNine">9</div>
+                    <div class = "numberBorderOneToNine"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
+                <div class = "linebreak"></div>
+                <li id = "greatGrandChild" class = "topTen">
+                    <div id = "topTenNumberTen">10</div>
+                    <div id = "numberBorderTen"></div>
+                    <img src = "assets/menu.png" class = "topTenImage">
+                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                    <img src = "assets/UpwardsArrow.png" class = "arrow" id = "arrowClassTen">
+                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                </li>
             </ul>
         </div>
         <div class="myList child hidden">
@@ -78,12 +172,58 @@
             </ul>
         </div>
     </section>
+    <br><br>
 
-<!--THIS IS MY CODE KEEP IT PROTECTED-->
-    
-</body>
+    <!-- pv add bulma css framework tabs -->
+    <section id="tabs"><div class="tabs is-toggle is-fullwidth">
+        <ul>
+          <li class="is-active" data-target="market-update">
+            <a>Market Update</a>
+          </li>
+          <li data-target="news-article">
+            <a>News Article</a>
+          </li>
+          <li data-target="contact-us">
+            <a>Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="2-px" id="tab-content">
+      <div id="market-update"></div>
+      <div id="news-article" class="is-hidden">
+        <h3 class="is-size-5 title" style="color:#fff">News Article</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          It has survived not only five centuries, but also the leap into electronic typesetting, 
+          remaining essentially unchanged. It was popularised in the 1960s with the release of 
+          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+          software like Aldus PageMaker including versions of Lorem Ipsum</p>
+      </div>
+      <div id="contact-us" class="is-hidden">
+        <h3 class="is-size-5 title" style="color:#fff">Contact Us</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+          It has survived not only five centuries, but also the leap into electronic typesetting, 
+          remaining essentially unchanged. It was popularised in the 1960s with the release of 
+          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+          software like Aldus PageMaker including versions of Lorem Ipsum</p>
+      </div></div>
+    </section>
+
+      <!-- tab code ends here -->
+
+
+            <footer>
+                <div id="Team">
+                    <p>Team: Jacob, Jushen and Pa</p>
+                     <p>&copy; 2023 Crypto-Z0ne</p>
+                </div>
+            </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
+</body>
 </html>
 
 
