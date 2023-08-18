@@ -14,6 +14,7 @@ var featuredCryptoImagePrice = [];
 var searchValue;
 var coinID = "bitcoin";
 var coinNews;
+var addToWatchlistBtn = $("#addToWatchlistBtn");
 
 function switchToHotList() {
     myList.removeClass("visible");
@@ -139,7 +140,7 @@ submitButton.on("click", function (event) {
     var coinName = document.createElement("h2");
     var coinPrice = document.createElement("p");
     var priceChange = document.createElement("p");
-    var addWatchlist = document.createElement('button');
+    var pinButton = $('<button class="pin-button">PIN</button>');
     
     var requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
     fetch (requestURL) 
@@ -148,6 +149,7 @@ submitButton.on("click", function (event) {
       })
       .then (function (data) {
         var matchFound = false; // Track if a matching item has been found
+        var searchResults = data;
   
         for (var i = 0; i < data.length; i++) {
           if (searchValue === data[i].id.toLowerCase()) {
@@ -177,13 +179,36 @@ submitButton.on("click", function (event) {
             $(priceChange).addClass('searchResult');
             $(priceChange).css('font-size', '20px');
             $(priceChange).css('padding-left', '40px');
+            $(priceChange).css('padding-right', '50px');
             console.log(priceChange);
             // Add watch list button section 
-            $(srd).append(addWatchlist);
-            addWatchlist.innerHTML = "Add to Watch List";
-            $(addWatchlist).css("padding-left", "40px");
-            $(addWatchlist).addClass("addToWatchlistBtn");
-
+           // pinButton.attr('data-coin-id', data[i].id); // $(coinName).innerHTML(coinID.val); Store the coin ID as a data attribute
+            //     pinButton.on('click', function () {
+            //         var coinIdd = $(this).attr('data-coin-id');
+            //         var pinnedItem = searchResults.find(item => item.id === coinIdd);
+            //         if (pinnedItem && !pinnedItems.includes(pinnedItem)) {
+            //           pinnedItems.push(pinnedItem);
+                    
+            //         }
+            //       });
+            //       resultItem.append(pinButton);
+            //       srd.append(resultItem);
+            //     }
+            //   }
+            $(srd).append(pinButton);
+            pinButton.innerHTML = "Pin to Watchlist";
+            //function to add search result to watch list
+            pinButton.on("click",function(event){
+              event.preventDefault()
+              var addedCoinId = { 
+                coinName : data[i].id,
+                coinSymbol : data[i].symbol,
+                coinPricee : data[i].current_price.toLocaleString(undefined, {minimumFractionDigits: 2}),
+                coinImgg : data[i].image,
+                coinChange : data[i].price_change_percentage_24h
+              }
+              localStorage.setItem(coinID, addedCoinId);
+            });
             matchFound = true; // Set the flag to true since a match was found
             break; // Exit the loop since a match was found
           }
@@ -197,6 +222,7 @@ submitButton.on("click", function (event) {
         }
       });
   });
+
 
 
     //getCoinID is taking too long to retrieve the ID, need to set a timeout on getCoinInfoWithID() to make sure

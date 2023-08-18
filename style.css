@@ -145,6 +145,48 @@ height: auto;
     border: 1px solid #2400ff;
 }
 
+
+.search-result {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .search-result-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .search-result-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .search-result-name {
+    font-weight: bold;
+    font-size:12px;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  .search-result-price {
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  .pin-button {
+    background-color: #FF9C00;
+    color: #fff;
+    border: none;
+    border-radius: 20%;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+
+
+
 #featuredCryptoDiv {
     display: flex;
     flex-direction: column;
