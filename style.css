@@ -1,10 +1,13 @@
+/* Global styles */
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
+
+/* Adds nav styles */
 nav {
     width: 100%;
     padding: 20px 20px;
@@ -13,18 +16,17 @@ nav {
     display: inline-block;
 }
 
+
+/* Default background color in case image fails to load */
 html {
 background-color: #05080e;
 }
 
-body,
-h1,
-p {
-    margin: 0px 0px;
-    padding: 0;
-}
 
+/* Adds body styles */
 body {
+margin: 0px 0px;
+padding: 0;
 width: 100%;
 min-height: 100vh;
 background-image: url("assets/fabio-oyXis2kALVg-unsplash.jpg");
@@ -36,16 +38,24 @@ color: #fff;
 margin-bottom: 80px;
 }
 
+
+/* Adds heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.625rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.1;
+}
 #topRight {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
-}
-
-.menuIcon{
-    max-width: 35%;
-    height:auto;
 }
 
 #topRight h1 {
@@ -55,25 +65,62 @@ margin-bottom: 80px;
     color: #ff9c00;
 }
 
-#watchListHeader {
+#topRight h2 {
+    font-size: 80px;
     font-weight: bold;
-    font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
-    font-size: 30px;
-    justify-content: center;
+    font-family: 'Impact', 'Poppins', sans-serif;
     color: #ff9c00;
-    margin-left: 10px;
-    padding: 25px 0px;
 }
 
-#watchListIconDiv {
+
+/* Default paragraph font size */
+p {
+    font-size: 12px;
+}
+
+
+/* Applies link style */
+a {
+    color: #ff9c00;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #8600ff;
+    text-decoration: underline;
+}
+
+
+/* Applies footer style */
+footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    clear: both;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* CSS for the different search sections */
+.searchedImg{
+    height: 150px;
+    width: auto;
+}
+
+.searchResult{
+    font-weight: bold;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    color: #ff9c00;
+}
+
+#searchResultsDiv{
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#watchListIconDiv img {
-width: 40px;
-height: auto;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center space-evenly;
 }
 
 #trendingSearch {
@@ -112,7 +159,6 @@ height: auto;
     background: #ff9c00;
     color: #fff;
     text-decoration: none;
-
 }
 
 #featuredCryptoDiv {
@@ -133,91 +179,27 @@ height: auto;
     margin: 10px; 
 }
 
-#contactUs {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    text-align: right; 
-    margin: 0 20px 20px 0; 
-}
 
-#contactUs h3 {
-    font-size: 20px;
-    justify-content: center;
-    color: #ff9c00;
-}
-
-#contactUs {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    text-align: right; 
-    margin: 0 20px 20px 0; 
-}
-
-#contactUs h3 {
-    font-size: 20px;
-    justify-content: center;
-    color: #ff9c00;
-}
-
-
-/* Adds heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 0.625rem;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.1;
-}
-
-p {
-    font-size: 12px;
-}
-
-a {
-    color: #2400ff;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #8600ff;
-    text-decoration: underline;
-}
-
-/* Applies footer style */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    clear: both;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
+/* CSS for watchlist button */
+#watchListHeader {
     font-weight: bold;
+    font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
+    font-size: 30px;
+    justify-content: center;
+    color: #ff9c00;
+    margin-left: 10px;
+    padding: 25px 0px;
 }
 
-
-/* Adds heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 0.625rem;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.1;
+#watchListIconDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-p {
-    font-size: 12px;
+#watchListIconDiv img {
+width: 40px;
+height: auto;
 }
 
 .watchListButtonContent {
@@ -231,13 +213,6 @@ p {
     margin: 5px;
 }
 
-#topRight h2 {
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Impact', 'Poppins', sans-serif;
-    color: #ff9c00;
-}
-
 #watchListIconButtonText {
     display: flex;
     align-items: center;
@@ -249,7 +224,21 @@ width: 40px;
 height: auto;
 }
 
-/* CSS for styling the market update table */
+.menuIcon{
+    max-width: 35%;
+    height:auto;
+}
+
+
+/* CSS for tab section */
+.tabs a {
+    color: #fff; 
+  }
+
+.has-black-background {
+    background-color: black;
+  }
+
 #market-update table {
     width: 100% !important;
     border-collapse: collapse !important;
@@ -268,17 +257,79 @@ height: auto;
     font-weight: bold !important;
 }
 
-/* Market Update CSS ends here
+#contactUs {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: right; 
+    margin: 0 20px 20px 0; 
+}
 
-/*JUSHEN'S CHANGES, copy into main branch*/
+#contactUs h3 {
+    font-size: 20px;
+    justify-content: center;
+    color: #ff9c00;
+}
 
+
+.emailIcon {
+    max-width: 2%;
+    height:auto;
+}
+
+
+/* CSS for the search results */
+.search-result {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.search-result-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.search-result-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-result-name {
+    font-weight: bold;
+    font-size:12px;
+    text-align: left;
+    margin-bottom: 5px;
+
+}
+
+.search-result-price {
+    font-size: 10px;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.pin-button {
+    background-color: #8600ff;
+    color: #fff;
+    border: none;
+    border-radius: 20%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+/*JUSHEN'S CSS CHANGES*/
 .watchList {
-    height: 100%;
-    width: 370px;
+    height: 100vh;;
+    width: 300px;
     position: absolute;
-    z-index: 1;
-    top: 0px;
-    right: -370px;
+    top: 10px;
+    right: -300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -288,7 +339,7 @@ height: auto;
 }
 
 .watchList.appear {
-    transform: translateX(-370px);
+    transform: translateX(-300px);
 }
 
 .redColor {
@@ -298,10 +349,9 @@ height: auto;
 #exitButton {
     height: 20px;
     width: 10%;
-    position: absolute;
+    position: relative;
     left: 90%;
 }
-
 
 #switchListButtons {
     width: 100%;
@@ -313,7 +363,6 @@ height: auto;
     width: 49%;
     font-size: 15px;
     /* needs to make the MyList Invisible and hotList visible*/
-
 }
 
 #myListButton {
@@ -329,6 +378,14 @@ height: auto;
 
 .visible {
     display: flex;
+}
+
+.hotList {
+    background-color: #8600ff;
+}
+
+.myList {
+    background-color: #2400ff;
 }
 
 #featuredCryptoList {
@@ -372,8 +429,6 @@ height: auto;
     width: 100%;
 }
 
-/* Copy up to here*/
-
 .topTenList {
     display: flex;
     flex-wrap: wrap;
@@ -381,64 +436,6 @@ height: auto;
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
-}
-
-.menuIcon{
-    max-width: 35%;
-    height:auto;
-}
-
-#topRight h1 {
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Impact', 'Poppins', sans-serif;
-    color: #ff9c00;
-}
-
-.searchResult{
-    font-weight: bold;
-    font-family: 'Impact', 'Poppins', sans-serif;
-    color: #ff9c00;
-}
-
-.searchedImg{
-    height: 150px;
-    width: auto;
-}
-
-#watchListHeader {
-    font-weight: bold;
-    font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
-    font-size: 30px;
-    justify-content: center;
-    color: #ff9c00;
-    margin-left: 10px;
-    padding: 25px 0px;
-}
-
-#watchListIconDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#watchListIconDiv img {
-width: 40px;
-height: auto;
-}
-
-#trendingSearch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#trendingSearch h2 {
-    font-size: 40px;
-    font-weight: bold;
-
 }
 
 .topTen {
@@ -535,32 +532,12 @@ height: auto;
     font-size: 17px;
 }
 
-
 .arrowClassOneToNine {
     position: absolute;
     left: 255px;
     margin-top: 24px;
     height: 20px;
     width: 20px;
-
-.emailIcon {
-    max-width: 2%;
-    height:auto;
-}
-
-
-/* Adds heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 0.625rem;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.1;
-
 }
 
 #arrowClassTen {
@@ -570,104 +547,6 @@ h6 {
     height: 20px;
     width: 20px;
 }
-
-
-a {
-    color: #ff9c00;
-    text-decoration: none;
-}
-
-
-
-
-/* new code to implement for watchList*/
-/* Applies footer style */
-footer {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    clear: both;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-weight: bold;
-}
-
-
-/* Adds heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 0.625rem;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.1;
-}
-
-p {
-    font-size: 12px;
-}
-
-.watchListButtonContent {
-    font-weight: bold;
-    font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
-    font-size: 30px;
-    justify-content: center;
-    color: #ff9c00;
-    background-color: transparent;
-    display: inline;
-    margin: 5px;
-}
-
-#topRight h2 {
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Impact', 'Poppins', sans-serif;
-    color: #ff9c00;
-}
-
-#watchListIconButtonText {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#watchListButtonText img {
-width: 40px;
-height: auto;
-}
-
-/* CSS for styling the market update table */
-#market-update table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin-top: 20px !important;
-}
-
-#market-update th,
-#market-update td {
-    padding: 10px !important;
-    border: 1px solid #ccc !important;
-    text-align: center !important;
-}
-
-#market-update th {
-    background-color: #ff9c00 !important;
-    font-weight: bold !important;
-}
-
-.has-black-background {
-    background-color: black;
-  }
-
-.tabs a {
-    color: #fff; 
-  }
-
-/* Market Update CSS ends here
 
 
 /*JUSHEN'S CHANGES, copy into main branch*/
@@ -712,7 +591,6 @@ height: auto;
     width: 49%;
     font-size: 15px;
     /* needs to make the MyList Invisible and hotList visible*/
-
 }
 
 #myListButton {
@@ -721,6 +599,7 @@ height: auto;
     font-size: 15px;
     /* needs to make the hotList Invisible and MyList visible*/
 }
+
 
 .hidden {
     display: none;
@@ -778,5 +657,3 @@ height: auto;
     height: 2px;
     width: 100%;
 }
-
-/* Copy up to here*/
