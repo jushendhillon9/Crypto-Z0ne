@@ -7,13 +7,15 @@ var cryptoFeaturedImage = $(".featuredCryptoItemImage");
 var cryptoFeaturedName = $(".featuredCryptoItemHeader");
 var cryptoFeaturedPercentChange = $(".featuredCryptoItemPercentChange");
 var cryptoFeaturedPrice = $(".featuredCryptoItemPrice");
+var exitButton = $("#exitButton");
 var featuredCryptoImageLinks = [];
 var featuredCryptoNames = [];
 var featuredCryptoImageChangePercents = [];
 var featuredCryptoImagePrice = [];
+var topHundredSortedByPercentChange = [];
+var negativePercentChanges = [];
 var searchValue;
-var coinID = "bitcoin";
-var coinNews;
+var coinID;
 
 function switchToHotList() {
     myList.removeClass("visible");
@@ -81,6 +83,7 @@ function finnHub (response) {
                     //I can do this within FinnHub... probably wise to do this within FinnHub too...
                 }
             }
+
             }
         )
 };
@@ -189,7 +192,7 @@ watchListButton.on("click", function () {
 
 document.addEventListener("click", function (event) {
     clicked = event.target;
-    if (clicked.matches("#watchListButton") == false && clicked.matches(".watchListButtonContent") == false && clicked.matches(".child") == false && clicked.matches(".grandChild") == false && clicked.matches(".greatGrandChild") == false || clicked.matches("#exitButton") == true ) {
+    if (clicked.matches("#exitButton") == true ) {
         console.log("hello");
         //if the watchListButton has the appear class, then you can run this
         var watchListClass = (watchList.attr("class")).split(" ");
@@ -290,4 +293,88 @@ tabContentBoxes.forEach(box => {
     })
 })
 
-    // market update code ends here
+
+/*my added code*/
+
+function retrieveHotListData() {
+    var requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
+    fetch(requestURL)
+        .then (function (response) {
+            return response.json();
+        })
+        .then (function (data) {
+            for (var i = 0; i < data.length; i++) {
+                topHundredSortedByPercentChange.push(data[i]);
+            }
+            //pushes all the APIs data objects into the array
+            for (var i = 0; i < data.length; i++) {
+                if (topHundredSortedByPercentChange[i].price_change_percentage_24h < 0) {
+                    negativePercentChanges.push(data[i].name);
+                }
+            }
+            
+
+            
+
+            for (var i = 0; i < data.length; i++) {
+                topHundredSortedByPercentChange[i].price_change_percentage_24h = Math.abs(topHundredSortedByPercentChange[i].price_change_percentage_24h);
+            }
+
+            topHundredSortedByPercentChange.sort(function (a,b) {
+                return b.price_change_percentage_24h - a.price_change_percentage_24h;
+            });
+
+            console.log(topHundredSortedByPercentChange);
+            console.log(negativePercentChanges);
+        })
+};
+
+
+function populateHotList() {
+    var topTenImages = $(".topTenImage");
+    var topTenNames = $(".topTenNameUnderEightCharacters")
+    var topTenPercentChanges = $(".topTenPercentage");
+    var topTenArrows = $(".arrow");
+    var index = 0;
+    for (var i = 0; i < 10; i ++) {
+        $(topTenImages[i]).attr("src", topHundredSortedByPercentChange[i].image);
+        $(topTenNames[i]).text(topHundredSortedByPercentChange[i].name);
+        if ((topHundredSortedByPercentChange[i].name).length > 8) {
+            $(topTenNames[i]).attr("class", "topTenNameBetweenEightAndTwelveCharacters");
+        }
+        if ((topHundredSortedByPercentChange[i].name).length > 11) {
+            $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
+        }
+        if ((topHundredSortedByPercentChange[i].name).length > 11) {
+            $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
+        }
+        $(topTenPercentChanges[i]).text((topHundredSortedByPercentChange[i].price_change_percentage_24h).toFixed(1) + "%");
+    }//displaying the top ten percent changes regardless of whether its negative or positive
+
+    for (var i = 0; i < topTenNames.length; i++) {
+        for (var j = 0; j < negativePercentChanges.length; j++) {
+            if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
+                $(topTenPercentChanges[index]).css("color", "red");
+                $(topTenArrows[i]).attr("src", "assets/downwardsArrow.png");
+                //adjusts the arrow symbol and color of percentChange according to whether the coin is under or over for the day
+                index++;
+                //this if loop is ran 10 out of the 910 times, which means it does change the color for the percent change
+            }
+            else {
+                console.log("hello");
+            }
+            
+    }}
+};
+
+
+
+watchListButton.on("click", function () {
+    retrieveHotListData();
+    setTimeout(populateHotList, 200);
+})
+
+exitButton.on("click", function () {
+    setTimeout(switchToHotList, 2000);
+})
+/* up to here*/
