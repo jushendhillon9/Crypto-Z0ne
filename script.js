@@ -143,7 +143,7 @@ submitButton.on("click", function (event) {
     var coinName = document.createElement("h2");
     var coinPrice = document.createElement("p");
     var priceChange = document.createElement("p");
-    var pinButton = $('<button class="pin-button">PIN</button>');
+    var pinButton = $('<button class="pin-button">PIN TO WATCHLIST</button>');
     
     var requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
     fetch (requestURL) 
@@ -197,7 +197,7 @@ submitButton.on("click", function (event) {
                 coinImgg : data[i].image,
                 coinChange : data[i].price_change_percentage_24h
               }
-              localStorage.setItem(coinID, addedCoinId);
+              localStorage.setItem(coinID, addedCoinId.coinName);
             });
             matchFound = true; // Set the flag to true since a match was found
             break; // Exit the loop since a match was found
