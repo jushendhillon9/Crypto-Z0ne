@@ -69,25 +69,50 @@ function getCoinID (response) {
 
 
 function finnHub (response) {
+    var par = document.createElement('p');
+    var NewsDiv = $('news-articles');
+    var start = 0 ;
+    var end = 5;
+    var headLinee = document.createElement('h2');
+    var newsSum = document.createElement('p');
+    var NewsLinkk = document.createElement('a');
+    var Newssrc = document.createElement("p");
+    var line = document.createElement("hr");
+
+
     var requestURL = "https://finnhub.io/api/v1/news?category=crypto&token=cjapurpr01qji1gtr6mgcjapurpr01qji1gtr6n0";
     fetch (requestURL)
         .then (function (response) {
             return response.json();
         })
         .then (function (data) {
-            for (var i = 0; i < data.length; i++)  {
-                var theSummary = (data[i].summary).toLowerCase();
-                var theHeadline = (data[i].headline).toLowerCase();
-                if ((theSummary).includes(coinID) || (theHeadline).includes(coinID)) {
-                    //save data[i] to the array
-                    //next I need to create a function that displays the array to the news Section
-                    //I can do this within FinnHub... probably wise to do this within FinnHub too...
-                }
-            }
+            for (var i = 0; i <5; i++)  {
+                console.log("finnHub Data: " + data[i]);
+                var theHeadline = (data[i].headline);
+                $("#news-articles").append(headLinee);
+                headLinee.innerHTML = "Headline: " + theHeadline;
+                $("#news-articles").append(line)
 
-            }
-        )
+                var theSummary = (data[i].summary);
+                $("#news-articles").append(newsSum);
+                newsSum.innerHTML = "Summary: " + theSummary ;
+                $("#news-articles").append(line)
+
+                var newsLink = (data[i].url);
+                $("#news-articles").append(NewsLinkk);
+                NewsLinkk.setAttribute("href", newsLink );
+                NewsLinkk.innerHTML = "Link: " + newsLink;
+                $("#news-articles").append(line)
+
+
+                var articleSrc = (data[i].source);
+                $("#news-articles").append(Newssrc);
+                Newssrc.innerHTML = "Source: " + articleSrc;
+                $("#news-articles").append(line);
+                }
+            })
 };
+finnHub();
 
 
 
