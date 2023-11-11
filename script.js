@@ -1095,10 +1095,14 @@ let doesItMatch = () =>  {
 const newsLetterSubmitButton = $("#newsLetterSubmitButton");
 let arrayOfEmails = [];
 const submittedEmailForNewsLetter = $("#emailInput");
+const submittedNameForNewsLetter = $("#nameInput");
 newsLetterSubmitButton.on("click", function (event) {
     event.preventDefault();
-    let email = submittedEmailForNewsLetter.val();
-    
+    let name = submittedNameForNewsLetter.val().trim();;
+    let email = submittedEmailForNewsLetter.val().trim();
+    if (email != "" && name != "") {
+        location.reload(true);
+    }
 })
 
 

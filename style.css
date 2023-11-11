@@ -850,6 +850,15 @@ li a {
     width: 20px;
 }
 
+#nameInputAndIcon {
+    position: relative;
+    top: -15px;
+}
+#emailInputAndIcon {
+    position: relative;
+    top: -15px;
+}
+
 #arrowClassTen {
     height: 20px;
     width: 20px;
@@ -1441,7 +1450,7 @@ are the second column's elements*/
 .newsLetterModal {
     width: 500px;
     position: fixed;
-    top: 50vh;
+    top: 35vh;
     left: 50vw;
     transform: translateX(-50%);
     flex-wrap: wrap;
@@ -2355,6 +2364,10 @@ are the second column's elements*/
         width: 400px;
         height: 200px;
     }
+    #nameInputAndIcon, #emailInputAndIcon {
+        position: relative;
+        top: -12px;
+    }
     #joinUsImageOne {
         height: 50px;
         width: 50px;
@@ -2894,6 +2907,14 @@ are the second column's elements*/
     .newsLetterModal {
         width: 300px;
         height: 160px;
+    }
+    #nameInputAndIcon {
+        position: relative;
+        top: -20px;
+    }
+    #emailInputAndIcon {
+        position: relative;
+        top: -30px;
     }
     .newsLetterForm {
         width: 300px;
