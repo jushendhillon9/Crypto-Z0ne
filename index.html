@@ -4,226 +4,599 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-   <link rel = "stylesheet" href = "./style.css">
-</head>
-<body>
+    <link rel = "stylesheet" href = "./style.css">
     <title>Got Crypto?</title>
 </head>
 <body>
-    <section id="topRight">
-        <h1>Crypto-Z0ne</h1>
-        <button id="watchListButton" type = "button" class = "visible">
-            <img class="watchListButtonContent" src="./assets/menu.png" width = "30" height = "30">
-            <div class="watchListButtonContent" style = "margin-right: 15px">Watchlist</div>
-        </button><!--for some reason, img will show inside button if there is no id, but then it wont be recognized by js-->
-    </section>
-    
-    
-
-
-    <section  id="trendingSearch"class="heading">
-        <h2>Trending Crypto</h2>
-        <div id="featuredCryptoDiv" class="mainCenterDiv">  <!--Empty div for now, will be updated dynamically with JS -->
-           <div id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
-               <div class="featuredCryptoItem">
-                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">Trending Crypto 1</div>
-                <div class = "featuredCryptoItemPercentChange">percent Change</div>
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemPrice">price</div>
-               </div>
-               <div class="featuredCryptoItem">
-                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">Trending Crypto 2</div>
-                <div class = "featuredCryptoItemPercentChange">Trending Crypto 3</div>
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemPrice">price</div>
-               </div>
-               <div class="featuredCryptoItem">
-                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">Trending Crypto 4</div>
-                <div class = "featuredCryptoItemPercentChange">percent Change</div>
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemPrice">price</div>
-               </div>
-               <div class="featuredCryptoItem">
-                <img class = "featuredCryptoItemImage" src = "assets/randomIcon.png" width = "100" height = "100">
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemHeader">crypto 4</div>
-                <div class = "featuredCryptoItemPercentChange">percent Change</div>
-                <div class = "linebreak"></div>
-                <div class = "featuredCryptoItemPrice">price</div>
-               </div>
+    <section id = "homePage">
+        <nav id="navbarOne">
+            <div id = "nameAndLogo">
+                <img src = "assets/cryptoZoneLogo.png" id = "projectLogoOne">
+                <h1 id = "projectName">The Crypto-Z0ne</h1>
             </div>
+            <div id = "redirectionTab">
+                <a href = "#market-update">Leader Board</a>
+                <a href = "#news-articles">Top News</a>
+                <a href = "#joinUs">Join Us</a>
+                <a href ="#contactUs">Contact</a>
+            </div>
+            <button class="watchListButton" type = "button" class = "visible" style = "margin-top: 10px;">
+                <img class="watchListButtonPhoto" src="./assets/menu.png">
+                <div class="watchListButtonContent" style = "margin-right: 15px">Watchlist</div>
+            </button>
+        </nav>
+        <section  id="trendingSearch"class="heading">
+            <section id = "topHeader">
+                <img id = "gifOne" class = "imageMovement" src = "assets/bitcoinGIF.gif">
+                <h2 id = "mainHeader" style = "color: #FFFFF0;">Analyze & Invest <br> <span id = "cryptoCurrencies">Crypto Currencies</span></h2>
+                <img id = "gifTwo" class = "imageMovement" src = "assets/ethereumCoin.png">
+            </section>  <!--Empty div for now, will be updated dynamically with JS -->
+            <div id="featuredCryptoList"> <!-- Empty list for now, will append clickable icons w/JS-->
+                <div class="featuredCryptoItem">
+                    <img class = "featuredCryptoItemImage">
+                    <div class = "linebreak"></div>
+                    <div id = "carouselAnimation">
+                        <div class = "featuredCryptoItemHeader">Crypto 1</div>
+                    </div>
+                    <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                    <div class = "linebreak"></div>
+                    <div class = "featuredCryptoItemPrice">price</div>
+                </div>
+                <div class="featuredCryptoItem">
+                    <img class = "featuredCryptoItemImage">
+                    <div class = "linebreak"></div>
+                    <div id = "carouselAnimation">
+                        <div class = "featuredCryptoItemHeader">Crypto 2</div>
+                    </div>
+                    <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                    <div class = "linebreak"></div>
+                    <div class = "featuredCryptoItemPrice">price</div>
+                </div>
+                <div class="featuredCryptoItem">
+                    <img class = "featuredCryptoItemImage">
+                    <div class = "linebreak"></div>
+                    <div id = "carouselAnimation">
+                        <div class = "featuredCryptoItemHeader">Crypto 3</div>
+                    </div>
+                    <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                    <div class = "linebreak"></div>
+                    <div class = "featuredCryptoItemPrice">price</div>
+                </div>
+                <div class="featuredCryptoItem">
+                    <img class = "featuredCryptoItemImage">
+                    <div class = "linebreak"></div>
+                    <div id = "carouselAnimation">
+                        <div class = "featuredCryptoItemHeader">Crypto 4</div>
+                    </div>
+                    <div class = "featuredCryptoItemPercentChange">percent Change</div>
+                    <div class = "linebreak"></div>
+                    <div class = "featuredCryptoItemPrice">price</div>
+                </div>
+            </div>
+            <div class = "linebreak"></div>
             <form id="cryptoSearchForm">
                 <input  id = "searchValue" type="text" placeholder="Search for crypto...">
-                <button id = "submitButton"> Search</button>
+                <button id = "submitButton">Search</button>
             </form>
+        </section>
+        <section class="watchList">
+            <div id = "switchListButtons" class = "child">
+                <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List  🔥</button> <!--add a cool fire emoji maybe... -->
+                <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
+            </div>
+            <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
+                <ul class = "grandChild topTenList">
+                    <li id = "entryOne" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">1</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">2</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">3</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">4</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">5</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">6</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">7</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">8</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">9</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "entryTwo" class = "topTen">
+                        <div id = "numberAndBorderTen">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">10</div>
+                            <div class = "numberBorderTen"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage">
+                        <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
+                            <div class = "topTenPercentage" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="myList child hidden">
+                <ul class = "grandChild unOrderedMyList">
+                    <li id = "greatGrandChild"></li>
+                </ul>
+            </div>
+        </section>
     </section>
-    
-    <div id="searchResultsDiv"></div>
-
-    <section class="watchList">
-        <div class = "watchListImage"></div>
-        <button id = "exitButton">X</button>
-        <div class = "child" id = "switchListButtons">
-            <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List  🔥</button> <!--add a cool fire emoji maybe... -->
-            <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
-
+        <!-- pv add bulma css framework tabs -->
+    <section id = "afterHomePage">
+        <div id="market-update" class="marketLeadersClass">
+            <div class = "tableBackground">
+                <div class = "title marketLeadersHeader" style = "margin-top: 10px; margin-bottom: 5px;">Market Leaders</div>
+                <div id = "paginationButtons">
+                <button class = "marketButtons" id = "buttonOne">1</button>
+                <button class = "marketButtons" id = "buttonTwo">2</button>
+                <button class = "marketButtons" id = "buttonThree">3</button>
+                <button class = "marketButtons" id = "buttonFour">4</button>
+                <button class = "marketButtons" id = "buttonFive">5</button>
+            </div>
+            </div>
+            <table id = "table" class = "tableBackground">
+                <thead>
+                    <tr id = "tableHeaderRow">
+                        <th id = "coinNameAndImage">Coin</th>
+                        <th id = "coinPrice">Price</th>
+                        <th id = "coinPercentChange">24h Change</th>
+                        <th id = "coinMarketCap">Market Cap</th>
+                    </tr>
+                </thead>
+                <tbody id = "tableBody">
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div> <!--displays marketLeaders-->
+        <div class = "linebreak"></div>
+        <div id ="news-articles" style = "background-color: black;">
+            <h3 class="title" style="color:#fff; text-align: center; margin-top: 10px; margin-bottom: 20px">Top Crypto News</h3>
         </div>
-        <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
-            <ul class = "grandChild topTenList">
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">1</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">2</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">3</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">4</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">5</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">6</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">7</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">8</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div class = "topTenNumberOneToNine">9</div>
-                    <div class = "numberBorderOneToNine"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow arrowClassOneToNine">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-                <div class = "linebreak"></div>
-                <li id = "greatGrandChild" class = "topTen">
-                    <div id = "topTenNumberTen">10</div>
-                    <div id = "numberBorderTen"></div>
-                    <img src = "assets/menu.png" class = "topTenImage">
-                    <div class = "topTenNameUnderEightCharacters">Bitcoin</div>
-                    <img src = "assets/UpwardsArrow.png" class = "arrow" id = "arrowClassTen">
-                    <div class = "topTenPercentage" style = "color: green">1.0%</div>
-                </li>
-            </ul>
+        <div id = "options">
+            <img id = "gifThree" class = "imageMovement" src = "assets/bitcoinGIF.gif">
+            <div id = "joinUs">Stay Informed On Our</div>
+            <img id = "gifFour" class = "imageMovement" src = "assets/ethereumCoin.png">
         </div>
-        <div class="myList child hidden">
-            <ul class = "grandChild">
-                <li id = "greatGrandChild" style = "color: red;">Goodbye!</li>
-            </ul>
-        </div>
-    </section>
-    <br><br>
-
-    <!-- pv add bulma css framework tabs -->
-    <section id="tabs"><div class="tabs is-toggle is-fullwidth">
-        <ul>
-          <li data-target="market-update">
-            <a>Market Update</a>
-          </li>
-          <li data-target="news-articles">
-            <a>News Articles</a>
-          </li>
-          <li data-target="contact-us" class="is-active">
-            <a>Contact Us</a>
-          </li>
-        </ul>
-      </div>
-      <class="2-px" id="tab-content">
-      <div id="market-update" class="is-hidden has-black-background"></div>
-      <div id="news-articles" class="is-hidden has-black-background">
-        <h3 class="is-size-5 title" style="color:#fff">Top Crypto News</h3>
-      </div>
-      <div id="contact-us" class="has-black-background">
-        <h3 class="is-size-5 title" style="color:#fff">Contact Us</h3>
-        <p style="font-size: 16px">Our team is here to assist you. If you have any questions, comments, or feedback, feel free to get in touch with us through email. We value your input and look forward to hearing from you.</p>
-        <ul style="text-align: center">
-            <li>
-                <img src="./assets/email-icon-121.png" style="vertical-align: middle; margin-right: 10px;" class="emailIcon">
-                <a href="mailto:jacobg4@uci.edu"><b>Jacob's Email</b></a>
-            </li>
-            <li>
-                <img src="./assets/email-icon-121.png" style="vertical-align: middle; margin-right: 10px;" class="emailIcon">
-                <a href="mailto:jdhillo19@gmail.com"><b>Jushen's Email</b></a>
-            </li>
-            <li>
-                <img src="./assets/email-icon-121.png" style="vertical-align: middle; margin-right: 10px;" class="emailIcon">
-                <a href="mailto:pvang1987@gmail.com"><b>Pa's Email</b></a>
-            </li>
-        </ul>
-    </div>
-    </section> 
-
-      <!-- tab code ends here -->
-      
-            <footer>
-                <div id="Team">
-                    <p>Team: Jacob, Jushen and Pa</p>
-                     <p>&copy; 2023 Crypto-Z0ne</p>
-                     <p>Powered by: CoinGeico & Finnhub</p>
+        <div id = "joinUsSection">
+            <div id ="discordContainer">
+                <div id = "discord">DISCORD</div>
+                <div id = "discordDescription">Live Updates and Daily Analysis from Experts</div>
+                <div class = "linebreak"></div>
+                <button id = "discordButton">
+                    <div style = "font-weight: bold">Discord</div>
+                </button>
+            </div>
+            <div class = "linebreak"></div>
+            <div class = "newsLetterContainer">
+                <div id = "newsLetter">NEWS LETTER</div>
+                <div id = "newsLetterDescription">Weekly Emails Recapping Top Performers and Market Updates</div>
+                <div class = "linebreak"></div>
+                <button id = "newsLetterButton" type = "submit" style = "font-weight: bold">News Letter</button>
+                <div class = "newsLetterModal hidden">
+                    <form class = "newsLetterForm">
+                        <button id = "newsLetterExitButton">
+                            <ion-icon id = "xIcon" name="add-outline"></ion-icon>
+                        </button>
+                        <p>Subscribe to our News Letter!</p>
+                        <div id = "nameInputAndIcon">
+                            <input id ="nameInput" placeholder = "Full Name">
+                            <ion-icon id = "nameIcon" name="person-outline"></ion-icon> 
+                        </div>
+                        <div class = "linebreak"></div>
+                        <div id = "emailInputAndIcon">
+                            <input id = "emailInput" placeholder = "Email">
+                            <ion-icon id = "emailIcon" name="mail-outline"></ion-icon>
+                        </div>
+                        <img id = "joinUsImageOne" src = "assets/joinUsImageFour.png">
+                        <img id = "joinUsImageTwo" src = "assets/joinUsImageThree.webp">
+                        <div class = "linebreak"></div>
+                        <button id = "newsLetterSubmitButton" type="submit">Submit</button>
+                    </form>
                 </div>
-            </footer>
+            </div>
+        </div>
+        <div class = "linebreak"></div>
+        <div id="contactUs" class="has-black-background">
+            <h3 id = "contactUsHeader">Contact Us</h3>
+            <p id = "contactUsDecription" >Our team is here to assist you. If you have any questions, comments, or feedback, feel free to get in touch with us through email. We value your input and look forward to hearing from you.</p>
+            <ul id = "emailLinks" style="text-align: center; margin-bottom: -50px;">
+                <li>
+                    <img class = "emailIcon2" src="./assets/email-icon-121.png">
+                    <a href="mailto:jdhillo19@gmail.com"><b>Jushen's Email</b></a>
+                </li>
+                <div class = "linebreak"></div>
+                <li>
+                    <img class = "emailIcon2"  src="./assets/email-icon-121.png">
+                    <a href="mailto:pvang1987@gmail.com"><b>Pa's Email</b></a>
+                </li>
+                <div class = "linebreak"></div>
+                <li>
+                    <img class = "emailIcon2" src="./assets/email-icon-121.png">
+                    <a href="mailto:jacobg4@uci.edu"><b>Jacob's Email</b></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer id = "footer">
+        <section class="endingImages">
+            <img class = "bitcoinPot" src = "assets/bitcoinPot.png">
+            <img class = "bitcoinPresent" src = "assets/bitcoinPresent.png">
+        </section>
+        <div id="Team">
+            <p>Team: Jushen, Pa, and Jacob</p>
+                <p>&copy; 2023 Crypto-Z0ne</p>
+                <p>Powered by: CoinGecko, Finnhub, & Chart.js
+            </p>
+        </div>
+    </footer>
+    <section id = "searchedCryptoPage">
+        <nav id="navbarOne">
+            <div id = "nameAndLogo">
+                <img src = "assets/cryptoZoneLogo.png" id = "projectLogoOne">
+                <h1 id = "projectName">The Crypto-Z0ne</h1>
+            </div>
+            <div id = "redirectionTab">
+                <a href = "#market-update">Leader Board</a>
+                <a href = "#news-articles">Top News</a>
+                <a href = "#joinUs">Join Us</a>
+                <a href ="#contactUs">Contact</a>
+            </div>
+            <button class="watchListButton" type = "button" class = "visible" style = "margin-top: 10px;">
+                <img class="watchListButtonPhoto" src="./assets/menu.png">
+                <div class="watchListButtonContent" style = "margin-right: 15px">Watchlist</div>
+            </button>
+        </nav>
+        <section class="watchList">
+            <div id = "switchListButtons" class = "child">
+                <button id = "hotListButton" class = "grandChild" onclick = "switchToHotList()">Hot List  🔥</button> <!--add a cool fire emoji maybe... -->
+                <button id = "myListButton" class = "grandChild" onclick = "switchToMyList()">My List</button> <!--for equality reasons, should give this button an emoji -->
+            </div>
+            <div class="hotList child visible"> <!-- this is the watchlist for the most promising cryptos -->
+                <ul class = "grandChild topTenList">
+                    <li id = "entryOne" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">1</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">2</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">3</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">4</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">5</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">6</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">7</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">8</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "greatGrandChild" class = "topTen">
+                        <div class = "numberAndBorder">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">9</div>
+                            <div class = "numberBorderOneToNine"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                    <div class = "linebreakTwo"></div>
+                    <li id = "entryTwo" class = "topTen">
+                        <div id = "numberAndBorderTen">
+                            <div class = "topTenNumberOneToNine" style = "color: #FFD700; border-color: #FFD700;">10</div>
+                            <div class = "numberBorderTen"></div>
+                        </div>
+                        <img src = "assets/menu.png" class = "topTenImage2">
+                        <div class = "topTenNameUnderEightCharacters2">Bitcoin</div>
+                        <div id = "topTenChanges">
+                            <img src = "assets/UpwardsArrow.png" class = "arrow2 arrowClassOneToNine">
+                            <div class = "topTenPercentage2" style = "color: green">1.0%</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="myList child hidden">
+                <ul class = "grandChild unOrderedMyList">
+                    <li id = "greatGrandChild"></li>
+                </ul>
+            </div>
+        </section>
+        <div id="searchResultsDiv">
+            <div id = "leftSection">
+                <div id = "searchedCryptoImageAndName">
+                    <div id = "searchedCryptoNameAndSymbol" class = "is-size-2">Bitcoin (BTC)</div>
+                    <div class = "linebreak"></div>
+                    <div id = "rank" class = "is-size-3">Rank: </div>
+                    <div id = "searchedCryptoRank" class = "is-size-3">1/100</div>
+                    <div class = "linebreak"></div>
+                    <div id = "searchedCryptoImageContainer">
+                        <img id = "searchedCryptoImage" class = "box" src = "assets/bitcoinGIF.gif">
+                    </div>
+                    <div class = "linebreak"></div>
+                </div>
+                <div class = "linebreak"></div>
+                <div id = "suggestedCryptos">
+                    <div id = "suggestedCryptosHeader">Coins Like </div>
+                    <table id = "tableTwo">
+                        <thead>
+                            <tr id = "tableHeaderRowTwo">
+                                <th id = "coinNameAndImage" class = "tableHeaderTwo">Coin</th>
+                                <th id = "coinPriceTwo" class = "tableHeaderTwo">Price</th>
+                                <th id = "coinMarketCapTwo" class = "tableHeaderTwo">Market Cap</th>
+                            </tr>
+                        </thead>
+                        <tbody id = "tableBodyTwo">
+                            <tr></tr>
+                            <tr></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id = "middleSection">
+                <div id = "searchedCryptoBasicStats"> 
+                    <div id = "dailyPerformanceContainer">
+                        <div id = "dailyPerformance">Daily Performance: </div>
+                        <div id = "searchedCryptoPercentChange">+5.0%</div>
+                    </div>
+                    <div class = "linebreak"></div>
+                    <div id = "searchedCryptoPriceStats">
+                        <div id = "allTimeHigh">All-time High: </div>
+                        <div class = "linebreak"></div>
+                        <div id = "currentValue" >Current Value: </div>
+                        <div class = "linebreak"></div>
+                        <div id = "allTimeLow">All-time Low: </div>
+                    </div>
+                </div>
+                <div class = "linebreak"></div>
+                <div id = "chartContainer">
+                    <canvas id = "searchedCryptoGraph"></canvas>
+                </div>
+                <div class = "linebreak"></div>
+                <div id = "searchFormContainer">
+                    <form id="cryptoSearchFormTwo">
+                        <input id = "searchValueTwo" type="text" placeholder="Search New Crypto...">
+                        <button id = "submitButtonTwo"> Search</button>
+                        <button class="pin-button">
+                            <div class = "pin-button-text">Pin</div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div id = "rightSection">
+                <div id = "searchPageButtons">
+                    <button id = "returnToHomePageButton">
+                        <div id = "returnText" >Return</div>
+                        <ion-icon id = "returnIcon" name="return-up-back-outline"></ion-icon>
+                    </button>
+                </div>
+                <div id = "searchedCryptoRecentNews">
+                    <header id = "cryptoNewsArticlesHeader">Recent News:</header>
+                    <div id = "cryptoNewsArticles">
+                        <div>
+                            <h2>Bitcoin price holds $26K as MKR, AAVE, RUNE and RNDR flash bullish signals</h2>
+                            <p>Bitcoin looks ready to start a relief rally and this could trigger interest in MKR, AAVE, RUNE and RNDR.</p>
+                            <a>https://cointelegraph.com/news/bitcoin-price-holds-26k-as-mkr-aave-rune-and-rndr-flash-bullish-signals</a>
+                            <p>Cointelegraph</p>
+                            <hr></hr>
+                        </div> 
+                        <div>
+                            <h2>Bitcoin price settles at $26.5K as key Fed inflation week dawns</h2>
+                            <p>Bitcoin and crypto brace for FOMC, while BTC price action delivers a refreshingly calm weekend.</p>
+                            <a>https://cointelegraph.com/news/bitcoin-price-key-fed-inflation-week-dawns</a>
+                            <p>Cointelegraph</p>
+                            <hr></hr>
+                        </div>
+                    </div>
+                <div id = "noArticlesDiv" class="hidden">No Mainstream Articles Available</div>
+            </div>
+        </div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

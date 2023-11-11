@@ -3,7 +3,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: '', sans-serif;
+    box-sizing: border-box;
 }
 
 
@@ -25,22 +26,26 @@ background-color: #05080e;
 
 /* Adds body styles */
 body {
-margin: 0px 0px;
-padding: 0;
-width: 100%;
-min-height: 100vh;
-background-image: url("assets/fabio-oyXis2kALVg-unsplash.jpg");
-background-attachment: fixed;
-background-position: center;
-background-size: cover;
-padding: 0 7%;
-color: #fff;
-margin-bottom: 80px;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url(assets/fabio-oyXis2kALVg-unsplash.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    margin-bottom: 80px;
+    padding-bottom: -100px;
+    margin: 0;
+}
+
+
+#homePage {
+    display: block;
 }
 
 
 /* Adds heading styles */
-h1,
 h2,
 h3,
 h4,
@@ -51,27 +56,193 @@ h6 {
     font-weight: 700;
     line-height: 1.1;
 }
+
+#market-update th,
+#market-update td {
+    padding: 10px !important;
+    text-align: center !important;
+}
+
+#searchResultsDiv {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: hidden;
+}
+
+#leftSection {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+    width: 25%;
+    height: 100%;
+    align-items: center;
+}
+
+#middleSection {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#rightSection {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    bottom: 30px;
+    width: 25%;
+    align-items: flex-end;
+    height: 100%;
+}
+#searchPageButtons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.watchListButtonPhoto {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+#paginationButtons {
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+.headline {
+    font-size: 19px !important;
+}
+.newsSum {
+    font-size: 15px !important;
+    margin: 5px;
+}
+.NewsLinkk {
+    font-size: 10px !important;
+    margin: 5px;
+}
+.Newssrc {
+    font-size: 12px !important;
+    margin: 5px;
+    font-weight: bold;
+}
+
+#carouselAnimation {
+position: relative;
+overflow: hidden;
+width: 250px; /* Adjust the width as needed */
+height: 50px; /* Adjust the height as needed */
+}
+
+.featuredCryptoItemHeader{
+    position: absolute;
+    right: 1px;
+    animation: moveText 4s linear infinite;
+    font-weight: bold;
+}
+
+@keyframes moveText {
+    0%, 100% {
+      left: 0%;
+    }
+    25% {
+      left: -55%;
+    }
+    75% {
+      right: -55%;
+    }
+  }
+
+#cryptoCurrencies {
+    background-image: linear-gradient(to right, #FFAC1C, #1CAC78);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#navbarOne {
+    background-color: black;
+    margin-bottom: 30px;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    padding: 0 0% !important;
+    height: 100px;
+}
+
+#projectLogoOne {
+    width: 54px;
+    height: 52px;
+    margin-right: 14px;
+}
+
+#projectName {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    color: #ff9c00;
+    margin-top: 3px;
+    vertical-align: center;
+}
+
+#nameAndLogo {
+    display: flex; 
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#nameAndLogoTwo {
+    display: flex; 
+    flex-wrap: nowrap;
+    margin-left: 20px;
+}
+
+#redirectionTab {
+    margin-right: 110px;
+    vertical-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: bold;
+}
+
+#redirectionTab a {
+    margin-right: 10px;
+    padding-bottom: 2px;
+    font-size: 20px;
+    padding: 5px;
+}
+#redirectionTab a:hover {
+    margin-bottom: 5px;
+    border-bottom: 0px;
+    color: #1CAC78;
+    text-decoration: none;
+}
+
 #topRight {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
 }
 
-#topRight h1 {
+#topHeader h2 {
     font-size: 80px;
     font-weight: bold;
     font-family: 'Impact', 'Poppins', sans-serif;
-    color: #ff9c00;
+    color: black;
 }
-
-#topRight h2 {
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Impact', 'Poppins', sans-serif;
-    color: #ff9c00;
-}
-
 
 /* Default paragraph font size */
 p {
@@ -101,6 +272,8 @@ footer {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     font-weight: bold;
+    padding: 0 7%;
+    padding-bottom: 50px;
 }
 
 
@@ -111,7 +284,6 @@ footer {
 }
 
 .searchResult{
-    font-weight: bold;
     font-family: 'Impact', 'Poppins', sans-serif;
     color: #ff9c00;
 }
@@ -119,35 +291,53 @@ footer {
 #searchResultsDiv{
     display: flex;
     flex-direction: row;
-    align-items: baseline;
     justify-content: center space-evenly;
 }
 
-#trendingSearch {
+#trendingSearch { 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+#topHeader {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
 
 #trendingSearch h2 {
-    font-size: 40px;
+    font-size: 70px;
+    font-weight: bold;
+    width: 700px;
+}
+
+#submitButton {
+    cursor: pointer;
     font-weight: bold;
 }
 
 #cryptoSearchForm {
-    display: flex;
-    align-items: center;
+    margin-bottom: 70px;
 }
 
 #searchValue,
-#submitButton {
+#submitButton,
+#searchValueTwo,
+#submitButtonTwo {
     display: inline-block;
     border-radius: 20px;
     margin-top: 30px;
     padding: 8px 15px;
-    border: 1px solid #2400ff;
+    border: 1px solid #1CAC78;
+    background-color: orange;
+    color: white;
 }
 
 #searchValue {
@@ -161,22 +351,37 @@ footer {
     text-decoration: none;
 }
 
-#featuredCryptoDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
 #featuredCryptoList {
     list-style: none; 
+    flex-direction: column;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #featuredCryptoItem {
-    display: inline-block;
     margin: 10px; 
+}
+
+#searchedCryptoPriceStats {
+    position: relative;
+    top: 10px;
+}
+
+#searchValue, #searchValueTwo {
+    background: transparent;
+    color: white;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid white;
+}
+#submitButtonTwo {
+    cursor: pointer;
+}
+
+#searchValue::placeholder {
+    color: white;
+    font-weight: bold;
 }
 
 
@@ -202,6 +407,12 @@ width: 40px;
 height: auto;
 }
 
+.watchListButton, .watchListButtonTwo {
+    display: flex;
+    height: 50px;
+}
+
+
 .watchListButtonContent {
     font-weight: bold;
     font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
@@ -211,17 +422,6 @@ height: auto;
     background-color: transparent;
     display: inline;
     margin: 5px;
-}
-
-#watchListIconButtonText {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#watchListButtonText img {
-width: 40px;
-height: auto;
 }
 
 .menuIcon{
@@ -235,48 +435,86 @@ height: auto;
     color: #fff; 
   }
 
-.has-black-background {
+.marketLeadersClass {
+    margin-bottom: 50px;
+    margin-right: 7%;
+    margin-left: 7%;
+    display: block;
+}
+
+.tableBackground {
     background-color: black;
-  }
-
-#market-update table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin-top: 20px !important;
 }
 
-#market-update th,
-#market-update td {
-    padding: 10px !important;
-    border: 1px solid #ccc !important;
-    text-align: center !important;
+.marketLeadersHeader {
+    text-align: center;
+    font-weight: bold;
 }
 
-#market-update th {
-    background-color: #ff9c00 !important;
-    font-weight: bold !important;
+
+#marketUpdate {
+    margin-bottom: 300px;
 }
+
 
 #contactUs {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    text-align: right; 
-    margin: 0 20px 20px 0; 
+    margin-top: 50px;
+    padding-bottom: -50px;
+    margin-right: 7%;
+    margin-left: 7%;
+    height: 350px;
 }
 
-#contactUs h3 {
-    font-size: 20px;
+#contactUsDecription {
+    font-size: 23px; 
+    width: 65%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 60px;
+
+}
+
+#contactUsHeader {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#emailLinks {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    color: #ff9c00;
+    align-items: center;
+    overflow-y: visible;
+    overflow-x: visible;
 }
 
-
-.emailIcon {
-    max-width: 2%;
-    height:auto;
+.emailIcon2 {
+    height: 23px;
+    margin-right: 10px;
 }
 
+#emailLinks li {
+    display: flex;
+    align-items: center;
+    overflow-y: visible;
+    overflow-x: visible;
+}
+
+#emailLinks li a:hover {
+    color: #1CAC78;
+    text-decoration: none;
+}
+
+li a {
+    font-size: 19px;
+    font-weight: bold;
+    color: orange;
+    overflow-y: visible;
+    overflow-x: visible;
+}
 
 /* CSS for the search results */
 .search-result {
@@ -313,38 +551,55 @@ height: auto;
     margin-bottom: 5px;
 }
 
-.pin-button {
-    background-color: #8600ff;
-    color: #fff;
-    border: none;
-    border-radius: 20%;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
 
 
 /*JUSHEN'S CSS CHANGES*/
 .watchList {
-    height: 100vh;;
+    height: 100%;
     width: 370px;
     position: absolute;
+    z-index: 2;
     top: 0px;
     right: -370px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    transition: transform 2s ease-in-out;
-    background-image: url(./assets/watchListBackground.webp);
+    transition: transform 1s ease-in-out;
     background-size: 100% 100%;
+}
+
+.watchList::before { /* ::before or ::after does not matter here because whether or not the pseudo element is inserted into the html before or after the .watchList does not make a difference*/
+    content: ""; /*need to include this to have it work*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .watchList.appear {
     transform: translateX(-370px);
 }
 
-.redColor {
-    color: red;
+.imageMovement {
+    animation: iconUpAndDown 3s ease-in-out infinite;
+}
+
+@keyframes iconUpAndDown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(40px);
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
 }
 
 @keyframes color-change {
@@ -359,31 +614,33 @@ height: auto;
     }
   }
 
-/* #exitButton {
-    height: 20px;
-    width: 10%;
-    position: relative;
-    left: 90%;
-} */
-
 #switchListButtons {
     width: 100%;
-    height: 39px;
+    z-index: 1;
 }
 
 #hotListButton{
     height: 100%;
     width: 49%;
-    font-size: 15px;
+    background-color: #1CAC78;
+    font-weight: bold;
     /* needs to make the MyList Invisible and hotList visible*/
 }
 
 #myListButton {
     height: 100%;
     width: 49%;
-    font-size: 15px;
+    background-color: #ff9c00;
+    font-weight: bold;
     /* needs to make the hotList Invisible and MyList visible*/
 }
+
+#returnText {
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
 
 .hidden {
     display: none;
@@ -393,13 +650,14 @@ height: auto;
     display: flex;
 }
 
-/* .hotList {
-    background-color: #8600ff;
+.hotList {
+    backdrop-filter: blur(10px);
 }
 
 .myList {
-    background-color: #2400ff;
-} */
+    height: 100vh;
+    backdrop-filter: blur(10px);
+} 
 
 #featuredCryptoList {
     display: flex;
@@ -417,24 +675,30 @@ height: auto;
     justify-content: space-around;
     width: 150px;
     margin: 25px;
+    color: #1CAC78;
 }
 
 .featuredCryptoItemImage {
     margin: 5px;
     display: block;
+    width: 100px;
+    height: 100px;
 }
 
 .featuredCryptoItemHeader {
-    font-size: 15px;
+    font-size: 25px;
 }
 
 .featuredCryptoItemPercentChange {
-    font-size: 15px;
+    font-size: 25px;
+    color: #ff9c00;
+    font-weight: bold;
 }
 
 .featuredCryptoItemPrice{
     font-size: 15px;
     width: 100%;
+    font-weight: bold;
 }
 
 .linebreak {
@@ -442,23 +706,48 @@ height: auto;
     width: 100%;
 }
 
+.linebreakTwo {
+    height: 2px;
+    width: 100%;
+}
+
 .topTenList {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: -27px;
+    margin-top: -30px;
+}
+
+.watchList {
     display: flex;
     flex-wrap: wrap;
 }
 
-.topTen {
-    display: flex;
-    margin: 19px;
-    margin-top: 15px;
-    margin-bottom: 0px;
-    font-size: 10px;
+#switchListButtons {
+    height: 5%;
 }
 
-.topTenNumberOneToNine {
-    margin-top: 7px;
-    margin-right: 20px;
-    font-size: 33px;
+.hotList {
+    position: relative;
+    top: 4%;
+    height: 94%;
+}
+
+.topTenList{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.topTen {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 #topTenNumberTen {
@@ -466,82 +755,3566 @@ height: auto;
     margin-top: 7px;
     left: 11px;
     font-size: 33px;
+    color: white;
+    font-weight: bold;
+}
+
+.numberAndBorder {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 60px;
+    position: relative;
+    left: 5px;
+}
+
+#numberAndBorderTen {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 85px;
+    position: relative;
+    right: 5px;
+    margin-right: -25px;
+}
+
+.topTenNumberOneToNine {
+    position: relative;
+    left: 13px;
+    top: 2px;
+    font-size: 33px;
+    color: white;
+    font-weight: bold;
 }
 
 .numberBorderOneToNine{
+    position: relative;
+    right: 15px;
+    top: 7px;
     border: 2px solid white;
     border-radius: 95%;
-    position: relative;
-    top: 13px;
-    right: 48px;
-    width: 37px;
-    height: 37px;
+    width: 38px;
+    height: 38px;
 }
 
-#numberBorderTen {
+.numberBorderTen {
+    position: relative;
+    right: 28px;
+    top: 3px;
     border: 2px solid white;
     border-radius: 95%;
-    position: relative;
-    top: 9px;
-    left: -11px;
-    width: 44px;
-    height: 44px;
+    width: 47px;
+    height: 47px;
 }
 
-.topTenImage {
-    position: absolute;
-    left: 47px;
-    margin-top: 11px;
-    margin-left: 9px;
+
+.topTenImage, .topTenImage2 {
     height: 40px;
     width: 40px;
     font-size: 10px;
     border: 3px solid black;
     background-color: #FFD700;
     animation: color-change 2s infinite;
+    margin: 5px;
+}
+
+#topTenChanges {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10px;
 }
 
 
-.topTenPercentage {
-    position: absolute;
-    margin-top: 11px;
-    right: 5px;
+.topTenPercentage, .topTenPercentage2 {
     font-size: 30px;
+    margin-left: 5px;
 }
 
-.topTenNameUnderEightCharacters {
-    position: absolute;
-    margin-left: 85px;
-    margin-top: 14px;
+.topTenNameUnderEightCharacters, .topTenNameUnderEightCharacters2 {
     font-size: 25px;
+    color: white;
 }
 
 .topTenNameBetweenEightAndTwelveCharacters {
-    position: absolute;
-    margin-left: 85px;
-    margin-top: 15px;
-    font-size: 22px;
+    font-size: 20px;
+    color: white;
 }
 
 .topTenNameOverTwelveCharacters {
-    position: absolute;
-    margin-left: 85px;
-    margin-top: 19px;
     font-size: 17px;
+    color: white;
 }
 
 .arrowClassOneToNine {
-    position: absolute;
-    left: 255px;
-    margin-top: 24px;
     height: 20px;
     width: 20px;
 }
 
 #arrowClassTen {
-    position: absolute;
-    left: 255px;
-    margin-top: 24px;
     height: 20px;
     width: 20px;
+}
+
+.endingImages {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.bitcoinPot {
+    height: 300px;
+    width: 300px;
+}
+
+.bitcoinPresent {
+    height: 300px;
+    width: 300px;
+}
+
+#navbarTwo {
+    background-color: black;
+    margin-bottom: 30px;
+    z-index: 0;
+    width: 100vw;
+    margin-left: -103px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#projectLogoTwo {
+    width: 64px;
+    height: 62px;
+    margin-right: 30px;
+    margin-top: 7px;
+}
+
+#searchedCryptoPage {
+    display: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#searchResultsDiv {
+    height: calc(100vh - 900px);
+    width: 100vw;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    height: 85%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#middleSection {
+    padding-bottom: -150px;
+    position: relative;
+    bottom: 7px;
+}
+
+#searchedCryptoBasicStats {
+    color: #ff9c00;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 35%;
+}
+
+#searchFormContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 10%;
+    position: relative;
+    bottom: 10px;
+}
+
+#searchedCryptoPercentChange {
+    justify-content: center;
+    font-size: 50px;
+    position: relative;
+    top: 4px;
+
+}
+
+#rightSection {
+    position: relative;
+    top: 0px;
+}
+
+#dailyPerformance, #searchedCryptoPercentChange {
+    justify-content: center;
+    font-size: 45px;
+    position: relative;
+    top: 3px;
+}
+
+#dailyPerformance {
+    position: relative;
+    right: 7px;
+}
+
+#dailyPerformanceContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#searchedCryptoPriceStats {
+    margin-top: -15px;
+}
+
+#searchedCryptoImageAndName {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #343434;
+    border: 5px solid #1CAC78;
+    border-radius: 10%;
+    width: 70%;
+    height: auto;
+}
+
+
+#searchedCryptoNameAndSymbol {
+    color: #ff9c00;
+    font-weight: bold;
+    margin-bottom: -15px;
+    text-align: center;
+    font-size: 25px !important;
+}
+
+#searchedCryptoImageContainer {
+    padding: 12px;
+}
+
+#searchedCryptoImage {
+    border: 5px solid #ff9c00;;
+    padding: 10px;
+}
+
+
+#rank {
+    font-weight: bold;
+    color: #1CAC78;
+    font-style: italic;
+    font-size: 20px;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    position: relative;
+    top: 5px;
+}
+
+#searchedCryptoRank {
+    color: #1CAC78;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+#searchedCryptoPriceStats {
+    color: #ff9c00;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#allTimeHigh {
+    border-bottom: 2px solid ;
+    margin: 5px;
+}
+
+#currentValue {
+    border-bottom: 2px solid ;
+    margin: 5px;
+}
+
+#allTimeLow {
+    border-bottom: 2px solid ;
+    margin: 5px;
+}
+
+#chartContainer {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#searchedCryptoGraph {
+    width: 100%;
+    height: auto;
+    border: 3px solid #1CAC78;
+    background-color: #343434;
+    color: white;
+    font-family: 'Impact', 'Poppins', sans-serif;
+}
+
+.pin-button {
+    height: 50px;
+    width: 50px;
+    background-color: #343434;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid #1CAC78;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 27px;
+    border-radius: 50%;
+    margin-left: 20px;
+    position: relative;
+}
+
+.pin-button-text {
+    font-size: 15px;
+    font-family: 'Impact', 'Poppins', sans-serif;
+}
+
+#returnToHomePageButton {
+    height: 50px;
+    background-color: #343434;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid #1CAC78;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+.pin-button:hover {
+    background-color: #1CAC78;
+    background-image: url(assets/add-circle-outline.svg);
+    background-size: 100% 100%;
+    backdrop-filter: blur(20px);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.pin-button:active {
+    transform: scale(0.95);
+    background-image: url(assets/checkmark-circle-outline.svg);
+    background-size: 100% 100%;
+    background-color: green;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+#table, #tableTwo {
+    width: 100%;
+}
+
+
+#tableTwo {
+    margin-top: 20px;
+    background-color: black;
+    width: 100%;
+    border: 2px solid #1CAC78;
+}
+
+
+table th,
+table td {
+    vertical-align: middle;
+}
+
+
+
+td:nth-child(2), td:nth-child(3), td:nth-child(4) { /* selects all the td elements that are the second child of their parent element
+this works here because the td elements that are the second child of their parent element (the respective row of the table)
+are the second column's elements*/
+    text-align: right !important;
+}
+
+#coinNameAndImage {
+    text-align: left;
+    padding-left: 15px;
+}
+
+#coinMarketCap, #coinPercentChange, #coinPrice {
+    text-align: right;
+}
+
+#tableHeaderRowTwo {
+    text-align: center;
+}
+
+#tableHeaderRow, #tableHeaderRowTwo {
+    background-image: linear-gradient(to right, #FFAC1C, #1CAC78);
+    font-weight: bold;
+}
+
+#tableHeaderRow th, #tableHeaderRowTwo th {
+    color: white;
+}
+
+.tableHeaderTwo {
+    font-size: 10px;
+}
+
+#tableBodyTwo td{
+    font-size: 12px;
+}
+
+#coinPrice {
+    margin-right: 40px;
+}
+
+#tableBody tr td{
+    font-size: 20px;
+}
+
+.tableBodyTwoImage {
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    margin-right: 7px;
+}
+
+#tableBody tr td:nth-child(1) {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    font-size: 17px;
+}
+
+#tableBodyTwo tr td:nth-child(1) {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    font-size: 17px;
+    position: relative;
+    bottom: 5px;
+}
+
+#tableBodyTwo tr td:nth-child(1) {
+    padding-top: 12px;
+    padding-right: 9px;
+}
+
+#tableBodyTwo tr td:nth-child(3) {
+    padding-right: 5px;
+}
+
+#tableBodyTwo tr td:nth-child(4) {
+    padding-right: 2px;
+}
+
+.marketLeaderImage {
+    height: 40px;
+    margin-right: 15px;
+}
+
+#oneToTen {
+    display: flex;
+}
+
+#tenToTwenty {
+    display: none;
+}
+
+#thirtyToFourty {
+    display: none;
+}
+
+#fourtyToFifty {
+    display: none;
+}
+
+#paginationButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#paginationButtons button {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.unOrderedMyList {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: -15px;
+
+}
+
+.unOrderedMyList li{
+    width: 365px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.unOrderedMyList li img{
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.unOrderedMyList li div{
+    vertical-align: middle;
+}
+
+.dayChange {
+    position: absolute; 
+    right: 50px;
+    font-size: 25px;
+    vertical-align: center;
+}
+
+.itemName {
+    margin-left: 10px;
+    font-size: 25px;
+    vertical-align: center;
+}
+
+.removeButton {
+    height: 38px;
+    width: 40px;
+    position: absolute;
+    right: 5px;
+}
+
+#news-articles {
+    backdrop-filter: blur(20px);
+    margin-right: 7%;
+    margin-left: 7%;
+    display: block;
+}
+
+#searchedCryptoNews {
+    background-color: #ff9c00;
+    background-color: #8600ff;
+    background-color: #8600ff;
+    background-color: #8600ff;
+    color: #8600ff;
+    color: #4a4a4a;
+}
+
+#options {
+    width: 90%;
+    height: 210px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-right: 7%;
+    margin-left: 7%;
+}
+
+#topHeader {
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+#gifOne {
+    width: 100px;
+    height: 100px;
+}
+
+#gifTwo {
+    width: 100px;
+    height: 100px;
+}
+
+#gifThree {
+    margin-top: 70px;
+    width: 100px;
+    height: 100px;
+}
+
+#gifFour {
+    margin-top: 70px;
+    width: 100px;
+    height: 100px;
+}
+
+#joinUs {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    width: 80%;
+    text-align: center;
+    margin-top: 80px;
+}
+
+#joinUsSection {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-right: 7%;
+    margin-left: 7%
+}
+
+#discordContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px;
+}
+
+#discord {
+    font-size: 65px;
+    font-weight: bold;
+    color: white;
+    width: 500px;
+    text-align: center;
+    margin-bottom: -10px;
+    color: #1CAC78;
+}
+
+#discordDescription {
+    font-size: 20px;
+}
+
+#discordButton {
+    font-size: 20px;
+    cursor: pointer;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1CAC78;
+    margin: 10px;
+}
+
+
+.newsLetterContainer {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px;
+}
+
+#newsLetter {
+    width: 540px;
+    text-align: center;
+    font-size: 65px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: -10px;
+    color: #ff9c00;
+}
+
+#newsLetterDescription {
+    font-size: 20px;
+    text-align: center;
+}
+
+#newsLetterButton {
+    font-size: 20px;
+    cursor: pointer;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ff9c00;
+    margin: 10px;
+}
+
+.newsLetterModal {
+    width: 500px;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+#newsLetterExitButton {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: 0px;
+    top: 0px;
+    border-bottom-left-radius: 15px;
+    background-color: #ff9c00;
+    cursor: pointer;
+}
+
+#xIcon {
+    transform: rotate(45deg);
+    height: 30px;
+    width: 30px;
+}
+
+.newsLetterForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    z-index: 2;
+    opacity: 0.9;
+    color: black;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 20px black;
+}
+
+.newsLetterForm p {
+    color: #ff9c00;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 14px;
+    flex-basis: 100%;
+    font-family: 'Impact', 'Poppins', sans-serif;
+}
+
+#nameInputAndIcon {
+    display: flex;
+    margin-top: 30px;
+}
+
+#nameInput {
+    height: 30px;
+    width: 220px;
+    background: transparent;
+    color: white;
+    padding-left: 7px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+#nameInput::placeholder{
+    padding-left: 7px;
+    font-size: 14px;
+    color: white;
+}
+
+#nameIcon {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 95%;
+}
+
+#emailInputAndIcon {
+    display: flex;
+    margin-bottom: 70px;
+}
+
+#emailInput {
+    height: 30px;
+    width: 220px;
+    background: transparent;
+    color: white;
+    padding-left: 7px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+#emailInput::placeholder{
+    padding-left: 7px;
+    font-size: 14px;
+    color: white;
+}
+
+#emailIcon {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+}
+
+#joinUsImageOne {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    left: 420px;
+    top: 150px;
+}
+#joinUsImageTwo {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    right: 420px;
+    top: 150px;
+}
+
+#newsLetterSubmitButton {
+    width: 43%;
+    position: absolute;
+    bottom: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: transparent;
+    color: white;
+    background-color: #ff9c00;
+    font-size: 20px;
+    font-family: 'Impact', 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+#cryptoNewsArticlesHeader {
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+#cryptoNewsArticles div > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+#cryptoNewsArticles div a {
+    font-size: 14px;
+}
+
+#searchedCryptoRecentNews {
+    width: 100%;
+    overflow-y: scroll;
+    background-color: black;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#searchedCryptoRecentNews::-webkit-scrollbar {
+    width: 10px;
+}
+
+#searchedCryptoRecentNews::-webkit-scrollbar-track {
+    background: orange;
+}
+
+#searchedCryptoRecentNews::-webkit-scrollbar-thumb {
+    background: #1CAC78;
+    border-radius: 100vw;
+}
+
+
+#searchedCryptoPage {
+    height: 100vh;
+}
+
+#afterHomePage {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: -100px;
+}
+
+.flexBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#suggestedCryptos {
+    width: 100%;
+}
+
+#suggestedCryptosHeader {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: -20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 40px;
+    color: white;
+}
+
+#rank, #searchedCryptoRank {
+    font-size: 20px !important;
+    position: relative;
+    top: 4.5px;
+}
+
+#rank {
+    position: relative;
+    top: 5.5px;
+}
+
+@media screen and (max-width: 1450px) {
+    .pin-button-text {
+        position: relative;
+        right: 2px;
+    }
+    #leftSection {
+        height: 100%;
+        justify-content:space-around;
+    }
+    #rightSection {
+        height: 100%;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange {
+        font-size: 40px;
+    }
+    #searchedCryptoPriceStats {
+        font-size: 25px;
+    }
+    #chartContainer {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-top: 30px;
+    }
+    #searchValueTwo, #submitButtonTwo {
+        padding: 6px 13px;
+    }
+    .pin-button {
+        height: 40px;
+        width: 40px;
+    }
+    #searchedCryptoGraph {
+        width: 100%;
+        height: auto;
+        border: 3px solid #1CAC78;
+        background-color: #343434;
+        color: white;
+        font-family: 'Impact', 'Poppins', sans-serif;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    #leftSection {
+        height: 100%;
+        justify-content:space-around;
+    }
+    #chartContainer {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-top: 30px;
+    }
+    #searchedCryptoGraph {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 1220px){
+    #navbarOne {
+        justify-content: space-around;
+    }
+    #redirectionTab a {
+        font-size: 15px;
+    }
+    .watchList {
+        width: 314px;
+    }
+    #projectName {
+        font-size: 30px;
+    }
+    .watchListButtonContent {
+        font-size: 20px;
+        margin: 5px;
+    }
+    #projectLogoOne {
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+    .watchListButton img {
+        height: 20px;
+        width: 20px;
+    }
+    .watchListButton {
+        height: 30px;
+        align-items: center;
+        justify-content: space-around;
+        margin-right: 5px;
+    }
+    #joinUs {
+        font-size: 70px;
+    }
+    #discord {
+        font-size: 50px;
+    }
+    #discordDescription {
+        font-size: 20px;
+        width: 400px;
+        text-align: center;
+    }
+    #newsLetter {
+        font-size: 50px;
+    }
+    #newsLetterDescription {
+        font-size: 20px;
+        width: 400px;
+        text-align: center;
+    }
+    #contactUs {
+        margin-top: 80px;
+    }
+    .bitcoinPot {
+        width: 190px;
+        height: 190px;
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+    .bitcoinPresent {
+        width: 190px;
+        height: 190px;
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+
+.topTenImage, .topTenImage2 {
+    height: 30px;
+    width: 30px;
+}
+
+.numberAndBorder {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 60px;
+    position: relative;
+    left: 5px;
+}
+
+#numberAndBorderTen {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 85px;
+    position: relative;
+    right: 5px;
+    margin-right: -25px;
+}
+
+.topTenNumberOneToNine {
+    position: relative;
+    left: 13px;
+    top: 2px;
+    font-size: 33px;
+    color: white;
+    font-weight: bold;
+}
+
+.numberBorderOneToNine{
+    position: relative;
+    right: 15px;
+    top: 7px;
+    border: 2px solid white;
+    border-radius: 95%;
+    width: 38px;
+    height: 38px;
+}
+
+.numberBorderTen {
+    position: relative;
+    right: 28px;
+    top: 3px;
+    border: 2px solid white;
+    border-radius: 95%;
+    width: 47px;
+    height: 47px;
+}
+
+
+.topTenImage, .topTenImage2 {
+    height: 40px;
+    width: 40px;
+    font-size: 10px;
+    border: 3px solid black;
+    background-color: #FFD700;
+    animation: color-change 2s infinite;
+    margin: 5px;
+}
+
+#topTenChanges {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+
+.topTenPercentage, .topTenPercentage2 {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.topTenNameUnderEightCharacters, .topTenNameUnderEightCharacters2 {
+    font-size: 20px;
+    color: white;
+}
+
+.topTenNameBetweenEightAndTwelveCharacters {
+    font-size: 17px;
+    color: white;
+}
+
+.topTenNameOverTwelveCharacters {
+    font-size: 14px;
+    color: white;
+}
+
+.arrowClassOneToNine {
+    height: 20px;
+    width: 20px;
+}
+
+#arrowClassTen {
+    height: 20px;
+    width: 20px;
+}
+#cryptoSearchFormTwo {
+    position: relative; 
+    top: 20px;
+}
+}
+
+@media screen and (max-width: 1230px) {
+    #returnToHomePageButton {
+        font-size: 25px;
+    }
+    #searchValueTwo, #submitButtonTwo {
+        padding: 4px 7px !important;
+        margin-top: -120px;
+    }
+    #searchedCryptoNameAndSymbol {
+        font-size: 14px !important;
+    }
+    #searchedCryptoBasicStats {
+        font-size: 11px !important;
+        position: relative;
+        top: 20px;
+    }
+    #chartContainer {
+        position: relative;
+        top: 35px;
+    }
+    #joinUsSection {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        margin-bottom: 50px;
+    }
+    #discordContainer {
+        margin-left: 20% !important;
+    }
+    .newsLetterContainer {
+        margin-right: 20% !important;
+    }
+}
+
+@media screen and (max-width: 1062px) {
+    #rightSection {
+        position: relative;
+        top: 40px;
+        bottom: 0px;
+    }
+    #searchResultsDiv {
+        margin-top: -30px;
+    }
+    #searchedCryptoNameAndSymbol {
+        font-size: 12px !important;
+    }
+    #rank, #searchedCryptoRank {
+        font-size: 9px !important;
+        position: relative;
+        top: 9px;
+    }
+    #rank {
+        position: relative;
+        top: 11px;
+        margin-right: -7px;
+    }
+    #searchedCryptoImageContainer {
+        padding: 7px;
+    }
+    #tableBodyTwo td {
+        font-size: 9px;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 12px;
+    }
+    .tableBodyTwoImage {
+        width: 25px !important;
+        height: 25px !important;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange{
+        font-size: 30px;
+    }
+    #searchedCryptoPriceStats {
+        font-size: 20px;
+        position: relative;
+        top: -30px;
+    }
+    #middleSection {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    #cryptoNewsArticlesHeader {
+        font-size: 25px;
+    }
+
+    #chartContainer {
+        margin-top: -90px;
+    }
+    #searchValueTwo, #submitButtonTwo {
+        padding: 4px 7px !important;
+        margin-top: -110px;
+    }
+    #searchFormContainer {
+        position: relative;
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    #returnToHomePageButton {
+        font-size: 22px;
+    }
+    #navbarOne {
+        padding-bottom: -30px;
+    }
+    #middleSection {
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 10px;
+        width: 90px;
+    }
+    #tableBodyTwo tr td:nth-child(2) {
+        text-align: center;
+        padding-right: 10px;
+    }
+    #cryptoNewsArticles h2 {
+        font-size: 15px;
+    }
+    #cryptoNewsArticles p {
+        font-size: 12px;
+    }
+    #cryptoNewsArticles a {
+        font-size: 10px !important;
+    }
+    #tableBodyTwo tr td:nth-child(2) {
+        margin-right: 5px;
+    }
+    #cryptoNewsArticlesHeader {
+        font-size: 20px;
+    }
+    #suggestedCryptosHeader {
+        font-size: 20px;
+    }
+    #tableBodyTwo td {
+        font-size: 7px;
+    }
+    .newsLetterForm {
+        width: 500px;
+        height: 225px;
+    }
+    #nameInputAndIcon, #emailInputAndIcon {
+        position: relative;
+        bottom: 25px;
+    }
+    .newsLetterForm p {
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    #newsLetterSubmitButton {
+        bottom: 10px;
+    }
+    #joinUsImageOne {
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        left: 420px;
+    }
+    #joinUsImageTwo {
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        right: 420px;
+    }
+    .watchList {
+        width: 290px;
+    }
+    .headline {
+        font-size: 19px !important;
+    }
+    .newsSum {
+        font-size: 15px !important;
+    }
+    .NewsLinkk {
+        font-size: 10px !important
+    }
+    .Newssrc {
+        font-size: 12px !important;
+    }
+    #navbarOne {
+        justify-content: space-around;
+        height: 80px;
+    }
+    #redirectionTab {
+        margin-right: 30px;
+    }
+    #redirectionTab a {
+        font-size: 13px;
+        margin: 0px;
+    }
+    #projectName {
+        font-size: 20px;
+    }
+    .watchListButtonContent {
+        font-size: 20px;
+        margin: 5px;
+    }
+    #projectLogoOne {
+        height: 25px;
+        width: 25px;
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+    .watchListButton {
+        height: 30px;
+        align-items: center;
+        justify-content: space-around;
+        margin-right: 7px;
+    }
+    #topHeader h2 {
+        font-size: 55px;
+        width: 600px;
+    }
+    #gifOne {
+        margin-bottom: 40px;
+        height: 80px;
+        width: 80px;
+    }
+    #gifTwo {
+        margin-bottom: 40px;
+        height: 80px;
+        width: 80px;
+    }
+    #gifThree {
+        margin-bottom: 40px;
+        height: 80px;
+        width: 80px;
+    }
+    #gifFour {
+        margin-bottom: 40px;
+        height: 80px;
+        width: 80px;
+    }
+    #searchValue {
+        width: 130px;
+    }
+    #submitButton {
+        padding: 8px;
+        padding-top: 5px;
+        font-size: 12px;
+    }
+    #searchValue::placeholder {
+        font-size: 12px;
+        margin: 0px;
+        position: relative;
+        top: 0px;
+        left: -10px;
+    }
+    #discord {
+        font-size: 40px;
+    }
+    #discordDescription {
+        font-size: 17px;
+        width: 250px;
+    }
+    #newsLetter {
+        font-size: 40px;
+    }
+    #newsLetterDescription {
+        font-size: 17px;
+        width: 250px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #featuredCryptoList {
+        width:600px;
+    }
+    .featuredCryptoItem {
+        margin: 0px;
+        padding: 0px;
+    }
+    .featuredCryptoItemImage {
+        height: 70px;
+        width: 70px;
+        margin: 0px;
+    }
+    .title {
+        font-size: 30px;
+    }
+    #contactUs {
+        padding-top: 50px;
+        overflow-x:visible;
+        overflow-y:visible;
+    }
+    #contactUsHeader {
+        font-size: 50px;
+        margin-top: -20px; 
+    }
+    #contactUsDecription {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    #emailLinks {
+        margin-bottom: 20px;
+    }
+    #emailLinks li a {
+        font-size: 10px;
+        margin: 0px;
+    }
+    .bitcoinPot {
+        width: 140px;
+        height: 140px;
+        margin-top: 130px;
+        margin-bottom: 20px;
+    }
+    .bitcoinPresent {
+        width: 140px;
+        height: 140px;
+        margin-top:130px;
+        margin-bottom: 20px;
+    }
+    #Team {
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+    #paginationButtons button {
+        height: 40px;
+        width: 40px;
+    }
+    .topTenImage, .topTenImage2 {
+        margin-left: -7px;
+    }
+    .topTenNameBetweenEightAndTwelveCharacters {
+        font-size: 15px;
+    }
+    .topTenNameOverTwelveCharacters {
+        font-size: 14px;
+        color: white;
+    }
+    footer {
+        margin-top: -190px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    
+#middleSection {
+    position: relative;
+    top: 10px;
+}
+    #returnToHomePageButton {
+        font-size: 19px;
+    }
+    #contactUs {
+        margin-top: -10px;
+    }
+    #options {
+        overflow-y: visible;
+        overflow-x: visible;
+    }
+    #joinUs {
+        overflow-y: visible;
+        overflow-x: visible;
+    }
+    #joinUsSection {
+        overflow-y: visible;
+        overflow-x: visible;
+    }
+    #discordContainer {
+        overflow-y: visible;
+        overflow-x: visible;
+        width: 200px !important;
+        padding-right: 50px;
+    }
+    .newsLetterContainer {
+        overflow-y: visible;
+        overflow-x: visible;
+        width: 250px !important;
+        padding-left: 50px;
+    }
+    #searchResultsDiv {
+        margin-top: -50px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #searchedCryptoPriceStats {
+        font-size: 15px;
+        height: 100px;
+        top: -50px;
+    }
+    #searchedCryptoBasicStats {
+        position: relative;
+        top: 40px;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange {
+        font-size: 22px;
+    }
+    #searchedCryptoPercentChange {
+        position: relative;
+        left: 3px;
+        top: 3px;
+    }
+    #chartContainer {
+        position: relative;
+        top: 10px;
+    }
+    #cryptoSearchFormTwo {
+        position: relative;
+        top: -20px;
+    }
+    .tableBodyTwoImage {
+        width: 17px !important;
+        height: 17px !important;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 7px;
+        width: 50px;
+    }
+    #tableBodyTwo td {
+        font-size: 6px;
+        width: 50px;
+    }
+    #tableBodyTwo td:nth-child(2) {
+        text-align: center;
+        padding-right: 15px !important;
+    }
+    footer {
+        margin-top: -150px;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    #returnToHomePageButton {
+        font-size: 17px;
+        padding: 1px 3px !important;
+    }
+    #searchValue::placeholder {
+        font-size: 10px !important;
+        padding-bottom: 5px !important;
+        top: 3px !important;
+        width: 60px;
+    }
+    #searchValue {
+        font-size: 10px;
+        padding-left: 5px;
+    }
+    .watchList {
+        width: 209px;
+    }
+    #hotListButton, #myListButton {
+        font-size: 10px;
+        width: 48%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #switchListButtons {
+        height: 28px;
+        background-color: black;
+    }
+    #paginationButtons {
+        padding-bottom: 20px;
+        margin-bottom: 0px;
+    }
+    .newsLetterModal {
+        width: 400px;
+        height: 200px;
+    }
+    #joinUsImageOne {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        left: 340px;
+        top: 150px;
+    }
+    #joinUsImageTwo {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        right: 340px;
+        top: 150px;
+    }
+    #newsLetterSubmitButton {
+        font-size: 12px;
+        width: 100px;
+    }
+    #emailInput, #nameInput {
+        height: 20px !important;
+        width: 150px !important;
+        font-size: 15px !important;
+    }
+    #nameInput::placeholder, #emailInput::placeholder {
+        font-size: 10px;
+        position: relative;
+        right: 5px;
+        bottom: 3px;
+    }
+    #nameIcon, #emailIcon {
+        width: 20px;
+    }
+    #nameIcon {
+        position: relative;
+        bottom: 7px;
+    }
+    #emailIcon {
+        position: relative;
+        bottom: 5px;
+    }
+    .newsLetterForm {
+        width: 400px;
+        height: 200px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #table, .tableBackground{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #table td {
+        font-size: 12px !important;
+        padding: 7px !important;
+    }
+    #navbarOne {
+        height: 70px;
+    }
+    #redirectionTab {
+        margin-right: 60px;
+    }
+    #nameAndLogo {
+        margin-left: 20px;
+        width: 200px;
+    }
+    #projectName {
+        font-size: 17px;
+    }
+    .watchlistButton {
+        width: 400px;
+        margin-left: 100px;
+    }
+    #featuredCryptoList {
+        width:500px;
+        margin-top: 15px;
+        margin-bottom: -10px;
+    }
+    .featuredCryptoItem {
+        margin: 0px;
+        padding: 0px;
+        width: 100px;
+    }
+    .featuredCryptoItemImage {
+        height: 50px;
+        width: 50px;
+        margin: 0px;
+    }
+    .featuredCryptoItemHeader {
+        font-size: 15px;
+        margin-bottom: -30px;
+    }
+    .featuredCryptoItemPercentChange {
+        font-size: 10px;
+        margin-top: -20px;
+    }
+    .featuredCryptoItemPrice {
+        font-size: 10px;
+    }
+    #cryptoSearchForm {
+        margin-bottom: 40px;
+    }
+    #gifOne {
+        margin-bottom: 35px;
+        width: 70px;
+        height: 70px;
+    }
+    #gifTwo {
+        margin-bottom: 35px;
+        width: 70px;
+        height: 70px;
+    }
+    #gifThree {
+        margin-bottom: 35px;
+        width: 70px;
+        height: 70px;
+    }
+    #gifFour {
+        margin-bottom: 35px;
+        width: 70px;
+        height: 70px;
+    }
+    #searchValue {
+        width: 100px;
+    }
+    #submitButton {
+        padding: 5px;
+        padding-top: 5px;
+        font-size: 8px;
+    }
+    #searchValue::placeholder {
+        font-size: 10px;
+        margin: 0px;
+        position: relative;
+        top: 5px;
+        left: -5px;
+    }
+    #joinUs {
+        font-size: 50px;
+    }
+    #joinUsSection {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        margin-top: -70px;
+        margin-bottom: 100px;
+    }
+    #contactUs {
+        padding-bottom: -190px;
+        height: 270px;
+    }
+    #discordContainer {
+        margin-left: 20% !important;
+    }
+    .newsLetterContainer {
+        margin-right: 20% !important;
+    }
+    #discord {
+        font-size: 30px;
+        padding-right: 10px;
+        margin: 7px;
+    }
+    #discordDescription {
+        font-size: 15px;
+        text-align: center;
+    }
+    #discordButton {
+        font-size: 10px;
+        padding: 5px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .newsLetterContainer {
+        height: 120px;
+        width: 150px;
+    }
+    #newsLetterExitButton {
+        height: 25px;
+        width: 25px;
+    }
+    #xIcon {
+        position: relative;
+        left: 2px;
+        height: 20px;
+        width: 20px;
+    }
+    #newsLetter {
+        font-size: 30px;
+        margin: 7px;
+    }
+    #newsLetterDescription {
+        font-size: 15px;
+        text-align: center;
+    }
+    #newsLetterButton {
+        font-size: 10px;
+        padding: 5px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    #contactUs {
+        margin-bottom: -100px;
+        margin-top: -40px;
+    }
+    #contactUsHeader {
+        font-size: 30px;
+    }
+    #contactUsDecription {
+        font-size: 15px;
+    }
+    #emailLinks {
+        margin-bottom: 20px;
+    }
+    #emailLinks li a {
+        font-size: 10px;
+    }
+    .bitcoinPot {
+        width: 120px;
+        height: 120px;
+        margin-top: 120px;
+        margin-bottom: 20px;
+    }
+    .bitcoinPresent {
+        width: 120px;
+        height: 120px;
+        margin-top: 120px;
+        margin-bottom: 20px;
+    }
+    #Team {
+        margin-top: -10px;
+    }
+    .marketLeadersHeader {
+        font-size: 25px;
+    }
+    #paginationButtons button {
+        height: 35px;
+        width: 35px;
+        margin-bottom: -7px;
+        margin-top: 5px;
+        font-size: 20px;
+    }
+    .topTenImage, .topTenImage2 {
+        height: 30px !important;
+        width: 30px !important;
+    }
+    
+    .numberAndBorder {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 40px;
+        position: relative;
+        left: 5px;
+    }
+    
+    #numberAndBorderTen {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 85px;
+        position: relative;
+        right: 5px;
+        margin-right: -45px;
+    }
+    
+    .topTenNumberOneToNine {
+        position: relative;
+        left: 13px;
+        top: 2px;
+        font-size: 20px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .numberBorderOneToNine{
+        position: relative;
+        right: 5px;
+        top: 4px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 25px;
+        height: 25px;
+    }
+    
+    .numberBorderTen {
+        position: relative;
+        right: 13px;
+        top: 2px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .topTenImage, .topTenImage2 {
+        height: 40px;
+        width: 40px;
+        font-size: 10px;
+        border: 3px solid black;
+        background-color: #FFD700;
+        animation: color-change 2s infinite;
+        margin: 5px;
+        margin-left: 0px;
+    }
+    
+    #topTenChanges {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    
+    
+    .topTenPercentage, .topTenPercentage2 {
+        font-size: 12px;
+        margin-left: 3px;
+    }
+    
+    .topTenNameUnderEightCharacters, .topTenNameUnderEightCharacters2 {
+        font-size: 15px;
+        color: white;
+    }
+    
+    .topTenNameBetweenEightAndTwelveCharacters {
+        font-size: 12px;
+        color: white;
+    }
+    
+    .topTenNameOverTwelveCharacters {
+        font-size: 9px;
+        color: white;
+    }
+    
+    .arrowClassOneToNine {
+        height: 12px;
+        width: 12px;
+    }
+    
+    #arrowClassTen {
+        height: 12px;
+        width: 12px;
+    }
+    #returnToHomePageButton {
+        padding: 4px !important;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    #searchedCryptoNameAndSymbol {
+        font-size: 10px !important;
+    }
+    #searchValueTwo, #submitButtonTwo {
+        padding: 0px;
+    }
+    #searchValueTwo {
+        width: 140px;
+    }
+    #submitButtonTwo {
+        font-size: 10px;
+    }
+    .pin-button {
+        height: 30px;
+        width: 30px;
+        margin-left: 5px;
+    }
+    .pin-button-text {
+        font-size: 10px;
+        position: relative;
+        right: 4px;
+    }
+    #returnToHomePageButton {
+        padding: 4px !important;
+        height: 30px;
+    }
+    #returnText {
+        font-size: 15px;
+    }
+    #returnIcon {
+        width: 10px;
+        height: 10px;
+    }
+    #hotListButton, #myListButton {
+        font-size: 10px;
+        width: 48%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #switchListButtons {
+        height: 28px;
+        background-color: black;
+    }
+    #tableBody tr td {
+        font-size: 10px !important;
+        padding: 5px;
+    }
+    .headline {
+        font-size: 15px !important;
+    }
+    .newsSum {
+        font-size: 11px !important;
+    }
+    .NewsLinkk {
+        font-size: 9px !important
+    }
+    .Newssrc {
+        font-size: 10px !important;
+    }
+    .marketLeaderImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .marketLeaderDiv {
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+    }
+    #mainHeader {
+        width: 500px !important;
+    }
+    #navbarOne {
+        height: 70px;
+    }
+    #redirectionTab {
+        margin-right: 60px;
+        margin-left: -20px;
+    }
+    #redirectionTab a{
+        font-size: 10px;
+    }
+    #projectName {
+        font-size: 15px;
+    }
+    .watchListButton {
+        height: 25px;
+        width: 110px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 5px;
+    }
+    .watchListButtonContent {
+        font-size: 15px;
+    }
+    #topHeader h2 {
+        font-size: 45px;
+        width: 600px;
+    }
+    #searchValue {
+        width: 110px;
+    }
+    #submitButton {
+        padding: 7px;
+        padding-top: 5px;
+        font-size: 10px;
+    }
+    #seachValue::placeholder {
+        font-size: 8px;
+        margin: 10px;
+        padding: 10px;
+    }
+    .emailLinks ul li {
+        margin: 0px;
+    }
+    .marketLeadersHeader {
+        font-size: 22px;
+    }
+    #paginationButtons button {
+        height: 30px;
+        width: 30px;
+        margin-bottom: -7px;
+        margin-top: 5px;
+        font-size: 15px;
+    }
+
+    .marketLeadersHeader {
+        font-size: 25px !important;
+    }
+    .tableBodyTwoImage {
+        width: 12px !important;
+        height: 12px !important;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 5px;
+    }
+    .tableHeaderTwo {
+        font-size: 7px !important;
+    }
+    #tableBodyTwo tr td:nth-child(2), #tableBodyTwo tr td:nth-child(3){
+        font-size: 5px !important;
+    }
+    #suggestedCryptosHeader {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    #searchedCryptoNameAndSymbol {
+        font-size: 10px !important;
+    }
+    #searchedCryptoImageAndName {
+        width: 90%;
+    }
+    #chartContainer {
+        height: 200px;
+    }
+    #searchedCryptoPriceStats {
+        font-size: 12px;
+    }
+    #searchValue {
+        font-size: 9px;
+        height: 10px;
+        position: relative;
+        top: 5px;
+    }
+    .watchList {
+        width: 180px;
+    }
+    #hotListButton, #myListButton {
+        font-size: 10px;
+        width: 48%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #switchListButtons {
+        height: 28px;
+        background-color: black;
+    }
+    #tableBody tr td {
+        font-size: 10px !important;
+        padding: 5px;
+    }
+    .newsLetterContainer {
+        width: 300px;
+        height: 200px;
+    }
+    .newsLetterModal {
+        width: 300px;
+        height: 160px;
+    }
+    .newsLetterForm {
+        width: 300px;
+        height: 160px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .newsLetterForm p {
+        font-size: 20px;
+    }
+    #joinUsImageOne {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        left: 250px;
+        top: 110px;
+    }
+    #joinUsImageTwo {
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        right: 250px;
+        top: 110px;
+    }
+    #newsLetterSubmitButton {
+        font-size: 12px;
+        width: 100px;
+    }
+    #emailInput, #nameInput {
+        height: 25px;
+        width: 190px;
+    }
+    #navbarOne {
+        height: 60px;
+    }
+    #gifThree {
+        margin-bottom: 60px;
+        width: 60px;
+        height: 60px;
+    }
+    #gifFour {
+        margin-bottom: 60px;
+        width: 60px;
+        height: 60px;
+    }
+    #redirectionTab {
+        margin-right: 60px;
+        margin-left: -20px;
+    }
+    #redirectionTab a{
+        font-size: 7px;
+    }
+    #projectName {
+        font-size: 15px;
+    }
+    .watchListButton {
+        height: 25px;
+        width: 110px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 5px;
+    }
+    .watchListButtonContent {
+        font-size: 15px;
+    }
+    #topHeader h2 {
+        font-size: 40px;
+        width: 600px;
+    }
+    #featuredCryptoList {
+        width: 400px;
+    }
+    .featuredCryptoItem {
+        margin: 0px;
+        padding: 0px;
+        width: 50px;
+    }
+    .featuredCryptoItemImage {
+        height: 50px;
+        width: 50px;
+        margin: 0px;
+    }
+    .featuredCryptoItemHeader {
+        font-size: 10px;
+    }
+    .featuredCryptoItemPercentChange {
+        font-size: 7px;
+        margin-top: -25px;
+    }
+    .featuredCryptoItemPrice {
+        font-size: 7px;
+    }
+    #cryptoSearchForm {
+        margin-top: -10px;
+        display: flex;
+        align-items: center;
+    }
+    #submitButton {
+        margin-top: 40px;
+        padding: 3px;
+        font-size: 6px;
+    }
+    #searchValue {
+        width: 70px;
+    }
+    #searchValue::placeholder {
+        font-size: 7px;
+        margin: 0px;
+        position: relative;
+        top: 5px;
+        left: -5px;
+    }
+    .marketLeadersHeader {
+        font-size: 20px;
+    }
+    #paginationButtons button {
+        height: 25px;
+        width: 25px;
+        margin-bottom: -7px;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    #discordContainer {
+        padding-right: 50px;
+    }
+    .newsLetterContainer {
+        padding-left: 50px;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #chartContainer {
+        position: relative;
+        bottom: 50px;
+    }
+    #rightSection {
+        width: 20%;
+    }
+    #middleSection {
+        width: 50%;
+    }
+    #joinUsSection {
+        margin-top: 0px;
+        height: 270px;
+        margin-bottom: 70px;
+    }
+    #discordContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #discordDescription {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #contactUs {
+        padding-bottom: -90px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    #searchValueTwo, #submitButtonTwo {
+        padding: 0px;
+    } 
+    #searchValueTwo {
+        font-size: 10px;
+        width: 100px;
+    }
+    #searchValueTwo::placeholder {
+        position: relative;
+        right: 7px;
+    }
+    #chartContainer {
+        height: 200px !important;
+    }
+    #dailyPerformanceContainer {
+        width: 210px;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    #searchedCryptoPercentChange {
+        position: relative;
+        top: -12px !important;
+    }
+    #searchValue::placeholder {
+        font-size: 7px !important;
+    }
+    #searchedCryptoRecentNews {
+        height: 90%;
+    }
+    #tableBodyTwo tr td:nth-child(2), #tableBodyTwo tr td:nth-child(3) {
+        font-size: 4px !important;
+        padding: 0px;
+        margin: 0px;
+    }
+    #tableBodyTwo tr td:nth-child(3) {
+        position: relative;
+        right: 2px;
+    }
+    #searchedCryptoPercentChange {
+        position: relative;
+        top: -25px;
+    }
+    #searchedCryptoPriceStats {
+        position: relative;
+        bottom: 40px;
+    }
+    #cryptoNewsArticlesHeader {
+        font-size: 12px;
+        margin-left: 5px;
+        margin: 3px;
+    }
+    #cryptoNewsArticles h2 {
+        font-size: 10px;
+        margin: 0px !important;
+        margin-left: 5px !important;
+    }
+    #cryptoNewsArticles p {
+        font-size: 7px;
+        margin: 0px !important;
+        margin-left: 5px !important;
+        margin-top: 5px !important;
+    }
+    #cryptoNewsArticles a {
+        font-size: 5px !important;
+        margin: 0px !important;
+        margin-left: 5px !important;
+        margin-top: 5px !important;
+    }
+    #searchedCryptoRecentNews::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    #searchedCryptoRecentNews::-webkit-scrollbar-track {
+        background: orange;
+    }
+    
+    #searchedCryptoRecentNews::-webkit-scrollbar-thumb {
+        background: #1CAC78;
+        border-radius: 100vw;
+    }
+    #newsLetterButton {
+        padding: 4px !important;
+        position: relative;
+        top: 15px;
+        margin-bottom: -10px;
+        height: auto !important;
+    }
+    #newsLetter {
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .watchList {
+        width: 160px;
+        height: 80vh;
+    }
+    #hotListButton, #myListButton {
+        font-size: 10px;
+        width: 48%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #switchListButtons {
+        height: 28px;
+        background-color: black;
+    }
+    #discord {
+        font-size: 20px;
+    }
+    #discordDescription {
+        font-size: 12px;
+    }
+    #newsLetter {
+        font-size: 20px;
+    }
+    #newsLetterDescription {
+        font-size: 12px;
+    }
+    #tableHeaderRow th {
+        font-size: 8px !important;
+    }
+    .headline {
+        font-size: 15px !important;
+    }
+    .newsSum {
+        font-size: 11px !important;
+    }
+    .NewsLinkk {
+        font-size: 9px !important
+    }
+    .Newssrc {
+        font-size: 10px !important;
+    }
+    #redirectionTab {
+        margin-right: 60px;
+        margin-left: -40px;
+    }
+    #redirectionTab a {
+        margin: 0px;
+    }
+    #projectLogoOne {
+        height: 20px;
+        width: 20px;
+    }
+    #projectName {
+        font-size: 12px;
+    }
+    .watchListButton {
+        height: 20px;
+        width: 90px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 5px;
+        margin: 0px;
+        margin-bottom: 7px;
+    }
+    .watchListButton img {
+        height: 15px;
+        width: 15px;
+        margin: 0px;
+        margin-left: 12px;
+    }
+    .watchListButtonContent {
+        font-size: 15px;
+    }
+    .marketLeadersHeader {
+        font-size: 19px;
+    }
+    #paginationButtons button {
+        height: 20px;
+        width: 20px;
+        margin-bottom: -9px;
+        margin-top: 2px;
+        font-size: 10px;
+    }
+
+    .topTenImage, .topTenImage2 {
+        height: 20px !important;
+        width: 20px !important;
+
+    }
+    
+    .numberAndBorder {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 40px;
+        position: relative;
+        bottom: 3px;
+        left: 3px;
+        margin-right: -10px;
+    }
+    
+    #numberAndBorderTen {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 85px;
+        position: relative;
+        right: 5px;
+        margin-right: -55px;
+    }
+    
+    .topTenNumberOneToNine {
+        position: relative;
+        left: 9.5px;
+        top: 3px;
+        font-size: 15px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .numberBorderOneToNine{
+        position: relative;
+        right: 5px;
+        top: 4px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .numberBorderTen {
+        position: relative;
+        right: 10.2px;
+        top: 2px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 24px;
+        height: 24px;
+        margin-left: 0px;
+    }
+    
+    .topTenImage, .topTenImage2 {
+        height: 40px;
+        width: 40px;
+        font-size: 10px;
+        border: 3px solid black;
+        background-color: #FFD700;
+        animation: color-change 2s infinite;
+        margin: 5px;
+        margin-left: 0px;
+    }
+    
+    #topTenChanges {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    
+    
+    .topTenPercentage, .topTenPercentage2 {
+        font-size: 9px;
+        margin-left: 3px;
+    }
+    
+    .topTenNameUnderEightCharacters, .topTenNameUnderEightCharacters2 {
+        font-size: 10px;
+        color: white;
+        margin-left: -7px;
+    }
+    
+    .topTenNameBetweenEightAndTwelveCharacters {
+        font-size: 8px;
+        color: white;
+        margin-left: -7px;
+    }
+    
+    .topTenNameOverTwelveCharacters {
+        font-size: 6px;
+        color: white;
+        margin-left: -7px;
+    }
+    
+    .arrowClassOneToNine {
+        height: 9px;
+        width: 9px;
+    }
+    
+    #arrowClassTen {
+        height: 9px;
+        width: 9px;
+    }
+    #entryOne {
+        padding-top: 10px;
+    }
+    #entryTwo {
+        margin-bottom: -20px;
+    }
+    #chartContainer {
+        height: 250px;
+    }
+    #discordContainer {
+        height: 100px;
+    }
+    .newsLetterContainer {
+        height: 50px;
+    }
+    #newsLetterButton {
+        margin-top: -7px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    #hotListButton, #myListButton {
+        font-size: 10px;
+        width: 48%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #switchListButtons {
+        height: 20px;
+        background-color: black;
+    }
+    #topHeader h2 {
+        font-size: 35px;
+        width: 300px;
+    }
+    #redirectionTab {
+        margin-right: 60px;
+        margin-left: -40px;
+    }
+    #redirectionTab a {
+        margin: 0px;
+        font-size: 5px;
+    }
+    #projectLogoOne {
+        height: 20px;
+        width: 20px;
+        margin: 0px;
+        margin-right: 5px;
+    }
+    #projectName {
+        font-size: 12px;
+    }
+    .watchListButton {
+        height: 20px;
+        width: 90px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 5px;
+        margin: 0px;
+        margin-bottom: 7px;
+        margin-right: 10px;
+    }
+    .watchListButton img {
+        height: 15px;
+        width: 15px;
+        margin: 0px;
+        margin-left: 13px;
+    }
+    .watchListButtonContent {
+        font-size: 15px;
+    }
+    #gifOne {
+        margin-bottom: 55px;
+        width: 50px;
+        height: 50px;
+    }
+    #gifTwo {
+        margin-bottom: 55px;
+        width: 50px;
+        height: 50px;
+    }
+    #gifThree {
+        margin-bottom: 55px;
+        width: 50px;
+        height: 50px;
+    }
+    #gifFour {
+        margin-bottom: 55px;
+        width: 50px;
+        height: 50px;
+    }
+    #featuredCryptoList {
+        width: 300px;
+    }
+    .featuredCryptoItem {
+        margin: 0px;
+        padding: 0px;
+        width: 50px;
+    }
+    .featuredCryptoItemImage {
+        height: 50px;
+        width: 50px;
+        margin: 0px;
+    }
+    .featuredCryptoItemHeader {
+        font-size: 10px;
+    }
+    .featuredCryptoItemPercentChange {
+        font-size: 7px;
+        margin-top: -25px;
+    }
+    .featuredCryptoItemPrice {
+        font-size: 7px;
+    }
+    #discordContainer {
+        width: 200px !important;
+        padding-left: 30px;
+        margin-top: 20px;
+    }
+    .newsLetterContainer {
+        width: 200px !important;
+        padding-right: 30px;
+        margin-top: 20px;
+    }
+    #joinUsSection {
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    #rightSection {
+        position: relative;
+        top: 90px !important;
+    }
+    #middleSection, #leftSection {
+        position: relative;
+        top: -35px !important;
+        bottom: 0px;
+        height: 120%;
+    }
+    #searchedCryptoNameAndSymbol {
+        font-size: 7px !important;
+        position: relative;
+        top: 3px;
+    }
+    #returnToHomePageButton {
+        height: 20px;
+    }
+    #returnText {
+        font-size: 10px;
+        margin-top: 2px;
+    }
+    #searchPageButtons {
+        position: relative;
+        bottom: 45px;
+        right: 12px;
+    }
+    #middleSection {
+        height: 110%;
+    }
+    #searchResultsDiv {
+        margin-bottom: -500px;
+    }
+    #searchedCryptoRecentNews {
+        height: 70%;
+        position: relative;
+        top: -10px;
+        right: 5px;
+    }
+    #dailyPerformanceContainer {
+        position: relative;
+        top: 12px;
+    }
+    #searchedCryptoPriceStats {
+        position: relative; 
+        top: -25px !important;
+    }
+    #middleSection, #leftSection, #rightSection {
+        position: relative;
+        top: -50px;
+    }
+    #chartContainer {
+        height: 190px !important;
+        position: relative;
+        right: 5px;
+    }
+    #searchedCryptoImageAndName {
+        border: 3px solid #1CAC78;
+    }
+    #searchedCryptoImage {
+        border: 2px solid #ff9c00;
+        padding: 10px;
+    }
+    #searchedCryptoPercentChange {
+        position: relative;
+        top: -20px;
+    }
+    #searchedCryptoPriceStats {
+        position: relative;
+        top: -20px;
+    }
+    #searchValueTwo {
+        width: 100px;
+        font-size: 10px;
+    }
+    #submitButtonTwo {
+        font-size: 7px;
+        margin-right: -3px;
+    }
+    #searchValue {
+        font-size: 6px;
+    }
+    #searchedCryptoRecentNews {
+        position: relative;
+        bottom: 50px;
+    }
+    #suggestedCryptos {
+        position: relative;
+        bottom: 40px;
+    }
+    #paginationButtons {
+        position: relative;
+        bottom: 5px;
+        margin-top: 7px;
+    }
+    .watchList {
+        width: 115px;
+    }
+    #hotListButton, #myListButton {
+        font-size: 7px;
+        width: 47%;
+        padding: 0px;
+        margin: 0px;
+    }
+    #switchListButtons {
+        height: 20px;
+        background-color: black;
+    }
+    #redirectionTab {
+        width: 200px;
+        margin-right: 20px;
+        margin-left: -30px;
+    }
+    #redirectionTab a {
+        margin: 0px;
+        font-size: 5px;
+    }
+    #projectLogoOne {
+        height: 17px;
+        width: 17px;
+        margin: 0px;
+        margin-right: 5px;
+    }
+    #projectName {
+        font-size: 11px;
+    }
+    #topHeader h2 {
+        font-size: 30px;
+        width: 600px;
+    }
+    #gifOne {
+        margin-bottom: 60px;
+        width: 40px;
+        height: 40px;
+    }
+    #gifTwo {
+        margin-bottom: 60px;
+        width: 40px;
+        height: 40px;
+    }
+    #gifThree {
+        margin-bottom: 60px;
+        width: 40px;
+        height: 40px;
+    }
+    #gifFour {
+        margin-bottom: 60px;
+        width: 40px;
+        height: 40px;
+    }
+    #featuredCryptoList {
+        width: 270px;
+    }
+    .featuredCryptoItem {
+        margin: 0px;
+        padding: 0px;
+        width: 50px;
+    }
+    .featuredCryptoItemImage {
+        height: 40px;
+        width: 40px;
+        margin: 0px;
+    }
+    .featuredCryptoItemHeader {
+        font-size: 9px;
+    }
+    .featuredCryptoItemPercentChange {
+        font-size: 7px;
+        position: relative;
+        bottom: 3px;
+    }
+    .featuredCryptoItemPrice {
+        font-size: 7px;
+        position: relative;
+        bottom: 5px;
+    }
+    #joinUs {
+        font-size: 37px;
+        height: 100px;
+    }
+    #options {
+        height: 175px;
+    }
+    #contactUsHeader {
+        font-size: 23px;
+    }
+    #contactUsDecription {
+        font-size: 11px;
+        font-weight: 500;
+    }
+    .newsLetterModal {
+        width: 230px;
+        height: 130px;
+    }
+    .newsLetterForm {
+        width: 230px;
+        height: 130px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .newsLetterForm p {
+        font-size: 15px;
+    }
+    #joinUsImageOne {
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        left: 195px;
+        top: 100px;
+    }
+    #joinUsImageTwo {
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        right: 195px;
+        top: 100px;
+    }
+    #newsLetterSubmitButton {
+        font-size: 9px;
+        padding: 2px;
+        width: 100px;
+    }
+    #emailInput, #nameInput {
+        height: 15px !important;
+        width: 100px !important;
+    }
+    #nameIcon, #emailIcon {
+        position: relative;
+        bottom: 3px;
+        height: 20px;
+        width: 20px;
+    }
+    #paginationButtons {
+        padding-bottom: 10px;
+        margin-bottom: 0px;
+    }
+    
+    .headline {
+        font-size: 15px !important;
+    }
+    .newsSum {
+        font-size: 12px !important;
+        margin: 5px;
+    }
+    .NewsLinkk {
+        font-size: 8px !important;
+        margin: 5px;
+    }
+    .Newssrc {
+        font-size: 10px !important;
+        margin: 5px;
+        font-weight: bold;
+    }
+
+    .topTenImage, .topTenImage2 {
+        height: 20px !important;
+        width: 20px !important;
+
+    }
+    
+    .numberAndBorder {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 40px;
+        position: relative;
+        bottom: 3px;
+        left: 3px;
+        margin-right: -10px;
+    }
+    
+    #numberAndBorderTen {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 85px;
+        position: relative;
+        right: 5px;
+        margin-right: -55px;
+    }
+    
+    .topTenNumberOneToNine {
+        position: relative;
+        left: 9.5px;
+        top: 3px;
+        font-size: 12px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .numberBorderOneToNine{
+        position: relative;
+        right: 1.95px;
+        top: 4px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .numberBorderTen {
+        position: relative;
+        right: 6.5px;
+        top: 2px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 19px;
+        height: 19px;
+        margin-right: 0px;
+    }
+    
+    .topTenImage, .topTenImage2 {
+        height: 15px !important;
+        width: 15px !important;
+        font-size: 10px;
+        border: 3px solid black;
+        background-color: #FFD700;
+        animation: color-change 2s infinite;
+        margin: 5px;
+        margin-left: -4px;
+    }
+    
+    #topTenChanges {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    
+    
+    .topTenPercentage, .topTenPercentage2 {
+        font-size: 8px;
+        margin-left: 3px;
+    }
+    
+    .topTenNameUnderEightCharacters, .topTenNameUnderEightCharacters2 {
+        font-size: 7px;
+        color: white;
+        margin-left: -4.5px;
+    }
+    
+    .topTenNameBetweenEightAndTwelveCharacters {
+        font-size: 5px;
+        color: white;
+        margin-left: -4.5px;
+    }
+    
+    .topTenNameOverTwelveCharacters {
+        font-size: 5.5px;
+        color: white;
+        margin-left: -4.5px;
+    }
+    
+    .arrowClassOneToNine {
+        height: 8px;
+        width: 8px;
+    }
+    
+    #arrowClassTen {
+        height: 8px;
+        width: 8px;
+    }
+    #entryOne {
+        padding-top: 15px;
+    }
+    #entryTwo {
+        margin-bottom: -20px;
+    }
+    .watchList {
+        height: 60vh;
+    }
+    #discordContainer {
+        width: 200px !important;
+        padding-left: 70px;
+        margin-top: 20px;
+    }
+    .newsLetterContainer {
+        width: 200px !important;
+        padding-right: 70px;
+        margin-top: 20px;
+    }
+    #discord {
+        position: relative;
+        left: 5px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #dailyPerformanceContainer {
+        width: 170px;
+        position: relative;
+        left: -5px;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 9px;
+        width: 110px;
+    }
+    #tableBodyTwo tr td:nth-child(2), #tableBodyTwo tr td:nth-child(3) {
+        font-size: 7px !important;
+    }
+    #tableBodyTwo tr td:nth-child(2) {
+        position: relative;
+        left: 5px;
+    }
+    #searchedCryptoRecentNews {
+        position: relative;
+        bottom: 150px !important;
+        height: 350px;
+    }
+    #chartContainer {
+        position: relative;
+        right: 10px;
+        top: -70px !important;
+    }
+    #suggestedCryptos {
+        position: relative;
+        bottom: 150px;
+    }
+    #allTimeHigh, #currentValue, #allTimeLow  {
+        margin: 0px;
+        position: relative;
+    }
+    #returnToHomePageButton {
+        position: relative;
+        bottom: 20px;
+    }
+    #currentValue {
+        position: relative;
+        top: -22px !important;
+    }
+    #allTimeLow {
+        position: relative;
+        top: -40px !important;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange {
+        font-size: 17px;
+    }
+    #searchValueTwo {
+        width: 80px;
+    }
+    #searchValueTwo::placeholder {
+        font-size: 7px;
+    }
+    #tableTwo {
+        width: 200px;
+    }
+    .pin-button {
+        height: 20px;
+        width: 20px;
+    }
+    .pin-button-text {
+        font-size: 7px;
+        position: relative;
+        left: -5px;
+        bottom: 1px;
+    }
+    #searchedCryptoPercentChange {
+        position: relative;
+        position: relative;
+        top: -10px !important;
+        left: 0px !important;
+    }
+    #searchedCryptoPriceStats {
+        position: relative;
+        top: -30px !important;
+        font-size: 8px;
+    }
+    #chartContainer {
+        height: 150px !important;
+    }
+    #cryptoSearchFormTwo {
+        position: relative;
+        top: -90px !important;
+        left:-5px;
+    }
+    #allTimeHigh, #currentValue, #allTimeLow {
+        margin: 10px;
+    }
+    #allTimeHigh {
+        position: relative;
+        bottom: 5px;
+    }
+    #currentValue {
+        position: relative;
+        bottom: 15px;
+    }
+    #allTimeLow {
+        position: relative;
+        bottom: 25px;
+    }
+    #joinUs {
+        font-size: 37px;
+    }
+    #nameAndLogo {
+        font-size: 10px;
+        position: relative;
+        right: 10px;
+        width: 130px;
+    }
+    #redirectionTab {
+        width: 130px;
+        position: relative;
+        left: 7px;
+        bottom: 2px;
+    }
+    #redirectionTab a {
+        margin: 0px;
+        padding: 2px;
+    }
+    .headline {
+        font-size: 12px !important;
+    }
+    .newsSum {
+        font-size: 10px !important;
+        margin: 5px;
+    }
+    .NewsLinkk {
+        font-size: 8px !important;
+        margin: 5px;
+    }
+    .Newssrc {
+        font-size: 8px !important;
+        margin: 5px;
+        font-weight: bold;
+    }
+    #cryptoNewsArticlesHeader {
+        font-size: 10px;
+    }
+    #searchedCryptoRecentNews h2 {
+        font-size: 8px;
+    }
+    #discordContainer {
+        width: 300px !important;
+        padding-left: 90px;
+        margin-top: 20px;
+        position: relative;
+        left: 60px;
+        top: 10px;
+    }
+    .newsLetterContainer {
+        width: 300px !important;
+        padding-right: 90px;
+        margin-top: 20px;
+        position: relative;
+        right: 60px;
+        top: 10px;
+    }
+    #discord {
+        position: relative;
+        left: 5px;
+    }
+    #joinUs {
+        margin-bottom: 70px;
+    }
+    #joinUsSection {
+        margin-bottom: -20px;
+    }
+
+    #tableBody tr td:nth-child(1), #tableBody tr td:nth-child(2), #tableBody tr td:nth-child(3), #tableBody tr td:nth-child(4) {
+        font-size: 8px !important;
+    }
+    #contactUs {
+        position: relative;
+        bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #suggestedCryptosHeader {
+        width: 200px;
+        text-align: left;
+    }
+    #chartContainer {
+        position: relative;
+        right: 15px;
+        top: -80px !important;
+    }
+    #searchedCryptoRecentNews {
+        position: relative;
+        right: 15px;
+        top: -30px !important;
+    }
+    #searchedCryptoImageAndName {
+        position: relative;
+        top: 5px;
+    }
+    #returnToHomePageButton {
+        position: relative;
+        bottom: 10px;
+        right: 5px;
+    }
+    #searchFormContainer {
+        position: relative;
+        right: 10px;
+        bottom: 15px;
+    }
+    #dailyPerformanceContainer, #searchedCryptoPriceStats {
+        position: relative;
+        right: 10px;
+    }
+    #redirectionTab {
+        width: 130px;
+        position: relative;
+        left: 1px;
+        bottom: 2px;
+    }
+    #redirectionTab a {
+        margin: 0px;
+        padding: 1px;
+        font-size: 5px !important;
+    }
+    .watchListButton {
+        width: 70px;
+    }
+    .watchListButtonPhoto {
+        width: 12px !important;
+        height: 12px !important;
+        position: relative;
+        left: 2px;
+    }
+    .watchListButtonContent {
+        font-size: 11px !important;
+    }
+    #projectName {
+        font-size: 9px !important;
+    }
+    #joinUs {
+        font-size: 25px;
+    }
+    #discord, #newsLetter {
+        font-size: 15px;
+    }
+    #newsLetter {
+        margin-bottom: -10px;
+    }
+    #newsLetterDescription {
+        font-size: 10px;
+        width: 120px;
+    }
+    #discordDescription {
+        width: 120px;
+    }
+    #newsLetterButton {
+        position: relative;
+        bottom: 10px;
+    }
+    #discordContainer {
+        width: 200px !important;
+        padding-right: 40px;
+    }
+    .newsLetterContainer {
+        padding-left: 40px;
+        width: 200px !important;
+    }
+    .bitcoinPot {
+        width: 90px;
+        height: 90px;
+    }
+    .bitcoinPresent {
+        width: 90px;
+        height: 90px;
+    }
+    .headline {
+        font-size: 11px !important;
+    }
+    .newsSum {
+        font-size: 9px !important;
+        margin: 5px;
+    }
+    .NewsLinkk {
+        font-size: 6px !important;
+        margin: 7px;
+    }
+    .Newssrc {
+        font-size: 7px !important;
+        margin: 5px;
+        font-weight: bold;
+    }
+
+    .topTenImage, .topTenImage2 {
+        height: 20px !important;
+        width: 20px !important;
+
+    }
+    
+    .numberAndBorder {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 30px;
+        position: relative;
+        bottom: 3px;
+        left: -3px;
+        margin-right: -10px;
+    }
+    
+    #numberAndBorderTen {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 85px;
+        position: relative;
+        right: 5px;
+        margin-right: -55px;
+    }
+    
+    .topTenNumberOneToNine {
+        position: relative;
+        left: 9.5px;
+        top: 3px;
+        font-size: 10.5px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .numberBorderOneToNine{
+        position: relative;
+        right: 1.2px;
+        top: 3px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 15px;
+        height: 15px;
+    }
+    
+    .numberBorderTen {
+        position: relative;
+        right: 5.5px;
+        top: 1px;
+        border: 2px solid white;
+        border-radius: 95%;
+        width: 19px;
+        height: 19px;
+        margin-right: 0px;
+    }
+    
+    .topTenImage, .topTenImage2 {
+        height: 15px !important;
+        width: 15px !important;
+        font-size: 10px;
+        border: 3px solid black;
+        background-color: #FFD700;
+        animation: color-change 2s infinite;
+        margin: 5px;
+        margin-left: -4px;
+    }
+    
+    #topTenChanges {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    
+    
+    .topTenPercentage, .topTenPercentage2 {
+        font-size: 8px;
+        margin-left: 3px;
+    }
+    
+    .topTenNameUnderEightCharacters, .topTenNameUnderEightCharacters2 {
+        font-size: 7px;
+        color: white;
+        margin-left: -4.5px;
+    }
+    
+    .topTenNameBetweenEightAndTwelveCharacters {
+        font-size: 5px;
+        color: white;
+        margin-left: -4.5px;
+    }
+    
+    .topTenNameOverTwelveCharacters {
+        font-size: 5.5px;
+        color: white;
+        margin-left: -4.5px;
+    }
+    
+    .arrowClassOneToNine {
+        height: 8px;
+        width: 8px;
+    }
+    
+    #arrowClassTen {
+        height: 8px;
+        width: 8px;
+    }
+    #entryOne {
+        padding-top: 15px;
+    }
+    #entryTwo {
+        margin-bottom: -20px;
+    }
+    .watchList {
+        height: 60vh;
+    }
+    #discordContainer {
+        width: 300px !important;
+        padding-left: 90px;
+        margin-top: 20px;
+        position: relative;
+        left: 60px;
+        top: 10px;
+    }
+    .newsLetterContainer {
+        width: 300px !important;
+        padding-right: 90px;
+        margin-top: 20px;
+        position: relative;
+        right: 60px;
+        top: 10px;
+    }
+    #discord {
+        position: relative;
+        left: 5px;
+    }
+    #joinUs {
+        margin-bottom: 70px;
+    }
+    #joinUsSection {
+        margin-bottom: -20px;
+    }
+    #newsLetter {
+        margin-bottom: 10px;
+    }
+    .newsLetterContainer {
+        position: relative;
+        top: -10px;
+    }
+    #discordContainer {
+        position: relative;
+        top: -10px;
+    }
+    #contactUs {
+        position: relative;
+        bottom: 50px;
+    }
+    .marketLeadersClass img {
+        width: 15px;
+        height: 15px;
+        position: relative;
+        top: 2px;
+    }
 }
