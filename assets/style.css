@@ -437,9 +437,9 @@ height: auto;
 
 .marketLeadersClass {
     margin-bottom: 50px;
-    margin-right: 7%;
-    margin-left: 7%;
     display: block;
+    margin-left: 7%;
+    margin-right: 7%;
 }
 
 .tableBackground {
@@ -1991,6 +1991,15 @@ are the second column's elements*/
     }
 }
 
+@media screen and (max-width: 1260px) {
+    #rightSection {
+        background-color: red;
+    }
+    #chartContainer {
+        margin-top: -110px;
+    }
+}
+
 @media screen and (max-width: 1020px) {
     #returnToHomePageButton {
         font-size: 22px;
@@ -2403,7 +2412,6 @@ are the second column's elements*/
         justify-content: center;
     }
     #table, .tableBackground{
-        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
