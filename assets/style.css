@@ -557,7 +557,7 @@ li a {
 .watchList {
     height: 100%;
     width: 370px;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 0px;
     right: -370px;
@@ -566,18 +566,6 @@ li a {
     flex-direction: column;
     transition: transform 1s ease-in-out;
     background-size: 100% 100%;
-}
-
-.watchList::before { /* ::before or ::after does not matter here because whether or not the pseudo element is inserted into the html before or after the .watchList does not make a difference*/
-    content: ""; /*need to include this to have it work*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.5;
-    pointer-events: none;
 }
 
 .watchList.appear {
@@ -3497,6 +3485,13 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 425px) {
+    body {
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+    }
+    #redirectionTab {
+        background-color: blue;
+    }
     #rightSection {
         position: relative;
         top: 90px !important;
@@ -3880,6 +3875,9 @@ are the second column's elements*/
     #discord {
         position: relative;
         left: 5px;
+    }
+    .endingImages {
+        margin-top: 20px;
     }
 }
 
