@@ -449,11 +449,10 @@ watchList.on("mouseleave", function (event) {
     if (watchListClasses.includes("appear") == true) {
         watchList.removeClass("appear");
     }
-    //watchListButton.addClass("visible");
 });
 
 const handleClickOutside = (event) => {
-    if (!watchList.contains(event.target)) {
+    if (!watchList.is(event.target) && !watchList.has(event.target).length) {
         watchList.removeClass("appear");
     }
 }
@@ -462,12 +461,6 @@ $(document).on("click", handleClickOutside)
 
 
 
-
-
-
-
-
-/*REPURPOSE THIS FUNCTION  */
 function fetchMarketUpdate() {
     // API URL
     const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'; //
@@ -710,7 +703,7 @@ function populateHotList() {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
-                $(topTenArrows[index]).attr("src", "assets/downwardsArrow.png");
+                $(topTenArrows[index]).attr("src", "./assets/images/DownwardsArrow.png");
                 //adjusts the arrow symbol and color of percentChange according to whether the coin is under or over for the day
                 index++;
                 //this if loop is ran 10 out of the 910 times, which means it does change the color for the percent change
