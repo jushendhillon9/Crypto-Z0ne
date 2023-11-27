@@ -1,9 +1,9 @@
-# Crypto-Z0ne
+# Crypto-Zone
 
 ![Crypto-Z0ne](./assets/CryptoZ0ne_Project.png)<br><br>
 
 ## Description:
-Crypto-Z0ne is a cryptocurrency web application. It is designed for crypto investors to track cryptocurrency prices, read related news items and manage their favorite cryptocurrencies in a watchlist. The goal is to provide investors with information to make informed investment decisions and conveniently keep track of their favorite cryptocurrencies.
+Crypto-Zone is a cryptocurrency web application. It is designed for crypto investors to track cryptocurrency prices, read related news items and manage their favorite cryptocurrencies in a watchlist. The goal is to provide investors with information to make informed investment decisions and conveniently keep track of their favorite cryptocurrencies.
 
 ## Features:
 * Search for cryptocurrencies
