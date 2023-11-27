@@ -3497,6 +3497,9 @@ are the second column's elements*/
         overflow-y: hidden !important;
         overflow-x: hidden !important;
     }
+    .watchList {
+        background-color: black;
+    }
     #rightSection {
         position: relative;
         top: 90px !important;
@@ -3844,7 +3847,7 @@ are the second column's elements*/
     }
     
     .topTenNameOverTwelveCharacters {
-        font-size: 5.5px;
+        font-size: 4.7px;
         color: white;
         margin-left: -4.5px;
     }
