@@ -1043,12 +1043,7 @@ let doesItMatch = () =>  {
     footer.style.display = "none";
     searchCryptoPage.style.display = "block";
   }
-
-  homePage.style.display = "none";
-    afterHomePage.style.display = "none";
-    footer.style.display = "none";
-    searchCryptoPage.style.display = "block";
-
+  
   newsLetterButton.on("click", function (event) {
     newsLetterModal.removeClass("hidden");
   })
