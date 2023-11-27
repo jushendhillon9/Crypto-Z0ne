@@ -437,20 +437,25 @@ $(window).on("load", function() {
 
 
 
-watchListButton.on("mouseenter", function () { 
-    let watchListClasses = watchList.attr("class").split(" ");
-    if (watchListClasses.includes("appear") == false) {
-        watchList.addClass("appear");
-    }
-});
-
-watchList.on("mouseleave", function (event) {
-    let watchListClasses = watchList.attr("class").split(" ");
-    if (watchListClasses.includes("appear") == true) {
-        watchList.removeClass("appear");
-    }
-    //watchListButton.addClass("visible");
-});
+    watchListButton.on("mouseenter click", function () {
+        let watchListClasses = watchList.attr("class").split(" ");
+        if (!watchListClasses.includes("appear")) {
+            watchList.addClass("appear");
+        }
+    });
+    
+    watchList.on("mouseleave", function () {
+        let watchListClasses = watchList.attr("class").split(" ");
+        if (watchListClasses.includes("appear")) {
+            watchList.removeClass("appear");
+        }
+    });
+    
+    $(document).on("mousedown", function (event) {
+        if (!watchList.is(event.target) && !watchList.has(event.target).length) {
+            watchList.removeClass("appear");
+        }
+    });
 
 
 
