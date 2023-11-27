@@ -403,8 +403,8 @@ footer {
 }
 
 #watchListIconDiv img {
-width: 40px;
-height: auto;
+    width: 40px;
+    height: auto;
 }
 
 .watchListButton, .watchListButtonTwo {
@@ -416,6 +416,8 @@ height: auto;
 
 .watchListButton:focus, .watchListButtonTwo:focus {
     outline: none;
+    box-shadow: none;
+    border-style: none;
   }
 
 .watchListButtonContent {
