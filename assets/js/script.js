@@ -437,27 +437,29 @@ $(window).on("load", function() {
 
 
 
-watchListButton.on("mouseenter", function () { 
-    let watchListClasses = watchList.attr("class").split(" ");
-    if (watchListClasses.includes("appear") == false) {
-        watchList.addClass("appear");
-    }
-});
+    watchListButton.on("mouseenter click", function () {
+        console.log("UES")
+        let watchListClasses = watchList.attr("class").split(" ");
+        if (!watchListClasses.includes("appear")) {
+            watchList.addClass("appear");
+        }
+    });
+    
+    watchList.on("mouseleave", function () {
+        console.log("NO")
+        let watchListClasses = watchList.attr("class").split(" ");
+        if (watchListClasses.includes("appear")) {
+            watchList.removeClass("appear");
+        }
+    });
+    
+    $(document).on("mousedown", function (event) {
+        console.log("UES")
+        if (!watchList.is(event.target) && !watchList.has(event.target).length) {
+            watchList.removeClass("appear");
+        }
+    });
 
-watchList.on("mouseleave", function (event) {
-    let watchListClasses = watchList.attr("class").split(" ");
-    if (watchListClasses.includes("appear") == true) {
-        watchList.removeClass("appear");
-    }
-});
-
-const handleClickOutside = (event) => {
-    if (!watchList.is(event.target) && !watchList.has(event.target).length) {
-        watchList.removeClass("appear");
-    }
-}
-
-$(document).on("click", handleClickOutside)
 
 
 
