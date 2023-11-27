@@ -452,6 +452,14 @@ watchList.on("mouseleave", function (event) {
     //watchListButton.addClass("visible");
 });
 
+const handleClickOutside = (event) => {
+    if (!watchList.contains(event.target)) {
+        watchList.removeClass("appear");
+    }
+}
+
+$(document).on("click", handleClickOutside)
+
 
 
 
