@@ -437,28 +437,25 @@ $(window).on("load", function() {
 
 
 
-    watchListButton.on("mouseenter click", function () {
-        console.log("UES")
-        let watchListClasses = watchList.attr("class").split(" ");
-        if (!watchListClasses.includes("appear")) {
-            watchList.addClass("appear");
-        }
-    });
-    
-    watchList.on("mouseleave", function () {
-        console.log("NO")
-        let watchListClasses = watchList.attr("class").split(" ");
-        if (watchListClasses.includes("appear")) {
-            watchList.removeClass("appear");
-        }
-    });
-    
-    $(document).on("mousedown", function (event) {
-        console.log("UES")
-        if (!watchList.is(event.target) && !watchList.has(event.target).length) {
-            watchList.removeClass("appear");
-        }
-    });
+watchListButton.on("mouseenter click", function () {
+    let watchListClasses = watchList.attr("class").split(" ");
+    if (!watchListClasses.includes("appear")) {
+        watchList.addClass("appear");
+    }
+});
+
+watchList.on("mouseleave", function () {
+    let watchListClasses = watchList.attr("class").split(" ");
+    if (watchListClasses.includes("appear")) {
+        watchList.removeClass("appear");
+    }
+});
+
+$(document).on("mousedown", function (event) {
+    if (!watchList.is(event.target) && !watchList.has(event.target).length) {
+        watchList.removeClass("appear");
+    }
+});
 
 
 
@@ -689,13 +686,13 @@ function populateHotList() {
     for (let i = 0; i < 10; i ++) {
         $(topTenImages[i]).attr("src", topHundredSortedByPercentChange[i].image);
         $(topTenNames[i]).text(topHundredSortedByPercentChange[i].name);
-        if ((topHundredSortedByPercentChange[i].name).length > 8) {
+        if ((topHundredSortedByPercentChange[i].name).length < 8) {
+            $(topTenNames[i]).attr("class", "topTenNameUnderEightCharacters");
+        }
+        else if ((topHundredSortedByPercentChange[i].name).length < 12) {
             $(topTenNames[i]).attr("class", "topTenNameBetweenEightAndTwelveCharacters");
         }
-        if ((topHundredSortedByPercentChange[i].name).length > 11) {
-            $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
-        }
-        if ((topHundredSortedByPercentChange[i].name).length > 11) {
+        if ((topHundredSortedByPercentChange[i].name).length > 12) {
             $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
         }
         $(topTenPercentChanges[i]).text((topHundredSortedByPercentChange[i].market_cap_change_percentage_24h).toFixed(1) + "%");
@@ -722,13 +719,13 @@ function populateHotList2() {
     for (let i = 0; i < 10; i ++) {
         $(topTenImages[i]).attr("src", topHundredSortedByPercentChange[i].image);
         $(topTenNames[i]).text(topHundredSortedByPercentChange[i].name);
-        if ((topHundredSortedByPercentChange[i].name).length > 8) {
+        if ((topHundredSortedByPercentChange[i].name).length < 8) {
+            $(topTenNames[i]).attr("class", "topTenNameUnderEightCharacters");
+        }
+        else if ((topHundredSortedByPercentChange[i].name).length < 12) {
             $(topTenNames[i]).attr("class", "topTenNameBetweenEightAndTwelveCharacters");
         }
-        if ((topHundredSortedByPercentChange[i].name).length > 11) {
-            $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
-        }
-        if ((topHundredSortedByPercentChange[i].name).length > 11) {
+        if ((topHundredSortedByPercentChange[i].name).length > 12) {
             $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
         }
         $(topTenPercentChanges[i]).text((topHundredSortedByPercentChange[i].market_cap_change_percentage_24h).toFixed(1) + "%");
@@ -797,6 +794,7 @@ submitButton.on("click", function (event) {
 let watchListPersist = () => {
     let toBeAdded = localStorage.getItem("savedWatchList");
     toBeAdded = JSON.parse(toBeAdded);
+    console.log(toBeAdded);
     if (toBeAdded != null) {
         for (let i = 0; i < toBeAdded.length; i ++) {
             let addToList = toBeAdded[i].name;
@@ -808,20 +806,23 @@ let watchListPersist = () => {
 
 let addToWatchList = (cryptoName) => {
     console.log("BEING HIT NOW")
-    const myList = $(".unOrderedMyList");
+    const myList = $(".myListDefined");
     let newWatchListCrypto = localStorage.getItem(cryptoName); //cryptoName updates to the crypto that is searched
+    console.log(newWatchListCrypto)
     newWatchListCrypto = JSON.parse(newWatchListCrypto); //new watchListCrypto is now equal to the parsed object 
 
 
     // this code works for saving the watchlist items after browser has been reloaded
     cryptoNamesToPersist.push(newWatchListCrypto);
+    console.log(cryptoNamesToPersist)
     let theNamesToBeSaved = JSON.stringify(cryptoNamesToPersist);
     localStorage.setItem("savedWatchList", theNamesToBeSaved);
     
 
-    let newWatchListItem = $("<li>");
+    let newWatchListItem = $("<li>").addClass("topTen");
 
     let newWatchListItemImage = $("<img>");
+    newWatchListItemImage.addClass("myListImage")
     newWatchListItemImage.attr("src", newWatchListCrypto.image);
     newWatchListItemImage.attr("height", 60);
     newWatchListItemImage.attr("width", 60);
@@ -829,29 +830,43 @@ let addToWatchList = (cryptoName) => {
     //append image
     
     let newWatchListItemName = $("<div>");
-    newWatchListItemName.addClass("itemName");
     newWatchListItemName.text(newWatchListCrypto.name);
     newWatchListItem.append(newWatchListItemName);
-    //append name
+    if (newWatchListCrypto.name.length < 8) {
+        newWatchListItemName.addClass("topTenNameUnderEightCharacters");
+    }
+    else if (newWatchListCrypto.name.length < 11) {
+        $(newWatchListItemName).attr("class", "topTenNameBetweenEightAndTwelveCharacters");
+    }
+    if (newWatchListCrypto.name.length > 12) {
+        $(newWatchListItemName).attr("class", "topTenNameOverTwelveCharacters");
+    }
+
+    let percentageAndRemove = $("<div>").addClass("percentageAndRemove");
 
     let newWatchListItemDayChange = $("<div>");
-    newWatchListItemDayChange.addClass("dayChange");
+    newWatchListItemDayChange.addClass("topTenPercentage2");
     newWatchListItemDayChange.text(newWatchListCrypto.dayChange);
     if (newWatchListCrypto.dayChange < 0) {newWatchListItemDayChange.css("color", "red")}
     else {newWatchListItemDayChange.css("color", "green")};
-    newWatchListItem.append(newWatchListItemDayChange);
+    percentageAndRemove.append(newWatchListItemDayChange)
+    
     //append priceChange
 
+    
     let newWatchListItemRemoveButton= $("<button>");
     newWatchListItemRemoveButton.addClass("removeButton");
     newWatchListItemRemoveButton.text("X");
-    newWatchListItem.append(newWatchListItemRemoveButton);
+    percentageAndRemove.append(newWatchListItemRemoveButton)
+    
+    newWatchListItem.append(percentageAndRemove);
     myList.append(newWatchListItem);
     //adds the new watchList item
 
 
     const lineBreakDiv = $("<div>");
     lineBreakDiv.addClass("linebreak");
+    myList.append(lineBreakDiv);
     //linebreak for the next element
 
     //But, that is not the case... to access any elements created in javascript, whether through their element type, class/id name, or styles, I MUST access them in accordance with the scope that they are created
@@ -1028,6 +1043,11 @@ let doesItMatch = () =>  {
     footer.style.display = "none";
     searchCryptoPage.style.display = "block";
   }
+
+  homePage.style.display = "none";
+    afterHomePage.style.display = "none";
+    footer.style.display = "none";
+    searchCryptoPage.style.display = "block";
 
   newsLetterButton.on("click", function (event) {
     newsLetterModal.removeClass("hidden");
