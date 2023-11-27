@@ -4160,7 +4160,7 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
     .myListImage {
         margin-right: 5px;
         height: 15px;
