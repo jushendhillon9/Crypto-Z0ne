@@ -807,6 +807,7 @@ let watchListPersist = () => {
 
 
 let addToWatchList = (cryptoName) => {
+    console.log("BEING HIT NOW")
     const myList = $(".unOrderedMyList");
     let newWatchListCrypto = localStorage.getItem(cryptoName); //cryptoName updates to the crypto that is searched
     newWatchListCrypto = JSON.parse(newWatchListCrypto); //new watchListCrypto is now equal to the parsed object 

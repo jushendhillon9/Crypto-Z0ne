@@ -410,6 +410,7 @@ height: auto;
 .watchListButton, .watchListButtonTwo {
     display: flex;
     height: 50px;
+    background-color: white;
 }
 
 

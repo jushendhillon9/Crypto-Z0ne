@@ -1992,9 +1992,6 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 1260px) {
-    #rightSection {
-        background-color: red;
-    }
     #chartContainer {
         margin-top: -110px;
     }
