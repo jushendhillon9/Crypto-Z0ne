@@ -2369,7 +2369,7 @@ are the second column's elements*/
     }
     .percentageAndRemove {
         position: relative;
-        left: 55px;
+        left: 45px;
     }
     #returnToHomePageButton {
         font-size: 17px;
@@ -3560,7 +3560,13 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 430px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
+    body {
+        position: relative;
+    }
     .myListImage {
         height: 20px;
         width: 20px;
@@ -3932,9 +3938,10 @@ are the second column's elements*/
     }
     
     .topTenNameOverTwelveCharacters {
-        font-size: 5.5px;
+        font-size: 3.9px;
         color: white;
         margin-left: -4.5px;
+        padding-right: 1px;
     }
     
     .arrowClassOneToNine {
@@ -3948,6 +3955,8 @@ are the second column's elements*/
     }
     #entryOne {
         padding-top: 15px;
+        position: relative;
+        right: 0px;
     }
     #entryTwo {
         margin-bottom: -20px;
@@ -4152,13 +4161,6 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 320px) {
-    html, body {
-        overflow-x: hidden !important;
-    }
-    body {
-        position: relative;
-    }
-      
     .myListImage {
         margin-right: 5px;
         height: 15px;
@@ -4381,7 +4383,7 @@ are the second column's elements*/
     }
     
     .topTenNameOverTwelveCharacters {
-        font-size: 5.5px;
+        font-size: 3.9px;
         color: white;
         margin-left: -4.5px;
     }

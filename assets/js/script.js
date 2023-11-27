@@ -896,7 +896,8 @@ let addToWatchList = (cryptoName) => {
 
 
 
-addToWatchListButton.on("click", () => {
+addToWatchListButton.on("click", (event) => {
+    event.preventDefault();
     addToWatchList(cryptoName);
     addToWatchListButton.attr("disabled", "disabled");
 });
@@ -1043,7 +1044,7 @@ let doesItMatch = () =>  {
     footer.style.display = "none";
     searchCryptoPage.style.display = "block";
   }
-  
+
   newsLetterButton.on("click", function (event) {
     newsLetterModal.removeClass("hidden");
   })
