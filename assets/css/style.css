@@ -414,6 +414,10 @@ height: auto;
 }
 
 
+.watchListButton:focus, .watchListButtonTwo:focus {
+    outline: none;
+  }
+
 .watchListButtonContent {
     font-weight: bold;
     font-family: 'Lexend', 'Roboto', 'Poppins', sans-serif;
@@ -423,6 +427,7 @@ height: auto;
     background-color: transparent;
     display: inline;
     margin: 5px;
+    background-color: white;
 }
 
 .menuIcon{
