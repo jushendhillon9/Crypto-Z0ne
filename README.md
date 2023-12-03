@@ -1,4 +1,4 @@
-# Crypto-Z0ne
+# Crypto-Zone
 
 ![Crypto-Z0ne](./assets/CryptoZ0ne_Project.png)<br><br>
 
@@ -40,7 +40,7 @@ If you want to see this website on your own computer, follow these simple steps:
 2. Open the project folder and find the file named: index.html.
 3. Double-click on: index.html to open it in your web browser.
 
-Deployment Link: https://devjake99.github.io/Crypto-Z0ne/ 
+Deployment Link: https://jushendhillon9.github.io/Crypto-Zone/
 
 
 ## Resources:
