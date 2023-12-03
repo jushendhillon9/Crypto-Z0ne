@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+#chartContainer {
+    width: 50%;
+}
+
 
 /* Adds nav styles */
 nav {
@@ -97,13 +101,23 @@ h6 {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     position: relative;
     bottom: 30px;
     width: 25%;
     align-items: flex-end;
     height: 100%;
 }
+
+#cryptoSearchFormTwo {
+    margin-top: -13px;
+}
+
+#chartContainer {
+    position: relative; 
+    top: -10px;
+}
+
 #searchPageButtons {
     display: flex;
     flex-wrap: nowrap;
@@ -181,6 +195,14 @@ height: 50px; /* Adjust the height as needed */
     width: 100vw;
     padding: 0 0% !important;
     height: 100px;
+}
+
+#navbarTwo {
+    position: relative;
+    left: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #projectLogoOne {
@@ -635,12 +657,6 @@ li a {
     /* needs to make the hotList Invisible and MyList visible*/
 }
 
-#returnText {
-    font-weight: bold;
-    margin-right: 5px;
-    margin-bottom: 2px;
-}
-
 
 .hidden {
     display: none;
@@ -1047,7 +1063,6 @@ li a {
 
 #chartContainer {
     width: 100%;
-    height: 55%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1055,8 +1070,7 @@ li a {
 }
 
 #searchedCryptoGraph {
-    width: 100%;
-    height: auto;
+    height: 100%;
     border: 3px solid #1CAC78;
     background-color: #343434;
     color: white;
@@ -1086,18 +1100,38 @@ li a {
 }
 
 #returnToHomePageButton {
-    height: 50px;
+    height: 45px;
+    width: 85px;
     background-color: #343434;
     color: #fff;
     padding: 5px 10px;
     cursor: pointer;
-    border: 2px solid #1CAC78;
+    border: 1px solid #1CAC78;
     font-family: 'Impact', 'Poppins', sans-serif;
-    font-size: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+}
+
+#returnToHomePageButtonContent {
+    position: relative;
+    bottom: 10px;
+}
+
+#returnIcon {
+    width: 40px;
+    height: 40px;
+}
+
+#returnText {
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: -15px;
 }
 
 
@@ -1609,6 +1643,7 @@ are the second column's elements*/
     background-color: black;
     width: 100%;
     overflow-x: hidden;
+    height: 95%;
 }
 
 #searchedCryptoRecentNews::-webkit-scrollbar {
@@ -1703,8 +1738,6 @@ are the second column's elements*/
         width: 40px;
     }
     #searchedCryptoGraph {
-        width: 100%;
-        height: auto;
         border: 3px solid #1CAC78;
         background-color: #343434;
         color: white;
@@ -1730,9 +1763,12 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 1220px){
+@media screen and (max-width: 1250px){
     #navbarOne {
         justify-content: space-around;
+    }
+    #navbarTwo {
+        justify-content: space-between;
     }
     #redirectionTab a {
         font-size: 15px;
@@ -1849,6 +1885,11 @@ are the second column's elements*/
     height: 47px;
 }
 
+#chartContainer {
+    position: relative;
+    top: 0px;
+}
+
 
 .topTenImage, .topTenImage2 {
     height: 40px;
@@ -1898,15 +1939,19 @@ are the second column's elements*/
     height: 20px;
     width: 20px;
 }
-#cryptoSearchFormTwo {
-    position: relative; 
-    top: 20px;
-}
 }
 
 @media screen and (max-width: 1230px) {
+    #contactUs {
+        margin-top: -10px;
+        overflow-x:visible;
+        overflow-y:visible;
+    }
     #returnToHomePageButton {
         font-size: 25px;
+    }
+    #cryptoSearchFormTwo {
+        margin-top: 10px;
     }
     #searchValueTwo, #submitButtonTwo {
         padding: 4px 7px !important;
@@ -1917,12 +1962,10 @@ are the second column's elements*/
     }
     #searchedCryptoBasicStats {
         font-size: 11px !important;
-        position: relative;
-        top: 20px;
     }
     #chartContainer {
         position: relative;
-        top: 35px;
+        top: 0px;
     }
     #joinUsSection {
         width: 100%;
@@ -1940,19 +1983,17 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 1062px) {
-    #rightSection {
-        position: relative;
-        top: 40px;
-        bottom: 0px;
+    #searchedCryptoBasicStats {
+        margin-bottom: 50px;
     }
-    #searchResultsDiv {
-        margin-top: -30px;
+    #searchFormContainer {
+        margin-bottom: 10px;
     }
     #searchedCryptoNameAndSymbol {
-        font-size: 12px !important;
+        font-size: 15px !important;
     }
     #rank, #searchedCryptoRank {
-        font-size: 9px !important;
+        font-size: 12px !important;
         position: relative;
         top: 9px;
     }
@@ -1997,22 +2038,32 @@ are the second column's elements*/
         padding: 4px 7px !important;
         margin-top: -110px;
     }
-    #searchFormContainer {
-        position: relative;
-        bottom: 10px;
-    }
 }
 
 @media screen and (max-width: 1020px) {
+    #cryptoSearchFormTwo {
+        margin-top: 0px;
+    }
     #returnToHomePageButton {
         font-size: 22px;
+        height: 37px;
+        width: 70px;
     }
-    #navbarOne {
+    #returnIcon {
+        width: 30px;
+        height: 30px;
+    }
+    #returnText {
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: -12px;
+    }
+    #navbarOne, #navbarTwo  {
         padding-bottom: -30px;
     }
     #middleSection {
-        margin-right: 10px !important;
-        margin-left: 10px !important;
+        margin-right: 10px;
+        margin-left: 10px;
     }
     #tableBodyTwo tr td:nth-child(1) {
         font-size: 10px;
@@ -2085,8 +2136,15 @@ are the second column's elements*/
     .Newssrc {
         font-size: 12px !important;
     }
-    #navbarOne {
+    #searchResultsDiv {
+        position: relative;
+        top: -30px;
+    }
+    #navbarOne  {
         justify-content: space-around;
+        height: 80px;
+    }
+    #navbarTwo {
         height: 80px;
     }
     #redirectionTab {
@@ -2186,7 +2244,7 @@ are the second column's elements*/
         font-size: 30px;
     }
     #contactUs {
-        padding-top: 50px;
+        margin-top: -20px;
         overflow-x:visible;
         overflow-y:visible;
     }
@@ -2241,13 +2299,23 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 920px) {
-    
-#middleSection {
-    position: relative;
-    top: 10px;
-}
+    #middleSection {
+        position: relative;
+        top: 10px;
+    }
     #returnToHomePageButton {
-        font-size: 19px;
+        height: 31px;
+        width: 60px;
+    }
+    #returnIcon {
+        width: 27px;
+        height: 27px;
+    }
+    #returnText {
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: -14px;
+        font-size: 11px;
     }
     #contactUs {
         margin-top: -10px;
@@ -2276,12 +2344,13 @@ are the second column's elements*/
         width: 250px !important;
         padding-left: 50px;
     }
-    #searchResultsDiv {
-        margin-top: -50px;
-    }
 }
 
 @media screen and (max-width: 860px) {
+    #searchedCryptoImageAndName {
+        margin-top: -50px;
+        margin-bottom: -200px;
+    }
     #searchedCryptoPriceStats {
         font-size: 15px;
         height: 100px;
@@ -2289,10 +2358,10 @@ are the second column's elements*/
     }
     #searchedCryptoBasicStats {
         position: relative;
-        top: 40px;
+        top: 20px;
     }
     #dailyPerformance, #searchedCryptoPercentChange {
-        font-size: 22px;
+        font-size: 27px;
     }
     #searchedCryptoPercentChange {
         position: relative;
@@ -2301,11 +2370,7 @@ are the second column's elements*/
     }
     #chartContainer {
         position: relative;
-        top: 10px;
-    }
-    #cryptoSearchFormTwo {
-        position: relative;
-        top: -20px;
+        top: -15px;
     }
     .tableBodyTwoImage {
         width: 17px !important;
@@ -2329,9 +2394,16 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 812px) {
-    #returnToHomePageButton {
-        font-size: 17px;
-        padding: 1px 3px !important;
+    #searchedCryptoImageAndName {
+        margin-top: -125px;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange {
+        font-size: 27px;
+        margin-bottom: 40px;
+    }
+    #chartContainer {
+        position: relative;
+        top: -30px;
     }
     #searchValue::placeholder {
         font-size: 10px !important;
@@ -2415,7 +2487,6 @@ are the second column's elements*/
         justify-content: center;
     }
     #table, .tableBackground{
-        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -2423,7 +2494,7 @@ are the second column's elements*/
         font-size: 12px !important;
         padding: 7px !important;
     }
-    #navbarOne {
+    #navbarOne, #navbarTwo  {
         height: 70px;
     }
     #redirectionTab {
@@ -2709,15 +2780,21 @@ are the second column's elements*/
         height: 12px;
         width: 12px;
     }
-    #returnToHomePageButton {
-        padding: 4px !important;
-        height: 30px;
-    }
 }
 
 @media screen and (max-width: 730px) {
     #searchedCryptoNameAndSymbol {
+        font-size: 12px !important;
+    }
+    #rank, #searchedCryptoRank {
         font-size: 10px !important;
+    }
+    #searchedCryptoRank {
+        position: relative;
+        top: 9.6px;
+    }
+    #searchedCryptoImageAndName {
+        margin-bottom: -350px;
     }
     #searchValueTwo, #submitButtonTwo {
         padding: 0px;
@@ -2738,16 +2815,9 @@ are the second column's elements*/
         position: relative;
         right: 4px;
     }
-    #returnToHomePageButton {
-        padding: 4px !important;
-        height: 30px;
-    }
-    #returnText {
-        font-size: 15px;
-    }
     #returnIcon {
-        width: 10px;
-        height: 10px;
+        width: 30px;
+        height: 20px;
     }
     #hotListButton, #myListButton {
         font-size: 10px;
@@ -2788,7 +2858,7 @@ are the second column's elements*/
     #mainHeader {
         width: 500px !important;
     }
-    #navbarOne {
+    #navbarOne, #navbarTwo {
         height: 70px;
     }
     #redirectionTab {
@@ -2861,6 +2931,30 @@ are the second column's elements*/
     #suggestedCryptosHeader {
         font-size: 12px;
     }
+    #returnIcon {
+        width: 23px;
+        height: 23px;
+        margin-top: 2px;
+    }
+    #returnText {
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: -12px;
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 686px) {
+    #dailyPerformanceContainer {
+        margin-bottom: 40px;
+    }
+    #dailyPerformance {
+        text-align: center;
+    }
+    #searchedCryptoPercentChange {
+        margin-top: -40px;
+    }
+
 }
 
 
@@ -2870,9 +2964,6 @@ are the second column's elements*/
     }
     #searchedCryptoImageAndName {
         width: 90%;
-    }
-    #chartContainer {
-        height: 200px;
     }
     #searchedCryptoPriceStats {
         font-size: 12px;
@@ -2947,7 +3038,7 @@ are the second column's elements*/
         height: 25px;
         width: 190px;
     }
-    #navbarOne {
+    #navbarOne, #navbarTwo {
         height: 60px;
     }
     #gifThree {
@@ -3047,6 +3138,21 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 620px) {
+    #returnToHomePageButton {
+        height: 26px;
+        width: 50px;
+        position: relative;
+        top: 20px;
+    }
+    #returnIcon {
+        width: 23px;
+        height: 23px;
+    }
+    #returnText {
+        font-weight: bold;
+        font-size: 9px;
+        margin-top: -14px;
+    }
     #chartContainer {
         position: relative;
         bottom: 50px;
@@ -3082,6 +3188,18 @@ are the second column's elements*/
     }
 }
 
+@media screen and (max-width: 600px) {
+    #dailyPerformance {
+        width: 100%;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange {
+        font-size: 22px;
+    }
+    #cryptoSearchFormTwo {
+        margin-top: -20px;
+    }
+}
+
 @media screen and (max-width: 590px) {
     #searchValueTwo, #submitButtonTwo {
         padding: 0px;
@@ -3094,17 +3212,10 @@ are the second column's elements*/
         position: relative;
         right: 7px;
     }
-    #chartContainer {
-        height: 200px !important;
-    }
     #dailyPerformanceContainer {
         width: 210px;
         text-align: center;
         margin-bottom: 25px;
-    }
-    #searchedCryptoPercentChange {
-        position: relative;
-        top: -12px !important;
     }
     #searchValue::placeholder {
         font-size: 7px !important;
@@ -3120,10 +3231,6 @@ are the second column's elements*/
     #tableBodyTwo tr td:nth-child(3) {
         position: relative;
         right: 2px;
-    }
-    #searchedCryptoPercentChange {
-        position: relative;
-        top: -25px;
     }
     #searchedCryptoPriceStats {
         position: relative;
@@ -3373,9 +3480,6 @@ are the second column's elements*/
     #entryTwo {
         margin-bottom: -20px;
     }
-    #chartContainer {
-        height: 250px;
-    }
     #discordContainer {
         height: 100px;
     }
@@ -3408,7 +3512,7 @@ are the second column's elements*/
     }
     #redirectionTab a {
         margin: 0px;
-        font-size: 5px;
+        font-size: 7px;
     }
     #projectLogoOne {
         height: 20px;
@@ -3494,12 +3598,103 @@ are the second column's elements*/
     #joinUsSection {
         margin-bottom: 0px;
     }
+    #cryptoNewsArticlesHeader {
+        font-size: 14.3px;
+
+    }
 }
 
 @media screen and (max-width: 425px) {
+    #searchedCryptoImageAndName {
+        margin-left: 20px;
+    }
+    #cryptoSearchFormTwo {
+        margin-top: 7px;
+    }
+    #searchedCryptoPriceStats {
+        font-size: 10px;
+    }
+    #allTimeHigh, #currentValue, #allTimeLow {
+        margin-bottom: 10px;
+        padding-bottom: 0px;
+    }
+    #currentValue {
+        position: relative;
+        bottom: 10px;
+    }
+    #allTimeLow {
+        position: relative;
+        bottom: 20px;
+    }
+    #returnToHomePageButton {
+        margin-right: 0px;
+    }
     #rightSection {
         position: relative;
-        top: 90px !important;
+        right: 10px;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 10px;
+        text-align: right;
+        padding-left: 5px;
+        width: 100px;
+    }
+    #tableBodyTwo tr td:nth-child(2) {
+        font-size: 10px !important;
+        text-align: right;
+        padding-left: 12px;
+    }
+    #tableBodyTwo tr td:nth-child(3) {
+        font-size: 10px !important;
+    }
+    #suggestedCryptos {
+        position: relative;
+        top: -265px;
+        left: 15px;
+    }
+    #tableTwo {
+        width: 270px;
+    }
+    #returnToHomePageButton {
+        margin-bottom: 20px;
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+    }
+    #chartContainer {
+        position: relative;
+        top: 45px;
+        bottom: 0px;
+        right: 60px;
+        width: 300px;
+    }
+    #searchedCryptoGraph {
+        width: 300px;
+    }
+    #searchedCryptoImageAndName {
+        margin-top: -90px;
+        margin-bottom: -300px;
+    }
+    #dailyPerformance {
+        font-size: 17px;
+        text-align: center;
+        position: relative;
+        right: 0px;
+    }
+    #searchedCryptoPercentChange {
+        position: relative;
+        left: 0px;
+        right: 0px;
+    }
+    #searchFormContainer {
+        margin-bottom: 40px;
+        position: relative;
+        right: 10px;
+    }
+    #rightSection {
+        position: relative;
+        top: 20px !important;
     }
     #middleSection, #leftSection {
         position: relative;
@@ -3508,50 +3703,30 @@ are the second column's elements*/
         height: 120%;
     }
     #searchedCryptoNameAndSymbol {
-        font-size: 7px !important;
+        font-size: 11px !important;
         position: relative;
         top: 3px;
     }
-    #returnToHomePageButton {
-        height: 20px;
-    }
-    #returnText {
-        font-size: 10px;
-        margin-top: 2px;
-    }
-    #searchPageButtons {
-        position: relative;
-        bottom: 45px;
-        right: 12px;
-    }
     #middleSection {
-        height: 110%;
+        height: 120%;
     }
     #searchResultsDiv {
         margin-bottom: -500px;
     }
     #searchedCryptoRecentNews {
-        height: 70%;
         position: relative;
         top: -10px;
-        right: 5px;
     }
     #dailyPerformanceContainer {
         position: relative;
-        top: 12px;
+        top: 30px;
     }
     #searchedCryptoPriceStats {
-        position: relative; 
-        top: -25px !important;
+        position: relative;
     }
-    #middleSection, #leftSection, #rightSection {
+    #middleSection, #leftSection {
         position: relative;
         top: -50px;
-    }
-    #chartContainer {
-        height: 190px !important;
-        position: relative;
-        right: 5px;
     }
     #searchedCryptoImageAndName {
         border: 3px solid #1CAC78;
@@ -3562,11 +3737,11 @@ are the second column's elements*/
     }
     #searchedCryptoPercentChange {
         position: relative;
-        top: -20px;
+        top: -7px;
     }
     #searchedCryptoPriceStats {
         position: relative;
-        top: -20px;
+        top: -50px;
     }
     #searchValueTwo {
         width: 100px;
@@ -3582,10 +3757,6 @@ are the second column's elements*/
     #searchedCryptoRecentNews {
         position: relative;
         bottom: 50px;
-    }
-    #suggestedCryptos {
-        position: relative;
-        bottom: 40px;
     }
     #paginationButtons {
         position: relative;
@@ -3756,7 +3927,6 @@ are the second column's elements*/
         width: 20px !important;
 
     }
-    
     .numberAndBorder {
         display: flex;
         flex-wrap: nowrap;
@@ -3881,13 +4051,78 @@ are the second column's elements*/
         position: relative;
         left: 5px;
     }
+
+    #searchValueTwo {
+        width: 150px;
+    }
+    #searchFormContainer {
+        width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    #searchValueTwo {
+        width: 210px;
+        margin-left: 1px;
+    }
+    #returnToHomePageButton {
+        position: relative;
+        right: 5px;
+    }
 }
 
 @media screen and (max-width: 375px) {
+    #searchFormContainer {
+        width: 270px;
+        margin-left: 90px;
+    }
+    #searchValueTwo {
+        width: 193px;
+    }
+    #rightSection {
+        position: relative;
+        right: -10px;
+    }
+    #suggestedCryptos {
+        position: relative;
+        top: -335px;
+        width: 220px;
+        position: relative;
+        left: 65px;
+    }
+    #suggestedCryptosHeader {
+        width: 200px;
+        text-align: left;
+    }
+    #tableTwo {
+        width: 220px;
+    }
+    #chartContainer {
+        width: 260px;
+        position: relative;
+        left: -55px;
+    }
+    #middleSection {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #searchedCryptoImageAndName {
+        margin-top: -20px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    #searchFormContainer {
+        margin-bottom: 40px;
+        position: relative;
+        right: 90px;
+    }
+    #searchedCryptoBasicStats {
+        position: relative;
+        top: 30px;
+    }
     #dailyPerformanceContainer {
         width: 170px;
         position: relative;
-        left: -5px;
     }
     #tableBodyTwo tr td:nth-child(1) {
         font-size: 9px;
@@ -3903,16 +4138,14 @@ are the second column's elements*/
     #searchedCryptoRecentNews {
         position: relative;
         bottom: 150px !important;
-        height: 350px;
     }
     #chartContainer {
         position: relative;
-        right: 10px;
-        top: -70px !important;
+        top: 40px !important;
     }
     #suggestedCryptos {
         position: relative;
-        bottom: 150px;
+        bottom: 410px;
     }
     #allTimeHigh, #currentValue, #allTimeLow  {
         margin: 0px;
@@ -3920,7 +4153,7 @@ are the second column's elements*/
     }
     #returnToHomePageButton {
         position: relative;
-        bottom: 20px;
+        top: 5px;
     }
     #currentValue {
         position: relative;
@@ -3933,14 +4166,8 @@ are the second column's elements*/
     #dailyPerformance, #searchedCryptoPercentChange {
         font-size: 17px;
     }
-    #searchValueTwo {
-        width: 80px;
-    }
     #searchValueTwo::placeholder {
         font-size: 7px;
-    }
-    #tableTwo {
-        width: 200px;
     }
     .pin-button {
         height: 20px;
@@ -3959,17 +4186,11 @@ are the second column's elements*/
         left: 0px !important;
     }
     #searchedCryptoPriceStats {
-        position: relative;
-        top: -30px !important;
         font-size: 8px;
-    }
-    #chartContainer {
-        height: 150px !important;
     }
     #cryptoSearchFormTwo {
         position: relative;
-        top: -90px !important;
-        left:-5px;
+        top: 0px !important;
     }
     #allTimeHigh, #currentValue, #allTimeLow {
         margin: 10px;
@@ -4022,7 +4243,7 @@ are the second column's elements*/
         font-weight: bold;
     }
     #cryptoNewsArticlesHeader {
-        font-size: 10px;
+        font-size: 15px;
     }
     #searchedCryptoRecentNews h2 {
         font-size: 8px;
@@ -4063,20 +4284,64 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 325px) {
+    #suggestedCryptos {
+        left: 70px;
+    }
+    #dailyPerformance, #searchedCryptoPercentChange {
+        font-size: 16px;
+    }
+    #searchedCryptoPriceStats {
+        position: relative;
+        top: -43px;
+    }
+    #cryptoNewsArticlesHeader {
+        font-size: 12px;
+    }
+    #searchFormContainer {
+        width: 270px;
+        margin-left: 130px;
+    }
+    #searchValueTwo {
+        width: 160px;
+    }
+    #rightSection {
+        position: relative;
+        right: -5px;
+    }
+    #searchedCryptoImageAndName {
+        margin-bottom: 40px;
+    }
+    #searchedCryptoNameAndSymbol {
+        font-size: 9.5px !important;
+        position: relative;
+        top: 3px;
+        margin-bottom: -12px;
+    }
+    #rank, #searchedCryptoRank {
+        font-size: 8.5px !important;
+        margin-bottom: 2px;
+    }
+    #searchedCryptoBasicStats {
+        position: relative;
+        left: 15px;
+    }
+    #dailyPerformanceContainer {
+        margin-bottom: 0px;
+    }
     #suggestedCryptosHeader {
         width: 200px;
         text-align: left;
     }
     #chartContainer {
         position: relative;
-        right: 15px;
-        top: -80px !important;
+        top: 40px !important;
+        width: 230px;
+        left: -45px;
     }
     #searchedCryptoRecentNews {
         position: relative;
-        right: 15px;
-        top: -30px !important;
+        top: 0px !important;
     }
     #searchedCryptoImageAndName {
         position: relative;
@@ -4084,12 +4349,10 @@ are the second column's elements*/
     }
     #returnToHomePageButton {
         position: relative;
-        bottom: 10px;
-        right: 5px;
+        top: 15px;
     }
     #searchFormContainer {
         position: relative;
-        right: 10px;
         bottom: 15px;
     }
     #dailyPerformanceContainer, #searchedCryptoPriceStats {
@@ -4337,5 +4600,30 @@ are the second column's elements*/
         height: 15px;
         position: relative;
         top: 2px;
+    }
+    #tableTwo {
+        width: 170px;
+    }
+    #tableBodyTwo tr td:nth-child(1) {
+        font-size: 8px;
+        width: 100px;
+    }
+    #tableBodyTwo tr td:nth-child(2), #tableBodyTwo tr td:nth-child(3) {
+        font-size: 6.5px !important;
+    }
+    #tableBodyTwo tr td:nth-child(2) {
+        position: relative;
+        left: 5px;
+    }
+    #searchResultsDiv {
+        position: relative;
+        top: -50px;
+    }
+    #cryptoSearchFormTwo {
+        margin-top: 15px;
+    }
+    #suggestedCryptos {
+        position: relative;
+        top: -345px;
     }
 }

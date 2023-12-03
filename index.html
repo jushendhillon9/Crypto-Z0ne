@@ -15,10 +15,10 @@
                 <h1 id = "projectName">The Crypto-Z0ne</h1>
             </div>
             <div id = "redirectionTab">
-                <a href = "#market-update">Leader Board</a>
-                <a href = "#news-articles">Top News</a>
-                <a href = "#joinUs">Join Us</a>
-                <a href ="#contactUs">Contact</a>
+                <a id = "linkOne" href = "#market-update">Leader Board</a>
+                <a id = "linkTwo" href = "#news-articles">Top News</a>
+                <a id = "linkThree" href = "#joinUs">Join Us</a>
+                <a id = "linkFour" href ="#contactUs">Contact</a>
             </div>
             <button class="watchListButton" type = "button" class = "visible" style = "margin-top: 10px;">
                 <img class="watchListButtonPhoto" src="./assets/images/menu.png">
@@ -345,16 +345,10 @@
         </div>
     </footer>
     <section id = "searchedCryptoPage">
-        <nav id="navbarOne">
+        <nav id="navbarTwo">
             <div id = "nameAndLogo">
                 <img src = "./assets/images/cryptoZoneLogo.png" id = "projectLogoOne">
                 <h1 id = "projectName">The Crypto-Z0ne</h1>
-            </div>
-            <div id = "redirectionTab">
-                <a href = "#market-update">Leader Board</a>
-                <a href = "#news-articles">Top News</a>
-                <a href = "#joinUs">Join Us</a>
-                <a href ="#contactUs">Contact</a>
             </div>
             <button class="watchListButton" type = "button" class = "visible" style = "margin-top: 10px;">
                 <img class="watchListButtonPhoto" src="././assets/images/menu.png">
@@ -569,8 +563,11 @@
             <div id = "rightSection">
                 <div id = "searchPageButtons">
                     <button id = "returnToHomePageButton">
-                        <div id = "returnText" >Return</div>
-                        <ion-icon id = "returnIcon" name="return-up-back-outline"></ion-icon>
+                        <div id = "returnToHomePageButtonContent">
+                            <ion-icon id = "returnIcon" name="return-up-back-outline"></ion-icon>
+                            <div class = "linebreak"></div>
+                            <div id = "returnText">Return</div>
+                        </div>
                     </button>
                 </div>
                 <div id = "searchedCryptoRecentNews">

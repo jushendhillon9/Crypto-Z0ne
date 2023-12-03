@@ -1,4 +1,5 @@
 const submitButton = $("#submitButton");
+const submitButtonTwo = $("#submitButtonTwo");
 const hotList = $(".hotList");
 const myList = $(".myList");
 const watchList = $(".watchList");
@@ -20,6 +21,13 @@ const recentCryptoNewsArticlesHeader = $("#cryptoNewsArticlesHeader");
 const topCryptoNews = $("#news-articles");
 const returnToHomePageButton = $("#returnToHomePageButton");
 const mediaQuery = window.matchMedia("(max-width: 1020px)");
+const newsLetterSubmitButton = $("#newsLetterSubmitButton");
+const submittedEmailForNewsLetter = $("#emailInput");
+const submittedNameForNewsLetter = $("#nameInput");
+const linkOne = $("#linkOne");
+const linkTwo = $("#linkTwo");
+const linkThree = $("#linkThree");
+const linkFout = $("#linkFour");
 let featuredCryptoImageLinks = [];
 let featuredCryptoNames = [];
 let featuredCryptoImageChangePercents = [];
@@ -31,9 +39,10 @@ let topFiftyCryptos = [];
 let topTenCryptos = [];
 let theNewTenCryptos = [];
 let cryptoNamesToPersist = [];
+let arrayOfEmails = [];
 let searchValue; 
 let coinNews;
-let cryptoSymbolForSearchedGraph; //cryptoSymbol will be retrieved by the retrieveFinnhubCryptoSymbol function
+let cryptoSymbolForSearchedGraph;
 let cryptoSymbolForCryptoNews;
 let cryptoName;
 let theSearchedCrypto;
@@ -43,18 +52,12 @@ let suggestedCryptos = [];
 let doNotRun = false;
 let anyMatches;
 
-/*
-homePage.style.display = "none";
-    searchCryptoPage.style.display = "block";
-*/
-
 
 function switchToHotList() {
     myList.removeClass("visible");
     myList.addClass("hidden");
     hotList.removeClass("hidden");
     hotList.addClass("visible");
-    //make the hotList button a darker shade to indicate it's selected
 }
 
 function switchToMyList() {
@@ -62,7 +65,6 @@ function switchToMyList() {
     hotList.addClass("hidden");
     myList.removeClass("hidden");
     myList.addClass("visible");
-    //make the myList button a darker shade to indicate it's selected
 }
 
 
@@ -99,10 +101,9 @@ function getSearchedCoinSymbolCoinGecko() {
                 } else {
                     console.log("MATCHES Found");
                     doNotRun = false;
-                    resolve(data); // Resolve with the data if matches are found
+                    resolve(data);
                 }
 
-                // Additional logic for suggestedCryptos
                 suggestedCryptos = [];
                 for (let i = 0; i < 2; i++) {
                     let randomNumber = Math.floor((Math.random() * 100));
@@ -111,7 +112,7 @@ function getSearchedCoinSymbolCoinGecko() {
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
-                reject(error); // Reject the promise if an error occurs
+                reject(error);
             });
     });
 }
@@ -142,37 +143,6 @@ function populateSearchedCryptoInfo (theSearchedCryptoObject) {
     }
 
 }
-/*
-function createSearchedCryptoGraph () {
-    let requestURL = "https://finnhub.io/api/v1/crypto/candle?symbol=BINANCE:" + cryptoSymbolForSearchedGraph + "&resolution=M&from=1672534801&to=1692513981&token=cjapurpr01qji1gtr6mgcjapurpr01qji1gtr6n0";
-    fetch(requestURL)
-        .then (function (response) {
-            return response.json();
-        })
-        .then (function (data) {
-            chart.data.datasets[0].data = [];
-            chart.update();
-            let closingData = data.c;
-            if (closingData != null) {
-                cryptoClosingDataset = [];
-                for (let i = 0; i < closingData.length; i ++) {
-                    cryptoClosingDataset.push(closingData[i]);
-                }
-                chart.data.datasets[0].data = cryptoClosingDataset;
-                chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-                chart.update();
-            }
-            else {
-                chart.data.datasets[0].data = [];
-                chart.options.plugins.title.text = "No Available Graph";
-                chart.update();
-                console.log("bye");
-                chart.options.plugins.title.text = "No Available Graph";
-            }
-        })//dataset is based on the closing prices for the month
-}*/
-
-
 
 
 function createSearchedCryptoGraph () {
@@ -191,6 +161,7 @@ function createSearchedCryptoGraph () {
             for (let i = 0; i < closingData.length; i ++) {
                 cryptoClosingDataset.push(closingData[i]);
             }
+            console.log(cryptoClosingDataset);
             chart.data.datasets[0].data = cryptoClosingDataset;
             chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
             chart.update();
@@ -202,14 +173,18 @@ function createSearchedCryptoGraph () {
             return response.json();
         })
         .then (function (data) {
+            console.log("Hello running here");
+            console.log(data);
             chart.data.datasets[0].data = [];
             chart.update();
             let closingData = data.c;
+            console.log(closingData);
             if (closingData != null) {
                 cryptoClosingDataset = [];
                 for (let i = 0; i < closingData.length; i ++) {
                     cryptoClosingDataset.push(closingData[i]);
                 }
+                console.log(cryptoClosingDataset);
                 chart.data.datasets[0].data = cryptoClosingDataset;
                 chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
                 chart.update();
@@ -225,24 +200,6 @@ function createSearchedCryptoGraph () {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//this submitButton listener refreshes the searchPages data, and populates it
 submitButton.on("click", async function (event) {
     event.preventDefault();
     submitButton.attr("disabled", "disabled");
@@ -269,7 +226,7 @@ submitButton.on("click", async function (event) {
             displaySuggestedCryptos(suggestedCryptos);
             populateRecentNewsSection(cryptoName, cryptoSymbolForCryptoNews);
             setTimeout(populateHotList2, 100);
-            switchToSearchPage();
+            setTimeout(switchToSearchPage, 200);
         }
     } catch (error) {
         console.error(error);
@@ -279,7 +236,6 @@ submitButton.on("click", async function (event) {
 })
 
 
-const submitButtonTwo = $("#submitButtonTwo");
 submitButtonTwo.on("click", (event) => {
     event.preventDefault();
     searchValue = ($("#searchValueTwo").val()).trim();
@@ -307,7 +263,7 @@ submitButtonTwo.on("click", (event) => {
     setTimeout(() => {populateRecentNewsSection(cryptoName, cryptoSymbolForCryptoNews)}, 2000);
 })
 
-//this populates the Top Crypto News section as well
+
 function finnHub (response) {
     let headline;
     let newsSum;
@@ -364,7 +320,7 @@ function finnHub (response) {
         )
 };
 
-//THIS FUNCTION POPULATES THE TOP 50 COINS ARRAY THAT THE MARKET LEADERS ARRAY USES, DO NOT TAMPER WITH IT...
+
 function retrieveTrendingCryptoData (response) {
     let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
     fetch (requestURL)
@@ -421,22 +377,6 @@ $(window).on("load", function() {
     watchListPersist();
 });
 
-
-//when the window loads, this function is ran once...
-
-
-
-// function to render search results after search button is clicked
-
-
-
-
-    //getCoinID is taking too long to retrieve the ID, need to set a timeout on getCoinInfoWithID() to make sure
-    //getCoinID gets the ID before calling it
-    //retrieveTrendingCryptoData();
-
-
-
 watchListButton.on("mouseenter", function () { 
     let watchListClasses = watchList.attr("class").split(" ");
     if (watchListClasses.includes("appear") == false) {
@@ -449,17 +389,9 @@ watchList.on("mouseleave", function (event) {
     if (watchListClasses.includes("appear") == true) {
         watchList.removeClass("appear");
     }
-    //watchListButton.addClass("visible");
 });
 
 
-
-
-
-
-
-
-/*REPURPOSE THIS FUNCTION  */
 function fetchMarketUpdate() {
     // API URL
     const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'; //
@@ -513,35 +445,9 @@ paginationButtonsDiv.on("click",(event) => {
 })
 
 
-
-
-
-
-
-
-
-//in the display market function, have it work to display the top ten when the function is opened,
-//have the function use the top 100 coins array\
-//create an event listener that listens to which of the five buttons are clicked
-//based on the button clicked, you set two letiables: x and y, to the numbers necessary to parse the top 100 array accordingly
-//then feed that array into the displayMarketUpdate() function, and it will display the correct coins on the page
-
 fetchMarketUpdate();
 
 
-// Function to fetch market update data from the API
-/*async function fetchMarketUpdate() {
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        return data; //this grabs and returns all of the data from the apiUrl, which is top 100 cryptos
-    } catch (error) {//catches the error if there is one
-        console.error("Error fetching data:", error);
-        return null;
-    }
-}*/
-
-// Renames column headers
 const columnMapping = {
     name: 'Name',
     current_price: 'Price',
@@ -549,10 +455,10 @@ const columnMapping = {
     market_cap: 'Market Cap',
 };
 
-// Function to display market update data in columns
-function displayMarketUpdate(theNewTenCryptos) { //uses the data from the API, which is the top 100 coins
+
+function displayMarketUpdate(theNewTenCryptos) {
     const marketUpdateContainer = document.getElementById("market-update");
-    if (!theNewTenCryptos) return; //if its empty, then the function does not run...
+    if (!theNewTenCryptos) return;
     const columns = ['name', 'current_price', 'market_cap_change_percentage_24h', 'market_cap'];
     const tableRows = $("#tableBody").children();
     let index = 0;
@@ -588,9 +494,9 @@ function displayMarketUpdate(theNewTenCryptos) { //uses the data from the API, w
             }
             $(tableRows[index]).append(cell);
         });
-        index++; //increments and creates a row for the
+        index++;
     });
-    const cells = table.querySelectorAll("td"); //error here and 560
+    const cells = table.querySelectorAll("td");
     cells.forEach(cell => {
     cell.style.border = 'none';
 });
@@ -611,7 +517,7 @@ function displaySuggestedCryptos(suggestedCryptos) {
     }
     suggestedCryptos.forEach(crypto => {
         columns.forEach(column => {
-            const cell = $("<td>");//creates the cell
+            const cell = $("<td>");
             if (column == 'current_price') {
                 let value = "$" + crypto[column].toLocaleString(undefined, {minimumFractionDigits: 0});
                 cell.text(value)
@@ -622,7 +528,6 @@ function displaySuggestedCryptos(suggestedCryptos) {
             }
             if (column == "name") {
                 let value = crypto[column].toLocaleString(undefined, {minimumFractionDigits: 0});
-                 // Format with thousands separators
                 cell.text(value)
                 let image = $("<img>");
                 image.attr("src", crypto.image);
@@ -631,23 +536,13 @@ function displaySuggestedCryptos(suggestedCryptos) {
             }
             $(tableRows[index]).append(cell);
         });
-        index++; //increments and creates a row for the
+        index++; 
     });
     const cells = table.querySelectorAll("td");
     cells.forEach(cell => {
     cell.style.border = 'none';
 });
 };
-/*
-emptySuggestedCryptos = () => {
-    const tableBodyLength = $("#tableBodyTwo").children().length;
-    for (let i = 0; i < tableBodyLength; i++) {
-        for (let j = 0; j < 3; j++) {
-            const tableBodyElement = $("#tableBodyTwo").children().eq(i).children().eq(j);
-            tableBodyElement.empty();
-        }
-    }
-}*/
 
 function retrieveHotListData() {
     let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
@@ -657,22 +552,21 @@ function retrieveHotListData() {
         })
         .then (function (data) {
             for (let i = 0; i < data.length; i++) {
-                topHundredSortedByPercentChange.push(data[i]); //creating the array of the topHundredCryptos
+                topHundredSortedByPercentChange.push(data[i]);
             }
-            //pushes all the APIs data objects into the array
             for (let i = 0; i < data.length; i++) {
                 if (topHundredSortedByPercentChange[i].market_cap_change_percentage_24h < 0) {
-                    negativePercentChanges.push(data[i].name); //putting the names of all Negative Percent Changes in this array
+                    negativePercentChanges.push(data[i].name);
                 }
             }
             
             for (let i = 0; i < data.length; i++) {
                 topHundredSortedByPercentChange[i].market_cap_change_percentage_24h = Math.abs(topHundredSortedByPercentChange[i].market_cap_change_percentage_24h);
-            } //making all percent changes absolute values to sort
+            }
 
             topHundredSortedByPercentChange.sort(function (a,b) {
                 return b.market_cap_change_percentage_24h - a.market_cap_change_percentage_24h;
-            }) //sorting the topHundred by the magnitude of their percent change
+            })
         })
 };
 
@@ -696,16 +590,13 @@ function populateHotList() {
             $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
         }
         $(topTenPercentChanges[i]).text((topHundredSortedByPercentChange[i].market_cap_change_percentage_24h).toFixed(1) + "%");
-    }//displaying the top ten percent changes regardless of whether its negative or positive
-
+    }
     for (let i = 0; i < topTenNames.length; i++) {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
                 $(topTenArrows[index]).attr("src", "assets/downwardsArrow.png");
-                //adjusts the arrow symbol and color of percentChange according to whether the coin is under or over for the day
                 index++;
-                //this if loop is ran 10 out of the 910 times, which means it does change the color for the percent change
             }
     }}
 };
@@ -729,32 +620,19 @@ function populateHotList2() {
             $(topTenNames[i]).attr("class", "topTenNameOverTwelveCharacters");
         }
         $(topTenPercentChanges[i]).text((topHundredSortedByPercentChange[i].market_cap_change_percentage_24h).toFixed(1) + "%");
-    }//displaying the top ten percent changes regardless of whether its negative or positive
+    }
 
     for (let i = 0; i < topTenNames.length; i++) {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
                 $(topTenArrows[index]).attr("src", "assets/downwardsArrow.png");
-                //adjusts the arrow symbol and color of percentChange according to whether the coin is under or over for the day
                 index++;
-                //this if loop is ran 10 out of the 910 times, which means it does change the color for the percent change
             }
-    }}
+        }
+    }
 };
 
-
-
-
-//here I will create the object that will be passed into the addToMyList function
-//I will add an event listener to the watchList button that calls the addToMyList using the parameter of the saved object
-//the name of the object in localStorage will be the name of the coin
-
-
-
-//THIS SUBMIT BUTTON LISTNERS SERVES AS A DUAL PURPOSE FUNCTION THAT SETS THE SEARCHED ITEM TO LOCALSTORAGE, SO THAT THE ADD TO WATCHLISTBUTTON EVENT LISTENER
-//CAN ADD THE SEARCHED CRYPTO TO THE WATCHLSIT
-//IT ALSO SWTICHES THE PAGE, THE SWITCH PAGE FUNCTION RELIES ON THE FETCH, AND IF THE FETCH FAILS, THE PAGE DOES NOT SWITCH
 submitButton.on("click", function (event) {
     event.preventDefault();
     let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
@@ -781,9 +659,6 @@ submitButton.on("click", function (event) {
                         localStorage.setItem(possibleWatchListCrypto.name, JSON.stringify(possibleWatchListCrypto));
                         
                         doesItMatch();
-                    //switching the pages
-                    //CONSIDER THIS ERROR POSSIBILITY:
-                    //THE PAGE WONT SWITCH IF THE FETCH REQUEST HERE IS UNSUCCESSFUL....
                     }
                 }
             }
@@ -805,11 +680,9 @@ let watchListPersist = () => {
 
 let addToWatchList = (cryptoName) => {
     const myList = $(".unOrderedMyList");
-    let newWatchListCrypto = localStorage.getItem(cryptoName); //cryptoName updates to the crypto that is searched
-    newWatchListCrypto = JSON.parse(newWatchListCrypto); //new watchListCrypto is now equal to the parsed object 
+    let newWatchListCrypto = localStorage.getItem(cryptoName);
+    newWatchListCrypto = JSON.parse(newWatchListCrypto);
 
-
-    // this code works for saving the watchlist items after browser has been reloaded
     cryptoNamesToPersist.push(newWatchListCrypto);
     let theNamesToBeSaved = JSON.stringify(cryptoNamesToPersist);
     localStorage.setItem("savedWatchList", theNamesToBeSaved);
@@ -822,13 +695,11 @@ let addToWatchList = (cryptoName) => {
     newWatchListItemImage.attr("height", 60);
     newWatchListItemImage.attr("width", 60);
     newWatchListItem.append(newWatchListItemImage);
-    //append image
     
     let newWatchListItemName = $("<div>");
     newWatchListItemName.addClass("itemName");
     newWatchListItemName.text(newWatchListCrypto.name);
     newWatchListItem.append(newWatchListItemName);
-    //append name
 
     let newWatchListItemDayChange = $("<div>");
     newWatchListItemDayChange.addClass("dayChange");
@@ -836,29 +707,21 @@ let addToWatchList = (cryptoName) => {
     if (newWatchListCrypto.dayChange < 0) {newWatchListItemDayChange.css("color", "red")}
     else {newWatchListItemDayChange.css("color", "green")};
     newWatchListItem.append(newWatchListItemDayChange);
-    //append priceChange
 
     let newWatchListItemRemoveButton= $("<button>");
     newWatchListItemRemoveButton.addClass("removeButton");
     newWatchListItemRemoveButton.text("X");
     newWatchListItem.append(newWatchListItemRemoveButton);
     myList.append(newWatchListItem);
-    //adds the new watchList item
 
 
     const lineBreakDiv = $("<div>");
     lineBreakDiv.addClass("linebreak");
-    //linebreak for the next element
 
-    //But, that is not the case... to access any elements created in javascript, whether through their element type, class/id name, or styles, I MUST access them in accordance with the scope that they are created
-//I thought the element created would be added to the html file, and then, I could access them regardless of scope, but that is not the case since the element is created and given a class inside a function
-
-//cryptoNames to persist is an array of objects, including the name, that need to be deleted, so I find the object in the array that matches using the name of the watchList item and name of 
-
-    let removeButtons = $(".removeButton"); //this still runs because the event Listener is being attached to each removeButton element that is created... so it still runs when it is clicked on regardless of the fact it is nested in a function...
+    let removeButtons = $(".removeButton");
     removeButtons.on("click", (event) => {
         let clickedRemoveButton = $(event.target); 
-        let itemToBeRemoved = clickedRemoveButton.parent(); //this should grab the parent element of the removeButton, which is the li for the newWatchList Item
+        let itemToBeRemoved = clickedRemoveButton.parent();
         let itemToBeRemovedName = itemToBeRemoved.children().eq(1).text();
 
         for (let i = itemToBeRemoved.children().length - 1; i >= 0; i--) {
@@ -869,24 +732,13 @@ let addToWatchList = (cryptoName) => {
         indexOfRemovedItem = cryptoNamesToPersist.findIndex((cryptoObject) => cryptoObject.name === itemToBeRemovedName); //goes through each item of the cryptoNames Array to until it returns a value for the comparison that is not negative one, when its not -1, it logs the index of the array for which the comparison is true
         $(cryptoNamesToPersist).remove(indexOfRemovedItem);
         localStorage.setItem("savedWatchList", cryptoNamesToPersist);
-
-        //also must remove it from localStorage, so that the letWatchListPersist function () doesn't readd it to the watchlist when the browser is refreshed
-        //need to remove the name from cryptoNamesToPersist, in order to do so 
     })
 }
-
-
 
 addToWatchListButton.on("click", () => {
     addToWatchList(cryptoName);
     addToWatchListButton.attr("disabled", "disabled");
 });
-
-//adds to watch list then disables the button 
-//should add a css style after that shows that the button has been clicked 
-
-
-
 
 let chart = new Chart(document.getElementById("searchedCryptoGraph"), {
     type : 'line',
@@ -924,49 +776,141 @@ let chart = new Chart(document.getElementById("searchedCryptoGraph"), {
             }
         },
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: true
     }
 });
 
 Chart.defaults.font.size = 15;
 
-function responsiveFonts() {
-    const mediaQueryLarge = window.matchMedia('(min-width: 1200px) and (max-width: 1400px)');
-    const mediaQueryMedium = window.matchMedia('(min-width: 700px) and (max-width: 1200px)');
-    const mediaQuerySmall = window.matchMedia('(min-width: 425px) and (max-width: 700px)');
-    const mediaQueryTiny = window.matchMedia('(max-width: 425px)');
+function responsiveFontsAndCharts() {
+    let myChart;
+    console.log(cryptoClosingDataset);
+    const mediaQueryLarge = window.matchMedia('(min-width: 1300px) and (max-width: 1600px)');
+    const mediaQueryLargeToMedium = window.matchMedia('(min-width: 1100px) and (max-width: 1300px)');
+    const mediaQueryMedium = window.matchMedia('(min-width: 860px) and (max-width: 1100px)');
+    const mediaQuerySmall = window.matchMedia('(min-width: 570px) and (max-width: 860px)');
+    const mediaQuerySmallToSmaller = window.matchMedia("(min-width: 440px) and (max-width: 570px)")
+    const mediaQuerySmallerToTiny = window.matchMedia('(min-width: 380px) and (max-width: 440px)');
+    const mediaQueryTiny = window.matchMedia("(min-width: 341px) and (max-width: 380px)")
+    const mediaQuerySmallest = window.matchMedia("(max-width: 341px)")
+    const chartCanvas = document.getElementById('searchedCryptoGraph');
 
     if (mediaQueryLarge.matches) {
         Chart.defaults.font.size = 15;
-    } else if (mediaQueryMedium.matches) {
+        createChart(chartCanvas, 2, true);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    } 
+    else if (mediaQueryLargeToMedium.matches) {
         Chart.defaults.font.size = 12;
-    } else if (mediaQuerySmall.matches) {
-        Chart.defaults.font.size = 9;
-    } else if (mediaQueryTiny.matches) {
-        Chart.defaults.font.size = 4;
+        createChart(chartCanvas, 1.8, true);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    }
+    else if (mediaQueryMedium.matches) {
+        Chart.defaults.font.size = 10;
+        createChart(chartCanvas, 1.6, true);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    } 
+    else if (mediaQuerySmall.matches) {
+        Chart.defaults.font.size = 7;
+        createChart(chartCanvas, 1.4, true);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    } 
+    else if (mediaQuerySmallerToTiny.matches) {
+        Chart.defaults.font.size = 7;
+        createChart(chartCanvas, 1.15, false);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    }
+    else if (mediaQuerySmallToSmaller.matches) {
+        Chart.defaults.font.size = 6;
+        createChart(chartCanvas, 1.2, false);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    }
+    else if (mediaQueryTiny.matches) {
+        Chart.defaults.font.size = 6;
+        createChart(chartCanvas, 1.15, false);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
+    }
+    else if (mediaQuerySmallest.matches) {
+        Chart.defaults.font.size = 6;
+        createChart(chartCanvas, 1.05, false);
+        chart.data.datasets[0].data = cryptoClosingDataset;
+        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chart.update();
     }
 }
 
-// Call the function on page load and window resize
-window.addEventListener('load', responsiveFonts);
-window.addEventListener('resize', responsiveFonts);
 
+window.addEventListener('resize', responsiveFontsAndCharts);
+document.addEventListener('fullscreenchange', responsiveFontsAndCharts);
 
+function createChart(canvas, aspectRatio, willMaintain) {
+    myChart = Chart.getChart(canvas);
+    if (myChart) {
+        myChart.destroy();
+    }
 
+    let newChart = new Chart(canvas.getContext('2d'), {
+        type : 'line',
+        data : {
+            labels : ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"],
+            datasets : [
+                {
+                    data : [],
+                    label : "Closing Value at Month's End",
+                    borderColor : "#1CAC78",
+                    fill : false, 
+                    backgroundColor: "white"
+                }
+            ]
+        },
+        options: {
+            aspectRatio: aspectRatio,
+            plugins: {
+                title: {
+                    display : true,
+                    text : 'Chart JS Line Chart Example',
+                    color : "#ff9c00"
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "white"
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: "white"
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: willMaintain
+        }
+    });
 
+    newChart.data.datasets[0].data = cryptoClosingDataset;
+    newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+    newChart.update();
+}
 
-
-
-
-
-//I have this letiable
-
-//if doesItMatch returns true, then disable the button...
-//when you hit the return button is when the list of watchList cryptos should be updated
 
 let doesItMatch = () =>  {
-     //grabs all the div tags in the watchList whose text holds the cryptos name
-    //this should return an array of the names of the watchList items
     let length = $(".itemName").length;
     if (CurrentWatchListCryptoNames != null) {
         for (let i = 0; i < length; i++) {
@@ -982,22 +926,12 @@ let doesItMatch = () =>  {
     }
 };
 
-  //this does disable it...
-  //need to change the background image after its clicked once 
-
-  //have the watchlist button be disabled before going onto the page,
-  //if the searched bitcoin's name does not match any of the name's on the watchlist, then enable the button
-  // keep this 
-
-
-  //RETURN TO HOMEPAGE BUTTON
-  returnToHomePageButton.on("click", () => {
+returnToHomePageButton.on("click", () => {
     searchValue = "";
     $("#searchValue").val("");
     submitButton.removeAttr("disabled");
     switchToHomePage();
-    chart.data.datasets[0].data = []; //resets graph
-    //emptySuggestedCryptos();
+    chart.data.datasets[0].data = [];
     chart.update();
     CurrentWatchListCryptoNames = $(".itemName");
     for (let i = 0; i < cryptoNewsArticles.children().length; i++) {
@@ -1007,35 +941,35 @@ let doesItMatch = () =>  {
         }
     }
     noArticles.removeClass("hidden");
-    //should empty each News Article div and its child elements, then delete that newsArticle div and its child elements as well
-  });
+});
 
 
-  let switchToHomePage = () => {
+let switchToHomePage = () => {
     homePage.style.display = "block";
     afterHomePage.style.display = "block";
     footer.style.display = "block";
     searchCryptoPage.style.display = "none";
-  }
+}
 
-  let switchToSearchPage = () => {
+let switchToSearchPage = () => {
     homePage.style.display = "none";
     afterHomePage.style.display = "none";
     footer.style.display = "none";
     searchCryptoPage.style.display = "block";
-  }
+    responsiveFontsAndCharts();
+}
 
-  newsLetterButton.on("click", function (event) {
+newsLetterButton.on("click", function (event) {
     newsLetterModal.removeClass("hidden");
-  })
+})
 
-  newsLetterContainerExitButton.on("click", function (event) {
+newsLetterContainerExitButton.on("click", function (event) {
     event.preventDefault();
     newsLetterModal.addClass("hidden");
-  })
+})
 
 
-  let populateRecentNewsSection = (cryptoName, cryptoSymbolForCryptoNews) => {
+let populateRecentNewsSection = (cryptoName, cryptoSymbolForCryptoNews) => {
     let requestURL = "https://finnhub.io/api/v1/news?category=crypto&token=cjapurpr01qji1gtr6mgcjapurpr01qji1gtr6n0";
     fetch (requestURL)
         .then ((response) => response.json())
@@ -1066,36 +1000,25 @@ let doesItMatch = () =>  {
                     newArticle.append(Newssrc);
 
                     let line = $("<hr>");
-                    newArticle.append(line)  
-                    //constructed new article
+                    newArticle.append(line)
 
                     cryptoNewsArticles.append(newArticle)
-                    //add new article to that particular crypto's news
                     anyArticles++;
                 }
             }
-            
-            if (anyArticles  == 0) { //if it found no matches
-                noArticles.addClass("hidden"); //hide the articles
+        
+            if (anyArticles  == 0) { 
+                noArticles.addClass("hidden");
             }
             else if (anyArticles > 0) {
-                //create the outline
             }
             else {
 
             }
-        }) 
-  }
+        }
+    ) 
+}
 
-  //when I click return button I need to empty out the news Article section
-
-  //put this function in one of the submit button listeners
-
-
-const newsLetterSubmitButton = $("#newsLetterSubmitButton");
-let arrayOfEmails = [];
-const submittedEmailForNewsLetter = $("#emailInput");
-const submittedNameForNewsLetter = $("#nameInput");
 newsLetterSubmitButton.on("click", function (event) {
     event.preventDefault();
     let name = submittedNameForNewsLetter.val().trim();;
@@ -1104,13 +1027,3 @@ newsLetterSubmitButton.on("click", function (event) {
         location.reload(true);
     }
 })
-
-
-
-//MEDIA QUERIES 
-/*
-let mediaQueryOne = window.matchMedia("(max-width: 730px)");
-
-if (mediaQueryOne.matches) {
-    $("#searchValue").attr("placeholder", "Search").css("font-size", "2px");
-}*/
