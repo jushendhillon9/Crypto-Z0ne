@@ -173,7 +173,7 @@ submitButton.on("click", async function (event) {
             populateRecentNewsSection(cryptoName, cryptoSymbolForCryptoNews);
             setTimeout(populateHotList2, 100);
             setTimeout(createSearchedCryptoGraph, 200);
-            setTimeout(switchToSearchPage, 1000);
+            setTimeout(switchToSearchPage, 1200);
         }
     } catch (error) {
         console.error(error);
