@@ -152,7 +152,10 @@ submitButton.on("click", async function (event) {
     let noDuplicateList = [];
     if (savedWatchList && savedWatchList.length > 0) {
         for (let i = 0; i < savedWatchList.length; i++) {
-            let currentName = savedWatchList[i].name;
+            let currentName;
+            if (savedWatchList[i].name) {
+                currentName = savedWatchList[i].name;
+            }
     
             if (!uniqueNames.includes(currentName)) {
                 uniqueNames.push(currentName); 
@@ -216,12 +219,16 @@ submitButton.on("click", (event) => {
 
         for (let i = 0; i < CurrentWatchListCryptoNames.length; i++) {
             console.log(CurrentWatchListCryptoNames[i]);
-            let nameOfCurrentWatchListCryptos = CurrentWatchListCryptoNames[i].name.toLowerCase();
-        
-            if (nameOfCurrentWatchListCryptos === searchValueLower) {
-                console.log("Disabling addToWatchListButton attr");
-                addToWatchListButton.attr("disabled", "disabled");
-                return;
+            let nameOfCurrentWatchListCryptos
+            if (CurrentWatchListCryptoNames[i].name) {
+                nameOfCurrentWatchListCryptos = CurrentWatchListCryptoNames[i].name.toLowerCase();
+            }
+            if (nameOfCurrentWatchListCryptos) {
+                if (nameOfCurrentWatchListCryptos === searchValueLower) {
+                    console.log("Disabling addToWatchListButton attr");
+                    addToWatchListButton.attr("disabled", "disabled");
+                    return;
+                }
             }
         }
     }
@@ -750,7 +757,7 @@ function populateHotList() {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
-                $(topTenArrows[index]).attr("src", "./assets/images/downwardsArrow.png");
+                $(topTenArrows[index]).attr("src", "./assets/images/DownwardsArrow.png");
                 $(topTenArrows[index]).addClass("downwardArrow")
                 index++;
             }
@@ -782,7 +789,7 @@ function populateHotList2() {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
-                $(topTenArrows[index]).attr("src", "assets/downwardsArrow.png");
+                $(topTenArrows[index]).attr("src", "assets/DownwardsArrow.png");
                 index++;
             }
         }
@@ -1448,6 +1455,7 @@ function createSearchedCryptoGraph () {
             }
             else {
                 newChart.data.datasets[0].data = [];
+                cryptoClosingDataset = [];
                 newChart.options.plugins.title.text = "Graph Data Unavailable";
                 newChart.options.plugins.title.text = "Graph Data Unavailable";
                 newChart.update();
