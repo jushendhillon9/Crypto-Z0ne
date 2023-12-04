@@ -673,9 +673,6 @@ li a {
     display: flex;
 }
 
-.hotList {
-}
-
 .myList {
     position: relative;
     top: 4%;
@@ -2971,9 +2968,6 @@ are the second column's elements*/
     .tableHeaderTwo {
         font-size: 7px !important;
     }
-    #tableBodyTwo tr td:nth-child(2), #tableBodyTwo tr td:nth-child(3){
-        font-size: 5px !important;
-    }
     #suggestedCryptosHeader {
         font-size: 12px;
     }
@@ -2990,7 +2984,7 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 770px) {
     #dailyPerformanceContainer {
         margin-bottom: 40px;
     }
@@ -3195,8 +3189,6 @@ are the second column's elements*/
     #returnToHomePageButton {
         height: 26px;
         width: 50px;
-        position: relative;
-        top: 20px;
     }
     #returnIcon {
         width: 23px;
@@ -3255,6 +3247,13 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 590px) {
+
+    #returnToHomePageButton {
+        height: 26px;
+        width: 50px;
+        position: relative;
+        top: 20px;
+    }
     #searchValueTwo, #submitButtonTwo {
         padding: 0px;
     } 
@@ -3278,7 +3277,7 @@ are the second column's elements*/
         height: 90%;
     }
     #tableBodyTwo tr td:nth-child(2), #tableBodyTwo tr td:nth-child(3) {
-        font-size: 4px !important;
+        font-size: 6px !important;
         padding: 0px;
         margin: 0px;
     }
@@ -3678,6 +3677,11 @@ are the second column's elements*/
     }
     body {
         position: relative;
+    }
+
+    .watchListButton {
+        position: relative;
+        left: 10px;
     }
 
     .myListImage {
@@ -4168,6 +4172,10 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 375px) {
+    .watchListButton {
+        position: relative;
+        left: 15px;
+    }
     .myListImage {
         margin-right: 5px;
         height: 15px;
@@ -4395,6 +4403,10 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 325px) {
+    #nameAndLogo {
+        position: relative;
+        right: 17px;
+    }
     #suggestedCryptos {
         left: 70px;
     }

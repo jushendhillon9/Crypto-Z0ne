@@ -71,7 +71,7 @@ function switchToMyList() {
 
 function getSearchedCoinSymbolCoinGecko(searchValue) {
     return new Promise((resolve, reject) => {
-        let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
+        let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
         fetch(requestURL)
             .then(response => response.json())
             .then(data => {
@@ -357,7 +357,7 @@ submitButtonTwo.on("click", (event) => {
     console.log("JUSHEN MADE IT HERE")
     event.preventDefault();
     console.log("ALSO MADE IT HERE")
-    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
+    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
     fetch (requestURL)
         .then(function (response) {
             return response.json();
@@ -457,7 +457,7 @@ function finnHub (response) {
 
 
 function retrieveTrendingCryptoData (response) {
-    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
+    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
     fetch (requestURL)
         .then (function (response) {
             return response.json();
@@ -559,7 +559,7 @@ $(document).on("mousedown", function (event) {
 
 function fetchMarketUpdate() {
     // API URL
-    const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'; //
+    const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1';
     fetch (apiUrl) 
         .then ((response) => response.json())
         .then (function (data) {
@@ -707,7 +707,7 @@ function displaySuggestedCryptos(suggestedCryptos) {
 };
 
 function retrieveHotListData() {
-    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
+    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
     fetch(requestURL)
         .then (function (response) {
             return response.json();
@@ -789,7 +789,7 @@ function populateHotList2() {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
-                $(topTenArrows[index]).attr("src", "assets/DownwardsArrow.png");
+                $(topTenArrows[index]).attr("src", "./assets/images/DownwardsArrow.png");
                 index++;
             }
         }
@@ -800,7 +800,7 @@ submitButton.on("click", (event) => {
     console.log("JUSHEN MADE IT HERE")
     event.preventDefault();
     console.log("ALSO MADE IT HERE")
-    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
+    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
     fetch (requestURL)
         .then(function (response) {
             return response.json();
@@ -1073,7 +1073,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1089,7 +1089,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1105,7 +1105,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1121,7 +1121,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1137,7 +1137,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1153,7 +1153,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         chanewChartrt.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1169,7 +1169,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1185,7 +1185,7 @@ function responsiveFontsAndCharts() {
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
         console.log(cryptoClosingDataset);
-        if (!cryptoClosingDataset) {
+        if (!cryptoClosingDataset || cryptoClosingDataset.length == 0) {
             console.log("Here");
             newChart.data.datasets[0].data = [];
             newChart.options.plugins.title.text = "Graph Data Unavailable";
@@ -1421,9 +1421,6 @@ function createSearchedCryptoGraph () {
                 cryptoClosingDataset.push(closingData[i]);
             }
             console.log(cryptoClosingDataset);
-            newChart.data.datasets[0].data = cryptoClosingDataset;
-            newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-            newChart.update();
         })
     }
     else {
@@ -1448,10 +1445,6 @@ function createSearchedCryptoGraph () {
                     cryptoClosingDataset.push(closingData[i]);
                 }
                 console.log(cryptoClosingDataset);
-                chart.data.datasets[0].data = cryptoClosingDataset;
-                chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-                newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-                newChart.update();
             }
             else {
                 newChart.data.datasets[0].data = [];
