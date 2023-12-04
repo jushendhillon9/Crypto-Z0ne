@@ -317,6 +317,10 @@ footer {
     justify-content: center space-evenly;
 }
 
+.downwardsArrow {
+    background-color: red;
+}
+
 #trendingSearch { 
     display: flex;
     flex-wrap: wrap;

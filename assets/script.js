@@ -750,7 +750,8 @@ function populateHotList() {
         for (let j = 0; j < negativePercentChanges.length; j++) {
             if ((negativePercentChanges[j]) == ($(topTenNames[i]).text())) {
                 $(topTenPercentChanges[index]).css("color", "red");
-                $(topTenArrows[index]).attr("src", "assets/downwardsArrow.png");
+                $(topTenArrows[index]).attr("src", "./assets/downwardsArrow.png");
+                $(topTenArrows[index]).addClass("downwardArrow")
                 index++;
             }
     }}
