@@ -28,6 +28,7 @@ const linkOne = $("#linkOne");
 const linkTwo = $("#linkTwo");
 const linkThree = $("#linkThree");
 const linkFout = $("#linkFour");
+let newChart;
 let featuredCryptoImageLinks = [];
 let featuredCryptoNames = [];
 let featuredCryptoImageChangePercents = [];
@@ -51,7 +52,6 @@ let nameOfCurrentWatchListCryptos;
 let suggestedCryptos = [];
 let doNotRun = false;
 let anyMatches;
-
 
 function switchToHotList() {
     myList.removeClass("visible");
@@ -77,8 +77,10 @@ function getSearchedCoinSymbolCoinGecko() {
             .then(data => {
                 let anyMatches = 0;
                 console.log("THIS SEARCH VALUE" + searchValue);
-
+                console.log(data);
                 for (let i = 0; i < data.length; i++) {
+                    console.log(searchValue);
+                    console.log(data[i].name);
                     if (searchValue.toLowerCase() == data[i].name.toLowerCase()) {
                         anyMatches++;
                         cryptoSymbolForCryptoNews = cryptoSymbolForSearchedGraph = data[i].symbol;
@@ -86,7 +88,7 @@ function getSearchedCoinSymbolCoinGecko() {
                         if (cryptoSymbolForSearchedGraph == "usdt") {
                             cryptoName = "tether";
                         } else {
-                            cryptoSymbolForSearchedGraph = (data[i].symbol).toUpperCase() + "USDT";
+                            cryptoSymbolForSearchedGraph = (data[i].symbol).toUpperCase();
                         }
 
                         cryptoName = data[i].name;
@@ -145,73 +147,17 @@ function populateSearchedCryptoInfo (theSearchedCryptoObject) {
 }
 
 
-function createSearchedCryptoGraph () {
-    let requestURL = "https://finnhub.io/api/v1/crypto/candle?symbol=BINANCE:" + cryptoSymbolForSearchedGraph + "&resolution=M&from=1672534801&to=1692513981&token=cjapurpr01qji1gtr6mgcjapurpr01qji1gtr6n0";
-    let tetherURL = "https://finnhub.io/api/v1/crypto/candle?symbol=COINBASE:USDT-USD&resolution=M&from=1672534801&to=1692513981&token=cjapurpr01qji1gtr6mgcjapurpr01qji1gtr6n0"
-    if (cryptoName == "Tether" || cryptoName == "tether") { //this function is working and populates the graph whenever tetherURL does not return null, open the link and I'll see that it occassionally returns null for no reason
-        fetch(tetherURL)
-        .then (function (response) {
-            return response.json();
-        })
-        .then (function (data) {
-            chart.data.datasets[0].data = [];
-            chart.update();
-            let closingData = data.c;
-            cryptoClosingDataset = [];
-            for (let i = 0; i < closingData.length; i ++) {
-                cryptoClosingDataset.push(closingData[i]);
-            }
-            console.log(cryptoClosingDataset);
-            chart.data.datasets[0].data = cryptoClosingDataset;
-            chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-            chart.update();
-        })
-    }
-    else {
-        fetch(requestURL)
-        .then (function (response) {
-            return response.json();
-        })
-        .then (function (data) {
-            console.log("Hello running here");
-            console.log(data);
-            chart.data.datasets[0].data = [];
-            chart.update();
-            let closingData = data.c;
-            console.log(closingData);
-            if (closingData != null) {
-                cryptoClosingDataset = [];
-                for (let i = 0; i < closingData.length; i ++) {
-                    cryptoClosingDataset.push(closingData[i]);
-                }
-                console.log(cryptoClosingDataset);
-                chart.data.datasets[0].data = cryptoClosingDataset;
-                chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-                chart.update();
-            }
-            else {
-                chart.data.datasets[0].data = [];
-                chart.options.plugins.title.text = "No Available Graph";
-                chart.update();
-                chart.options.plugins.title.text = "No Available Graph";
-            }
-        })
-    }
-}
-
-
 submitButton.on("click", async function (event) {
     event.preventDefault();
     submitButton.attr("disabled", "disabled");
     searchValue = ($("#searchValue").val()).trim();
-    $("#searchValue").val("")
+    //$("#searchValue").val("")
     console.log(searchValue);
     console.log(doNotRun);
     if (searchValue == "") {
         submitButton.removeAttr("disabled");
         return;
     }
-    chart.data.datasets[0].data = [];
     try {
         await getSearchedCoinSymbolCoinGecko();
         console.log(doNotRun);
@@ -221,12 +167,13 @@ submitButton.on("click", async function (event) {
             return;
         } else {
             console.log("matches");
+            responsiveFontsAndCharts();
             populateSearchedCryptoInfo(theSearchedCrypto);
-            createSearchedCryptoGraph();
             displaySuggestedCryptos(suggestedCryptos);
             populateRecentNewsSection(cryptoName, cryptoSymbolForCryptoNews);
             setTimeout(populateHotList2, 100);
-            setTimeout(switchToSearchPage, 200);
+            setTimeout(createSearchedCryptoGraph, 200);
+            setTimeout(switchToSearchPage, 1000);
         }
     } catch (error) {
         console.error(error);
@@ -240,7 +187,7 @@ submitButtonTwo.on("click", (event) => {
     event.preventDefault();
     searchValue = ($("#searchValueTwo").val()).trim();
     $("#searchValueTwo").val("")
-    chart.data.datasets[0].data = [];
+    newChart.data.datasets[0].data = [];
     let searchedCryptoNews = $("#cryptoNewsArticles").empty();
     for (let i = 0; i < searchedCryptoNews.children().length; i++) {
         searchedCryptoNews.children().eq(i).empty();
@@ -783,7 +730,6 @@ let chart = new Chart(document.getElementById("searchedCryptoGraph"), {
 Chart.defaults.font.size = 15;
 
 function responsiveFontsAndCharts() {
-    let myChart;
     console.log(cryptoClosingDataset);
     const mediaQueryLarge = window.matchMedia('(min-width: 1300px) and (max-width: 1600px)');
     const mediaQueryLargeToMedium = window.matchMedia('(min-width: 1100px) and (max-width: 1300px)');
@@ -798,58 +744,58 @@ function responsiveFontsAndCharts() {
     if (mediaQueryLarge.matches) {
         Chart.defaults.font.size = 15;
         createChart(chartCanvas, 2, true);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     } 
     else if (mediaQueryLargeToMedium.matches) {
         Chart.defaults.font.size = 12;
         createChart(chartCanvas, 1.8, true);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     }
     else if (mediaQueryMedium.matches) {
         Chart.defaults.font.size = 10;
         createChart(chartCanvas, 1.6, true);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     } 
     else if (mediaQuerySmall.matches) {
         Chart.defaults.font.size = 7;
         createChart(chartCanvas, 1.4, true);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     } 
     else if (mediaQuerySmallerToTiny.matches) {
         Chart.defaults.font.size = 7;
         createChart(chartCanvas, 1.15, false);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     }
     else if (mediaQuerySmallToSmaller.matches) {
         Chart.defaults.font.size = 6;
         createChart(chartCanvas, 1.2, false);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        chanewChartrt.update();
     }
     else if (mediaQueryTiny.matches) {
         Chart.defaults.font.size = 6;
         createChart(chartCanvas, 1.15, false);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     }
     else if (mediaQuerySmallest.matches) {
         Chart.defaults.font.size = 6;
-        createChart(chartCanvas, 1.05, false);
-        chart.data.datasets[0].data = cryptoClosingDataset;
-        chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-        chart.update();
+        createChart(chartCanvas, 1.1, false);
+        newChart.data.datasets[0].data = cryptoClosingDataset;
+        newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
     }
 }
 
@@ -863,7 +809,7 @@ function createChart(canvas, aspectRatio, willMaintain) {
         myChart.destroy();
     }
 
-    let newChart = new Chart(canvas.getContext('2d'), {
+    newChart = new Chart(canvas.getContext('2d'), {
         type : 'line',
         data : {
             labels : ["January", "February", "March", "April", "May", "June",
@@ -931,8 +877,8 @@ returnToHomePageButton.on("click", () => {
     $("#searchValue").val("");
     submitButton.removeAttr("disabled");
     switchToHomePage();
-    chart.data.datasets[0].data = [];
-    chart.update();
+    newChart.data.datasets[0].data = [];
+    newChart.update();
     CurrentWatchListCryptoNames = $(".itemName");
     for (let i = 0; i < cryptoNewsArticles.children().length; i++) {
         cryptoNewsArticles.children().eq(i).empty();
@@ -1008,7 +954,7 @@ let populateRecentNewsSection = (cryptoName, cryptoSymbolForCryptoNews) => {
             }
         
             if (anyArticles  == 0) { 
-                noArticles.addClass("hidden");
+                noArticles.addClass("visible");
             }
             else if (anyArticles > 0) {
             }
@@ -1017,6 +963,66 @@ let populateRecentNewsSection = (cryptoName, cryptoSymbolForCryptoNews) => {
             }
         }
     ) 
+}
+
+function createSearchedCryptoGraph () {
+    let requestURL = "https://finnhub.io/api/v1/crypto/candle?symbol=BINANCE:" + cryptoSymbolForSearchedGraph + "USDT&resolution=D&from=1572651390&to=1575243390&token=clm4ptpr01qske4so43gclm4ptpr01qske4so440"
+    let tetherURL = "https://finnhub.io/api/v1/crypto/candle?symbol=COINBASE:USDT-USD&resolution=D&from=1572651390&to=1575243390&token=clm4ptpr01qske4so43gclm4ptpr01qske4so440"
+    if (cryptoName == "Tether" || cryptoName == "tether") { //this function is working and populates the graph whenever tetherURL does not return null, open the link and I'll see that it occassionally returns null for no reason
+        fetch(tetherURL)
+        .then (function (response) {
+            return response.json();
+        })
+        .then (function (data) {
+            newChart.data.datasets[0].data = [];
+            newChart.update();
+            let closingData = data.c;
+            cryptoClosingDataset = [];
+            for (let i = 0; i < closingData.length; i ++) {
+                cryptoClosingDataset.push(closingData[i]);
+            }
+            console.log(cryptoClosingDataset);
+            newChart.data.datasets[0].data = cryptoClosingDataset;
+            newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+            newChart.update();
+        })
+    }
+    else {
+        console.log(requestURL);
+        fetch(requestURL)
+        .then (function (response) {
+            console.log(response);
+            return response.json();
+        })
+        .then (function (data) {
+            console.log("Hello running here");
+            console.log(data);
+            //chart.data.datasets[0].data = [];
+            newChart.data.datasets[0].data = [];
+            //chart.update();
+            newChart.update();
+            let closingData = data.c;
+            console.log(closingData);
+            if (closingData != null) {
+                cryptoClosingDataset = [];
+                for (let i = 0; i < closingData.length; i ++) {
+                    cryptoClosingDataset.push(closingData[i]);
+                }
+                console.log(cryptoClosingDataset);
+                chart.data.datasets[0].data = cryptoClosingDataset;
+                chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+                newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+                //chart.update();
+                newChart.update();
+            }
+            else {
+                newChart.data.datasets[0].data = [];
+                newChart.options.plugins.title.text = "No Available Graph";
+                //chart.update();
+                newChart.options.plugins.title.text = "No Available Graph";
+            }
+        })
+    }
 }
 
 newsLetterSubmitButton.on("click", function (event) {

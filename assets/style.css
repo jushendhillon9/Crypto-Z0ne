@@ -8,6 +8,7 @@
 }
 
 #chartContainer {
+    display: block;
     width: 50%;
 }
 
@@ -1696,15 +1697,15 @@ are the second column's elements*/
 #rank, #searchedCryptoRank {
     font-size: 20px !important;
     position: relative;
-    top: 4.5px;
+    top: 8px;
 }
 
 #rank {
     position: relative;
-    top: 5.5px;
+    top: 9.5px;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1490px) {
     .pin-button-text {
         position: relative;
         right: 2px;
@@ -1887,7 +1888,7 @@ are the second column's elements*/
 
 #chartContainer {
     position: relative;
-    top: 0px;
+    top: -10px;
 }
 
 
@@ -1958,14 +1959,15 @@ are the second column's elements*/
         margin-top: -120px;
     }
     #searchedCryptoNameAndSymbol {
-        font-size: 14px !important;
+        font-size: 20px !important;
     }
     #searchedCryptoBasicStats {
         font-size: 11px !important;
     }
+
     #chartContainer {
         position: relative;
-        top: 0px;
+        top: -10px;
     }
     #joinUsSection {
         width: 100%;
@@ -2395,7 +2397,7 @@ are the second column's elements*/
 
 @media screen and (max-width: 812px) {
     #searchedCryptoImageAndName {
-        margin-top: -125px;
+        margin-top: -60px;
     }
     #dailyPerformance, #searchedCryptoPercentChange {
         font-size: 27px;
@@ -2782,6 +2784,12 @@ are the second column's elements*/
     }
 }
 
+@media screen and (max-width: 770px) {
+    #dailyPerformanceContainer {
+        width: 250px;
+    }
+}
+
 @media screen and (max-width: 730px) {
     #searchedCryptoNameAndSymbol {
         font-size: 12px !important;
@@ -2944,7 +2952,7 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 686px) {
+@media screen and (max-width: 715px) {
     #dailyPerformanceContainer {
         margin-bottom: 40px;
     }
@@ -2954,7 +2962,9 @@ are the second column's elements*/
     #searchedCryptoPercentChange {
         margin-top: -40px;
     }
-
+    #searchedCryptoImageAndName {
+        margin-top: -100px;
+    }
 }
 
 
@@ -3606,6 +3616,7 @@ are the second column's elements*/
 
 @media screen and (max-width: 425px) {
     #searchedCryptoImageAndName {
+        margin-top: -125px;
         margin-left: 20px;
     }
     #cryptoSearchFormTwo {
@@ -3649,7 +3660,7 @@ are the second column's elements*/
     }
     #suggestedCryptos {
         position: relative;
-        top: -265px;
+        top: -255px;
         left: 15px;
     }
     #tableTwo {
@@ -4085,7 +4096,7 @@ are the second column's elements*/
     }
     #suggestedCryptos {
         position: relative;
-        top: -335px;
+        top: -325px;
         width: 220px;
         position: relative;
         left: 65px;
@@ -4624,6 +4635,6 @@ are the second column's elements*/
     }
     #suggestedCryptos {
         position: relative;
-        top: -345px;
+        top: -335px;
     }
 }
