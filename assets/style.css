@@ -1312,7 +1312,7 @@ are the second column's elements*/
     height: 30px;
     width: 30px;
     border-radius: 20px;
-
+    cursor: pointer;
     font-weight: bold;
 }
 
