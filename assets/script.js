@@ -69,7 +69,7 @@ function switchToMyList() {
 
 
 
-function getSearchedCoinSymbolCoinGecko() {
+function getSearchedCoinSymbolCoinGecko(searchValue) {
     return new Promise((resolve, reject) => {
         let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1";
         fetch(requestURL)
@@ -77,10 +77,7 @@ function getSearchedCoinSymbolCoinGecko() {
             .then(data => {
                 let anyMatches = 0;
                 console.log("THIS SEARCH VALUE" + searchValue);
-                console.log(data);
                 for (let i = 0; i < data.length; i++) {
-                    console.log(searchValue);
-                    console.log(data[i].name);
                     if (searchValue.toLowerCase() == data[i].name.toLowerCase()) {
                         anyMatches++;
                         cryptoSymbolForCryptoNews = cryptoSymbolForSearchedGraph = data[i].symbol;
@@ -92,6 +89,7 @@ function getSearchedCoinSymbolCoinGecko() {
                         }
 
                         cryptoName = data[i].name;
+                        console.log(cryptoName);
                         theSearchedCrypto = data[i];
                     }
                 }
@@ -149,6 +147,23 @@ function populateSearchedCryptoInfo (theSearchedCryptoObject) {
 
 submitButton.on("click", async function (event) {
     event.preventDefault();
+    let savedWatchList = JSON.parse(localStorage.getItem("savedWatchList"));
+    let uniqueNames = [];
+    let noDuplicateList = [];
+    if (savedWatchList && savedWatchList.length > 0) {
+        for (let i = 0; i < savedWatchList.length; i++) {
+            let currentName = savedWatchList[i].name;
+    
+            if (!uniqueNames.includes(currentName)) {
+                uniqueNames.push(currentName); 
+                noDuplicateList.push(savedWatchList[i]);
+            }
+        }
+    } else {
+        savedWatchList = [];
+    }
+
+    localStorage.setItem("savedWatchList", JSON.stringify(noDuplicateList));
     submitButton.attr("disabled", "disabled");
     searchValue = ($("#searchValue").val()).trim();
     //$("#searchValue").val("")
@@ -159,7 +174,131 @@ submitButton.on("click", async function (event) {
         return;
     }
     try {
-        await getSearchedCoinSymbolCoinGecko();
+        await getSearchedCoinSymbolCoinGecko(searchValue);
+        console.log(doNotRun);
+
+        if (doNotRun) {
+            console.log("no matches");
+            return;
+        } else {
+            console.log("matches");
+            responsiveFontsAndCharts();
+            populateSearchedCryptoInfo(theSearchedCrypto);
+            displaySuggestedCryptos(suggestedCryptos);
+            populateRecentNewsSection(cryptoName, cryptoSymbolForCryptoNews);
+            setTimeout(populateHotList2, 100);
+            setTimeout(createSearchedCryptoGraph, 200);
+            setTimeout(switchToSearchPage, 1200);
+        }
+    } catch (error) {
+        console.error(error);
+    } finally {
+        submitButton.removeAttr("disabled");
+    }
+})
+
+submitButton.on("click", (event) => {
+    event.preventDefault();
+    //Beginning of doesItMnameOfCurrentWatchListCryptosatch
+    console.log("doesItMatch running");
+    CurrentWatchListCryptoNames = JSON.parse(localStorage.getItem("savedWatchList")) || [];
+
+    console.log(CurrentWatchListCryptoNames);
+
+    // Ensure that CurrentWatchListCryptoNames is an array
+    if (CurrentWatchListCryptoNames.length > 0) {
+        console.log("THIS MEANS THE ARRAY LENGTH IS GREATER THAN 1");
+        let searchValueLower;
+        if (searchValue) {
+            searchValueLower = searchValue.toLowerCase();
+        }
+        console.log(searchValueLower);
+
+        for (let i = 0; i < CurrentWatchListCryptoNames.length; i++) {
+            console.log(CurrentWatchListCryptoNames[i]);
+            let nameOfCurrentWatchListCryptos = CurrentWatchListCryptoNames[i].name.toLowerCase();
+        
+            if (nameOfCurrentWatchListCryptos === searchValueLower) {
+                console.log("Disabling addToWatchListButton attr");
+                addToWatchListButton.attr("disabled", "disabled");
+                return;
+            }
+        }
+    }
+
+    // If no match is found, remove the disabled attribute
+    console.log("Removing disabled attr");
+    addToWatchListButton.removeAttr("disabled");
+    //END OF DOESITMATCH
+
+    //does it Match checks if the user 
+})
+
+submitButtonTwo.on("click", (event) => {
+    event.preventDefault();
+    console.log("doesItMatch running");
+    CurrentWatchListCryptoNames = JSON.parse(localStorage.getItem("savedWatchList")) || [];
+
+    console.log(CurrentWatchListCryptoNames);
+
+    // Ensure that CurrentWatchListCryptoNames is an array
+    if (CurrentWatchListCryptoNames.length > 0) {
+        console.log("THIS MEANS THE ARRAY LENGTH IS GREATER THAN 1")
+        let searchValueTwo = $("#searchValueTwo").val();
+        console.log(searchValueTwo);
+        let searchValueLower = searchValueTwo.toLowerCase();
+        console.log(searchValueLower);
+
+        for (let i = 0; i < CurrentWatchListCryptoNames.length; i++) {
+            console.log(CurrentWatchListCryptoNames[i]);
+            let nameOfCurrentWatchListCryptos = CurrentWatchListCryptoNames[i].name.toLowerCase();
+        
+            if (nameOfCurrentWatchListCryptos === searchValueLower) {
+                console.log("Disabling addToWatchListButton attr");
+                addToWatchListButton.attr("disabled", "disabled");
+                return;
+            }
+        }
+    }
+
+    // If no match is found, remove the disabled attribute
+    console.log("Removing disabled attr");
+    addToWatchListButton.removeAttr("disabled");
+    //END OF DOESITMATCH
+
+    //does it Match checks if the user 
+})
+
+submitButtonTwo.on("click", async function (event) {
+    event.preventDefault();
+    newChart.data.datasets[0].data = [];
+    let savedWatchList = JSON.parse(localStorage.getItem("savedWatchList"));
+    let uniqueNames = [];
+    let noDuplicateList = [];
+    if (savedWatchList && savedWatchList.length > 0) {
+        for (let i = 0; i < savedWatchList.length; i++) {
+            let currentName = savedWatchList[i].name;
+    
+            if (!uniqueNames.includes(currentName)) {
+                uniqueNames.push(currentName); 
+                noDuplicateList.push(savedWatchList[i]);
+            }
+        }
+    } else {
+        savedWatchList = [];
+    }
+
+    localStorage.setItem("savedWatchList", JSON.stringify(noDuplicateList));
+    submitButton.attr("disabled", "disabled");
+    searchValueTwo = ($("#searchValueTwo").val()).trim();
+    console.log(searchValue);
+    console.log(doNotRun);
+    if (searchValue == "") {
+        submitButton.removeAttr("disabled");
+        return;
+    }
+    try {
+        await getSearchedCoinSymbolCoinGecko(searchValueTwo);
         console.log(doNotRun);
 
         if (doNotRun) {
@@ -185,9 +324,7 @@ submitButton.on("click", async function (event) {
 
 submitButtonTwo.on("click", (event) => {
     event.preventDefault();
-    searchValue = ($("#searchValueTwo").val()).trim();
-    $("#searchValueTwo").val("")
-    newChart.data.datasets[0].data = [];
+
     let searchedCryptoNews = $("#cryptoNewsArticles").empty();
     for (let i = 0; i < searchedCryptoNews.children().length; i++) {
         searchedCryptoNews.children().eq(i).empty();
@@ -203,12 +340,56 @@ submitButtonTwo.on("click", (event) => {
     for (let i = suggestedCryptos.length - 1; i >= 0; i--) {
         suggestedCryptos.splice(i, 1);
       }
-    getSearchedCoinSymbolCoinGecko();
+      console.log(cryptoName);
     setTimeout(() => {populateSearchedCryptoInfo(theSearchedCrypto)}, 1000);
     setTimeout(() => {displaySuggestedCryptos(suggestedCryptos)}, 1000)
-    setTimeout(createSearchedCryptoGraph, 1000);
     setTimeout(() => {populateRecentNewsSection(cryptoName, cryptoSymbolForCryptoNews)}, 2000);
 })
+
+submitButtonTwo.on("click", (event) => {
+    console.log("JUSHEN MADE IT HERE")
+    event.preventDefault();
+    console.log("ALSO MADE IT HERE")
+    let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
+    fetch (requestURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log("AAWESOME HERE TOO")
+            let allCryptos = [];
+            let searchValueTwo = ($("#searchValueTwo").val()).trim();
+            for (let i = 0; i < data.length; i++) {
+                allCryptos.push(data[i]);
+            }
+            if (searchValueTwo != "") {
+                console.log("WE ARE HERE")
+                for (let i = 0; i <data.length; i++) {
+                    console.log("MADE IT HERE")
+                    if ((allCryptos[i].name).toLowerCase() == (searchValueTwo).toLowerCase()) {
+
+                        let possibleWatchListCrypto = {
+                            name: data[i].name,
+                            image: data[i].image,
+                            dayChange: data[i].market_cap_change_percentage_24h,
+                        }
+
+                        console.log(possibleWatchListCrypto);
+
+                        console.log(possibleWatchListCrypto.name)
+
+                        localStorage.setItem(possibleWatchListCrypto.name, JSON.stringify(possibleWatchListCrypto));
+                        
+                        
+                    //switching the pages
+                    //CONSIDER THIS ERROR POSSIBILITY:
+                    //THE PAGE WONT SWITCH IF THE FETCH REQUEST HERE IS UNSUCCESSFUL....
+                    }
+                }
+            }
+        }
+    )
+});
 
 
 function finnHub (response) {
@@ -311,10 +492,34 @@ function populateTrendingCrypto () {
     }
 } 
 
-finnHub();
-
 
 $(window).on("load", function() {
+    let savedWatchList = JSON.parse(localStorage.getItem("savedWatchList"));
+    console.log(savedWatchList);
+    let uniqueNames = [];
+    let noDuplicateList = [];
+    if (savedWatchList && savedWatchList.length > 0) {
+        for (let i = 0; i < savedWatchList.length; i++) {
+            let currentName;
+            if (savedWatchList[i] == null) {
+                break;
+            }
+            else {
+                currentName = savedWatchList[i].name;
+            }
+            if (!uniqueNames.includes(currentName)) {
+                uniqueNames.push(currentName); 
+                noDuplicateList.push(savedWatchList[i]);
+            }
+        }
+    } else {
+        // Handle the case where savedWatchList is null or empty
+        // For example, you can initialize it as an empty array:
+        savedWatchList = [];
+    }
+    console.log("Hello");
+    localStorage.setItem("savedWatchList", JSON.stringify(noDuplicateList));
+    fetchMarketUpdate();
     finnHub();
     retrieveTrendingCryptoData();
     setTimeout(populateTrendingCrypto, 900);
@@ -324,16 +529,22 @@ $(window).on("load", function() {
     watchListPersist();
 });
 
-watchListButton.on("mouseenter", function () { 
+watchListButton.on("mouseenter click", function () {
     let watchListClasses = watchList.attr("class").split(" ");
-    if (watchListClasses.includes("appear") == false) {
+    if (!watchListClasses.includes("appear")) {
         watchList.addClass("appear");
     }
 });
 
-watchList.on("mouseleave", function (event) {
+watchList.on("mouseleave", function () {
     let watchListClasses = watchList.attr("class").split(" ");
-    if (watchListClasses.includes("appear") == true) {
+    if (watchListClasses.includes("appear")) {
+        watchList.removeClass("appear");
+    }
+});
+
+$(document).on("mousedown", function (event) {
+    if (!watchList.is(event.target) && !watchList.has(event.target).length) {
         watchList.removeClass("appear");
     }
 });
@@ -390,9 +601,6 @@ paginationButtonsDiv.on("click",(event) => {
 
     displayMarketUpdate(theNewTenCryptos);
 })
-
-
-fetchMarketUpdate();
 
 
 const columnMapping = {
@@ -580,21 +788,26 @@ function populateHotList2() {
     }
 };
 
-submitButton.on("click", function (event) {
+submitButton.on("click", (event) => {
+    console.log("JUSHEN MADE IT HERE")
     event.preventDefault();
+    console.log("ALSO MADE IT HERE")
     let requestURL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1";
     fetch (requestURL)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
+            console.log("AAWESOME HERE TOO")
             let allCryptos = [];
             searchValue = ($("#searchValue").val()).trim();
             for (let i = 0; i < data.length; i++) {
                 allCryptos.push(data[i]);
             }
             if (searchValue != "") {
+                console.log("WE ARE HERE")
                 for (let i = 0; i <data.length; i++) {
+                    console.log("MADE IT HERE")
                     if ((allCryptos[i].name).toLowerCase() == (searchValue).toLowerCase()) {
 
                         let possibleWatchListCrypto = {
@@ -603,9 +816,16 @@ submitButton.on("click", function (event) {
                             dayChange: data[i].market_cap_change_percentage_24h,
                         }
 
+                        console.log(possibleWatchListCrypto);
+
+                        console.log(possibleWatchListCrypto.name)
+
                         localStorage.setItem(possibleWatchListCrypto.name, JSON.stringify(possibleWatchListCrypto));
                         
-                        doesItMatch();
+                        
+                    //switching the pages
+                    //CONSIDER THIS ERROR POSSIBILITY:
+                    //THE PAGE WONT SWITCH IF THE FETCH REQUEST HERE IS UNSUCCESSFUL....
                     }
                 }
             }
@@ -615,6 +835,7 @@ submitButton.on("click", function (event) {
 
 let watchListPersist = () => {
     let toBeAdded = localStorage.getItem("savedWatchList");
+    console.log(toBeAdded);
     toBeAdded = JSON.parse(toBeAdded);
     if (toBeAdded != null) {
         for (let i = 0; i < toBeAdded.length; i ++) {
@@ -626,66 +847,163 @@ let watchListPersist = () => {
 
 
 let addToWatchList = (cryptoName) => {
-    const myList = $(".unOrderedMyList");
-    let newWatchListCrypto = localStorage.getItem(cryptoName);
-    newWatchListCrypto = JSON.parse(newWatchListCrypto);
+    if (cryptoName == null) {
+        return;
+    }
+    console.log(cryptoName);
+    const myList = $(".myListDefined");
+    let newWatchListCrypto = localStorage.getItem(cryptoName); //cryptoName updates to the crypto that is searched
+    console.log(newWatchListCrypto)
+    newWatchListCrypto = JSON.parse(newWatchListCrypto); //new watchListCrypto is now equal to the parsed object 
 
-    cryptoNamesToPersist.push(newWatchListCrypto);
+    console.log(newWatchListCrypto);
+    console.log(cryptoNamesToPersist);
+    if (!cryptoNamesToPersist) {
+        cryptoNamesToPersist.forEach((crypto) => {
+            console.log(crypto);
+            if (crypto.name == newWatchListCrypto.name) {
+                return;
+            }
+            else {
+                cryptoNamesToPersist.push(newWatchListCrypto);
+            }
+        })
+        console.log(cryptoNamesToPersist)
+    }
+    else {
+        cryptoNamesToPersist.push(newWatchListCrypto);
+    }
+
     let theNamesToBeSaved = JSON.stringify(cryptoNamesToPersist);
     localStorage.setItem("savedWatchList", theNamesToBeSaved);
-    
 
-    let newWatchListItem = $("<li>");
+
+
+
+    let newWatchListItem = $("<li>").addClass("topTen2");
+
+    let divOne = $("<div>").addClass("myListImageAndName");
+
+
+
 
     let newWatchListItemImage = $("<img>");
+    newWatchListItemImage.addClass("myListImage")
     newWatchListItemImage.attr("src", newWatchListCrypto.image);
     newWatchListItemImage.attr("height", 60);
     newWatchListItemImage.attr("width", 60);
-    newWatchListItem.append(newWatchListItemImage);
+    divOne.append(newWatchListItemImage);
+    //append image
     
     let newWatchListItemName = $("<div>");
-    newWatchListItemName.addClass("itemName");
     newWatchListItemName.text(newWatchListCrypto.name);
-    newWatchListItem.append(newWatchListItemName);
+    divOne.append(newWatchListItemName);
+    if (newWatchListCrypto.name.length < 8) {
+        newWatchListItemName.addClass("topTenNameUnderEightCharacters");
+    }
+    else if (newWatchListCrypto.name.length < 11) {
+        $(newWatchListItemName).attr("class", "topTenNameBetweenEightAndTwelveCharacters");
+    }
+    if (newWatchListCrypto.name.length > 12) {
+        $(newWatchListItemName).attr("class", "topTenNameOverTwelveCharacters");
+    }
+    newWatchListItem.append(divOne);
 
+
+    let percentageAndRemove = $("<div>").addClass("percentageAndRemove");
     let newWatchListItemDayChange = $("<div>");
-    newWatchListItemDayChange.addClass("dayChange");
+    newWatchListItemDayChange.addClass("topTenPercentage2");
     newWatchListItemDayChange.text(newWatchListCrypto.dayChange);
     if (newWatchListCrypto.dayChange < 0) {newWatchListItemDayChange.css("color", "red")}
     else {newWatchListItemDayChange.css("color", "green")};
-    newWatchListItem.append(newWatchListItemDayChange);
+    percentageAndRemove.append(newWatchListItemDayChange)
 
+    
     let newWatchListItemRemoveButton= $("<button>");
     newWatchListItemRemoveButton.addClass("removeButton");
     newWatchListItemRemoveButton.text("X");
-    newWatchListItem.append(newWatchListItemRemoveButton);
+    percentageAndRemove.append(newWatchListItemRemoveButton)
+    
+    newWatchListItem.append(percentageAndRemove);
     myList.append(newWatchListItem);
 
 
     const lineBreakDiv = $("<div>");
     lineBreakDiv.addClass("linebreak");
+    myList.append(lineBreakDiv);
 
-    let removeButtons = $(".removeButton");
-    removeButtons.on("click", (event) => {
-        let clickedRemoveButton = $(event.target); 
-        let itemToBeRemoved = clickedRemoveButton.parent();
-        let itemToBeRemovedName = itemToBeRemoved.children().eq(1).text();
+    //linebreak for the next element
 
-        for (let i = itemToBeRemoved.children().length - 1; i >= 0; i--) {
-            itemToBeRemoved.children().eq(i).remove();
-        }
+    //But, that is not the case... to access any elements created in javascript, whether through their element type, class/id name, or styles, I MUST access them in accordance with the scope that they are created
+//I thought the element created would be added to the html file, and then, I could access them regardless of scope, but that is not the case since the element is created and given a class inside a function
 
-        let indexOfRemovedItem = null;
-        indexOfRemovedItem = cryptoNamesToPersist.findIndex((cryptoObject) => cryptoObject.name === itemToBeRemovedName); //goes through each item of the cryptoNames Array to until it returns a value for the comparison that is not negative one, when its not -1, it logs the index of the array for which the comparison is true
-        $(cryptoNamesToPersist).remove(indexOfRemovedItem);
-        localStorage.setItem("savedWatchList", cryptoNamesToPersist);
+//cryptoNames to persist is an array of objects, including the name, that need to be deleted, so I find the object in the array that matches using the name of the watchList item and name of 
+
+let removeButtons = $(".removeButton"); //this still runs because the event Listener is being attached to each removeButton element that is created... so it still runs when it is clicked on regardless of the fact it is nested in a function...
+console.log(removeButtons);
+removeButtons.on("click", (event) => {
+    event.preventDefault();
+    let clickedRemoveButton = $(event.target); 
+    console.log(clickedRemoveButton);
+    let itemToBeRemoved = clickedRemoveButton.parent().parent(); //this should grab the parent element of the removeButton, which is the li for the newWatchList Item
+    console.log(itemToBeRemoved);
+
+    let itemToBeRemovedName = itemToBeRemoved.children().eq(0).children().eq(1).text()
+    console.log(itemToBeRemovedName);
+
+    for (let i = itemToBeRemoved.children().length - 1; i >= 0; i--) {
+        console.log(itemToBeRemoved.children().eq(i).remove());
+        itemToBeRemoved.children().eq(i).remove(); 
+    }
+    itemToBeRemoved.after().remove();
+    itemToBeRemoved.remove();
+
+    //here I have to remove the clicked element from savedToWatchList and then store it 
+    //this ensures that whether I delete the element on the homepage or searchpage, it will not be in the saved watchlist array
+
+
+    let indexOfRemovedItem = null;
+    //cryptoNamesToPersist = JSON.parse(cryptoNamesToPersist);
+    //cryptoNamesToPersist is already an array, does not need to be edited for following function
+
+    console.log(cryptoNamesToPersist)
+
+    //checking to see what vallues are stored in crypto names to persist, CAN BE DELETED
+    cryptoNamesToPersist.forEach((cryptoObject) => {
+        console.log(cryptoObject);
+        console.log(cryptoObject.name)
     })
+    indexOfRemovedItem = cryptoNamesToPersist.findIndex((cryptoObject) => cryptoObject.name === itemToBeRemovedName); //goes through each item of the cryptoNames Array to until it returns a value for the comparison that is not negative one, when its not -1, it logs the index of the array for which the comparison is true
+    console.log(indexOfRemovedItem);
+    if (indexOfRemovedItem !== -1) {
+        cryptoNamesToPersist.splice(indexOfRemovedItem, 1);
+    }
+
+
+    console.log(cryptoNamesToPersist);
+
+    console.log(searchValue);
+    //THIS IS SUPER IMPORTANT 
+    if (searchValue) {
+        if (searchValue.toLowerCase() == itemToBeRemovedName.toLowerCase() || searchValueTwo.toLowerCase() == itemToBeRemovedName.toLowerCase()) {  
+            addToWatchListButton.removeAttr("disabled");
+        }
+    }
+    //this logic will allow the user to re-add the searched crypto to the watch list if its been removed
+
+    let stringifiedNamesToPersist = JSON.stringify(cryptoNamesToPersist);
+    localStorage.setItem("savedWatchList", stringifiedNamesToPersist);
+})
 }
 
-addToWatchListButton.on("click", () => {
-    addToWatchList(cryptoName);
+addToWatchListButton.on("click", (event) => {
+    event.preventDefault();
     addToWatchListButton.attr("disabled", "disabled");
+    console.log("GOING TO ADD THIS CRYPTO TO WATCH LIST");
+    console.log(cryptoName)
+    addToWatchList(cryptoName);
 });
+
 
 let chart = new Chart(document.getElementById("searchedCryptoGraph"), {
     type : 'line',
@@ -730,7 +1048,6 @@ let chart = new Chart(document.getElementById("searchedCryptoGraph"), {
 Chart.defaults.font.size = 15;
 
 function responsiveFontsAndCharts() {
-    console.log(cryptoClosingDataset);
     const mediaQueryLarge = window.matchMedia('(min-width: 1300px) and (max-width: 1600px)');
     const mediaQueryLargeToMedium = window.matchMedia('(min-width: 1100px) and (max-width: 1300px)');
     const mediaQueryMedium = window.matchMedia('(min-width: 860px) and (max-width: 1100px)');
@@ -747,12 +1064,30 @@ function responsiveFontsAndCharts() {
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
+        newChart.update();
     } 
     else if (mediaQueryLargeToMedium.matches) {
         Chart.defaults.font.size = 12;
         createChart(chartCanvas, 1.8, true);
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
         newChart.update();
     }
     else if (mediaQueryMedium.matches) {
@@ -761,12 +1096,30 @@ function responsiveFontsAndCharts() {
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
+        newChart.update();
     } 
     else if (mediaQuerySmall.matches) {
         Chart.defaults.font.size = 7;
         createChart(chartCanvas, 1.4, true);
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
         newChart.update();
     } 
     else if (mediaQuerySmallerToTiny.matches) {
@@ -775,6 +1128,15 @@ function responsiveFontsAndCharts() {
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
+        newChart.update();
     }
     else if (mediaQuerySmallToSmaller.matches) {
         Chart.defaults.font.size = 6;
@@ -782,6 +1144,15 @@ function responsiveFontsAndCharts() {
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         chanewChartrt.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
+        newChart.update();
     }
     else if (mediaQueryTiny.matches) {
         Chart.defaults.font.size = 6;
@@ -789,12 +1160,30 @@ function responsiveFontsAndCharts() {
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
         newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
+        newChart.update();
     }
     else if (mediaQuerySmallest.matches) {
         Chart.defaults.font.size = 6;
         createChart(chartCanvas, 1.1, false);
         newChart.data.datasets[0].data = cryptoClosingDataset;
         newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
+        newChart.update();
+        console.log(cryptoClosingDataset);
+        if (!cryptoClosingDataset) {
+            console.log("Here");
+            newChart.data.datasets[0].data = [];
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.options.plugins.title.text = "Graph Data Unavailable";
+            newChart.update();
+        }
         newChart.update();
     }
 }
@@ -875,11 +1264,14 @@ let doesItMatch = () =>  {
 returnToHomePageButton.on("click", () => {
     searchValue = "";
     $("#searchValue").val("");
+    $("#searchValueTwo").val("");
     submitButton.removeAttr("disabled");
     switchToHomePage();
     newChart.data.datasets[0].data = [];
     newChart.update();
-    CurrentWatchListCryptoNames = $(".itemName");
+
+
+    //CurrentWatchListCryptoNames = $(".itemName");
     for (let i = 0; i < cryptoNewsArticles.children().length; i++) {
         cryptoNewsArticles.children().eq(i).empty();
         for (let j = 0; i < cryptoNewsArticles.children().eq(i).length; i++) {
@@ -887,6 +1279,44 @@ returnToHomePageButton.on("click", () => {
         }
     }
     noArticles.removeClass("hidden");
+
+
+    //need to clear out all items in myList and then repopulate with watchListPersist
+    const bothLists = $(".myListDefined");
+    bothLists.each((index, list) => {
+        let listItems = $(list).find('li');
+        listItems.each((index, listItem) => {
+            let divsInsideListItem = $(listItem).find('div');
+            divsInsideListItem.remove(); // This removes all divs inside the current li
+            $(listItem).remove(); // This removes the li itself
+        });
+    });
+    
+    //code to remove duplicates in locally stored savedWatchList
+    let savedWatchList = JSON.parse(localStorage.getItem("savedWatchList"));
+    let uniqueNames = [];
+    let noDuplicateList = [];
+
+    if (savedWatchList && savedWatchList.length > 0) {
+        for (let i = 0; i < savedWatchList.length; i++) {
+            let currentName = savedWatchList[i].name;
+    
+            if (!uniqueNames.includes(currentName)) {
+                uniqueNames.push(currentName); 
+                noDuplicateList.push(savedWatchList[i]);
+            }
+        }
+    } else {
+        savedWatchList = [];
+    }
+
+    console.log(noDuplicateList);
+    
+    localStorage.setItem("savedWatchList", JSON.stringify(noDuplicateList));
+
+
+    watchListPersist();
+    //should empty each News Article div and its child elements, then delete that newsArticle div and its child elements as well
 });
 
 
@@ -966,6 +1396,7 @@ let populateRecentNewsSection = (cryptoName, cryptoSymbolForCryptoNews) => {
 }
 
 function createSearchedCryptoGraph () {
+    console.log(cryptoSymbolForSearchedGraph);
     let requestURL = "https://finnhub.io/api/v1/crypto/candle?symbol=BINANCE:" + cryptoSymbolForSearchedGraph + "USDT&resolution=D&from=1572651390&to=1575243390&token=clm4ptpr01qske4so43gclm4ptpr01qske4so440"
     let tetherURL = "https://finnhub.io/api/v1/crypto/candle?symbol=COINBASE:USDT-USD&resolution=D&from=1572651390&to=1575243390&token=clm4ptpr01qske4so43gclm4ptpr01qske4so440"
     if (cryptoName == "Tether" || cryptoName == "tether") { //this function is working and populates the graph whenever tetherURL does not return null, open the link and I'll see that it occassionally returns null for no reason
@@ -1012,14 +1443,13 @@ function createSearchedCryptoGraph () {
                 chart.data.datasets[0].data = cryptoClosingDataset;
                 chart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
                 newChart.options.plugins.title.text = cryptoName + "'s 2023 Performance";
-                //chart.update();
                 newChart.update();
             }
             else {
                 newChart.data.datasets[0].data = [];
-                newChart.options.plugins.title.text = "No Available Graph";
-                //chart.update();
-                newChart.options.plugins.title.text = "No Available Graph";
+                newChart.options.plugins.title.text = "Graph Data Unavailable";
+                newChart.options.plugins.title.text = "Graph Data Unavailable";
+                newChart.update();
             }
         })
     }

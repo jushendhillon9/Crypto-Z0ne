@@ -672,8 +672,10 @@ li a {
 }
 
 .myList {
-    height: 100vh;
     backdrop-filter: blur(10px);
+    position: relative;
+    top: 4%;
+    height: 94%;
 } 
 
 #featuredCryptoList {
@@ -767,6 +769,12 @@ li a {
     margin-bottom: 3px;
 }
 
+.topTen2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
 #topTenNumberTen {
     position: absolute;
     margin-top: 7px;
@@ -823,7 +831,7 @@ li a {
 }
 
 
-.topTenImage, .topTenImage2 {
+.topTenImage, .topTenImage2, .myListImage {
     height: 40px;
     width: 40px;
     font-size: 10px;
@@ -1292,30 +1300,19 @@ are the second column's elements*/
     font-weight: bold;
 }
 
-.unOrderedMyList {
+.myListDefined {
     display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    top: -15px;
-
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
-.unOrderedMyList li{
-    width: 365px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
+.removeButton {
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
 
-.unOrderedMyList li img{
-    height: 40px;
-    width: 40px;
-    margin-left: 10px;
-}
-
-.unOrderedMyList li div{
-    vertical-align: middle;
+    font-weight: bold;
 }
 
 .dayChange {
@@ -1329,13 +1326,6 @@ are the second column's elements*/
     margin-left: 10px;
     font-size: 25px;
     vertical-align: center;
-}
-
-.removeButton {
-    height: 38px;
-    width: 40px;
-    position: absolute;
-    right: 5px;
 }
 
 #news-articles {
@@ -1705,6 +1695,20 @@ are the second column's elements*/
     top: 9.5px;
 }
 
+.percentageAndRemove {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+} 
+.removeButton {
+    margin-left: 20px;
+}
+
+.myListImageAndName {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width: 1490px) {
     .pin-button-text {
         position: relative;
@@ -1765,6 +1769,11 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 1250px){
+    .removeButton {
+        margin-left: 20px;
+        width: 25px;
+        height: 25px;
+    }
     #navbarOne {
         justify-content: space-around;
     }
@@ -1835,10 +1844,10 @@ are the second column's elements*/
         margin-bottom: 20px;
     }
 
-.topTenImage, .topTenImage2 {
-    height: 30px;
-    width: 30px;
-}
+    .topTenImage, .topTenImage2, .myListImage {
+        height: 30px;
+        width: 30px;
+    }
 
 .numberAndBorder {
     display: flex;
@@ -1892,7 +1901,7 @@ are the second column's elements*/
 }
 
 
-.topTenImage, .topTenImage2 {
+.topTenImage, .topTenImage2, .myListImage {
     height: 40px;
     width: 40px;
     font-size: 10px;
@@ -2285,7 +2294,7 @@ are the second column's elements*/
         height: 40px;
         width: 40px;
     }
-    .topTenImage, .topTenImage2 {
+    .topTenImage, .topTenImage2, .myListImage {
         margin-left: -7px;
     }
     .topTenNameBetweenEightAndTwelveCharacters {
@@ -2298,9 +2307,27 @@ are the second column's elements*/
     footer {
         margin-top: -190px;
     }
+
+    .myListImage {
+        height: 35px;
+        width: 35px;
+    }
+    .removeButton {
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+    }
+    .myListImage {
+        margin-left: 5px;
+    }
 }
 
 @media screen and (max-width: 920px) {
+    .removeButton {
+        height: 20px;
+        width: 20px;
+        font-size: 12px;
+    }
     #middleSection {
         position: relative;
         top: 10px;
@@ -2396,6 +2423,13 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 812px) {
+
+    .removeButton {
+        margin-left: 5px;
+        width:  19px;
+        height: 19px;
+        font-size: 10px;
+    }
     #searchedCryptoImageAndName {
         margin-top: -60px;
     }
@@ -2682,7 +2716,7 @@ are the second column's elements*/
         margin-top: 5px;
         font-size: 20px;
     }
-    .topTenImage, .topTenImage2 {
+    .topTenImage, .topTenImage, .myListImage {
         height: 30px !important;
         width: 30px !important;
     }
@@ -2733,7 +2767,7 @@ are the second column's elements*/
         height: 30px;
     }
     
-    .topTenImage, .topTenImage2 {
+    .topTenImage, .topTenImage2, .myListImage {
         height: 40px;
         width: 40px;
         font-size: 10px;
@@ -3148,6 +3182,12 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 620px) {
+    .removeButton {
+        margin-left: 5px;
+        width:  19px;
+        height: 19px;
+        font-size: 10px;
+    }
     #returnToHomePageButton {
         height: 26px;
         width: 50px;
@@ -3377,10 +3417,9 @@ are the second column's elements*/
         font-size: 10px;
     }
 
-    .topTenImage, .topTenImage2 {
+    .topTenImage, .topTenImage2, .myListImage {
         height: 20px !important;
         width: 20px !important;
-
     }
     
     .numberAndBorder {
@@ -3432,7 +3471,7 @@ are the second column's elements*/
         margin-left: 0px;
     }
     
-    .topTenImage, .topTenImage2 {
+    .topTenImage, .topTenImage2, .myListImage {
         height: 40px;
         width: 40px;
         font-size: 10px;
@@ -3499,9 +3538,24 @@ are the second column's elements*/
     #newsLetterButton {
         margin-top: -7px;
     }
+
+    .myListImage {
+        margin-right: 10px;
+    }
+    .removeButton {
+        margin-left: 5px;
+        width:  15px;
+        height: 15px;
+        font-size: 7px;
+    }
 }
 
 @media screen and (max-width: 530px) {
+    .myList {
+        position: relative;
+        top: 5.5% !important;
+        height: 94%;
+    } 
     #hotListButton, #myListButton {
         font-size: 10px;
         width: 48%;
@@ -3614,7 +3668,34 @@ are the second column's elements*/
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 430px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
+    body {
+        position: relative;
+    }
+
+    .myListImage {
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+    }
+    .myList {
+        position: relative;
+        top: 7% !important;
+        height: 94%;
+    } 
+    .removeButton {
+        height: 13px;
+        width: 13px;
+        border: 1px solid grey;
+        font-size: 5px;
+        margin-left: 7px;
+    }
+    .watchList {
+        background-color: black;
+    }
     #searchedCryptoImageAndName {
         margin-top: -125px;
         margin-left: 20px;
@@ -4083,6 +4164,20 @@ are the second column's elements*/
 }
 
 @media screen and (max-width: 375px) {
+    .myListImage {
+        margin-right: 5px;
+        height: 15px;
+        width: 15px;
+    }
+    .removeButton {
+        margin-left: 5px;
+        width:  12px;
+        height: 12px;
+        font-size: 7px;
+    }
+    .topTenPercentage2 {
+        margin-top: 2px;
+    }
     #searchFormContainer {
         width: 270px;
         margin-left: 90px;
