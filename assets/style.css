@@ -593,6 +593,8 @@ li a {
     flex-direction: column;
     transition: transform 1s ease-in-out;
     background-size: 100% 100%;
+
+    backdrop-filter: blur(40px);
 }
 
 .watchList::before { /* ::before or ::after does not matter here because whether or not the pseudo element is inserted into the html before or after the .watchList does not make a difference*/
@@ -672,11 +674,9 @@ li a {
 }
 
 .hotList {
-    backdrop-filter: blur(10px);
 }
 
 .myList {
-    backdrop-filter: blur(10px);
     position: relative;
     top: 4%;
     height: 94%;
